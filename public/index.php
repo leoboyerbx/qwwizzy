@@ -5,16 +5,20 @@ require ROOT . '/classes/App.php';
 $app = App::getInstance();
 $app->load();
 
-if (isset($_GET['p'])) {
+function startsWith($string, $needle) {
+    $length = strlen($needle);
+    return (substr($string, 0, $length) === $needle);
+}
+
+if (!empty($_GET['p'])) {
     $page = $_GET['p'];
-    switch ($page){
-        case 'index':
-        case null:
-            echo "index";
-            break;
-        default:
-            echo "404";
-            break;
+    if ($page === 'index') {
+        echo "index";
+    } else if (startsWith($page, 'questions/check')) {
+        $controller = new \Controllers\QuestionController();
+        $controller->check();
+    } else {
+        echo "404";
     }
 } else {
     echo 'index';

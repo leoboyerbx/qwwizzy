@@ -6,9 +6,9 @@
 namespace Controllers;
 
 
-class questionController {
+class QuestionController {
 
     public function check() {
-
+        echo $_POST['reponse'];
     }
 }

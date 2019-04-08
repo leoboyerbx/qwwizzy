@@ -12,7 +12,7 @@ class Autoloader {
         $class_path = explode('\\', $class);
         $class_path[0] = strtolower($class_path[0]);
         $class_path = implode('/', $class_path);
-        require ROOT . "classes/$class_path.php";
+        require ROOT . "/classes/$class_path.php";
     }
 
     /**
