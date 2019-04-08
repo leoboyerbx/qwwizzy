@@ -5,7 +5,7 @@ async function checkReponse(questionId, reponse) {
     let data = new FormData()
     data.append('question_id', questionId)
     data.append('reponse', reponse)
-    let response = await fetch('/questions/check', {
+    let response = await fetch('questions/check', {
         method: 'POST',
         mode: "same-origin",
         credentials: "same-origin",

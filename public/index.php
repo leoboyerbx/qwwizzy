@@ -17,6 +17,8 @@ if (!empty($_GET['p'])) {
     } else if (startsWith($page, 'questions/check')) {
         $controller = new \Controllers\QuestionController();
         $controller->check();
+    }  else if ($page = 'temp') {
+        include ROOT . '/views/temp.html';
     } else {
         echo "404";
     }
