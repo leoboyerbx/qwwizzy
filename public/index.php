@@ -18,7 +18,8 @@ if (!empty($_GET['p'])) {
         $controller = new \Controllers\QuestionController();
         $controller->check();
     }  else if ($page = 'temp') {
-        include ROOT . '/views/temp.html';
+        $cont = new \Controllers\Controller();
+        $cont->render('temp.html');
     } else {
         echo "404";
     }
