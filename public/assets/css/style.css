@@ -6,6 +6,61 @@
 body {
     background-color: #f8f8f8;
 }
+#main-cont {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+#logo {
+    font-family: acier-bat-noir;
+    font-size: 40px;
+}
+
+#categorie {
+    padding-left: 8px;
+    position: relative;
+}
+header {
+    background-color: #5A3F99;
+    color: white;
+    line-height: 100px;
+}
+
+footer {
+    background-color: #5A3F99;
+    color: white;
+    line-height: 100px;
+}
+
+#dropdown{
+    display: none;
+}
+
+#dropdown li:hover {
+    background-color: #6157A8;
+}
+#categorie:hover > #dropdown {
+    display: block;
+	position: absolute;
+	width: 200px;
+	top: 100%;
+	background-color: #5A3F99;
+	z-index: 10;
+	list-style: none;
+
+}
+
+#categorie:hover > #dropdown a{
+    text-decoration: none;
+    color: #fff;
+}
+
+.center {
+    text-align:center;
+}
+#admin {
+    float:right;
+}
 #question {
     margin: 20px;
     margin-left: 30px;

@@ -10,18 +10,28 @@ function startsWith($string, $needle) {
     return (substr($string, 0, $length) === $needle);
 }
 
-ob_start();
+// Détection de la page ciblée
+$page = "home";
 if (!empty($_GET['p'])) {
     $page = $_GET['p'];
-    if ($page === "temp"){
-        
-        include ROOT.'/views/temp.html';
-    }
-    else {
-        echo 'index';
-    }
+}
+
+
+// Récupération du contenu
+ob_start();
+if ($page === "home"){
+    include ROOT.'/pages/accueil.php';
+}
+else if (startsWith($page, 'theme/')){
+    $theme = substr($page, 6);
+    include ROOT.'/pages/question.php';
+} else {
+    var_dump($app->getBdd()->query('SELECT * FROM question'));
+    echo '404';
 }
 
 $content = ob_get_clean();
 
-include ROOT.'/views/templates/default.php';
+//Injection du contenu dans le template correspondant
+
+include ROOT.'/pages/templates/default.php';
