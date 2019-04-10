@@ -16,22 +16,27 @@ if (!empty($_GET['p'])) {
     $page = $_GET['p'];
 }
 
-
-// Récupération du contenu
-ob_start();
-if ($page === "home"){
-    include ROOT.'/pages/accueil.php';
-}
-else if (startsWith($page, 'theme/')){
-    $theme = substr($page, 6);
-    include ROOT.'/pages/question.php';
+    // Pages sans mise en page, qui font du traitement uniquement
+if (startsWith($page,"question/check")) {
+    include ROOT.'/pages/questions/check.php';
 } else {
-    var_dump($app->getBdd()->query('SELECT * FROM question'));
-    echo '404';
+    // Pages Avec une mise en page
+    // Récupération du contenu
+    ob_start();
+    if ($page === "home"){
+        include ROOT.'/pages/accueil.php';
+    }
+    else if (startsWith($page, 'theme/')){
+        $theme = substr($page, 6);
+        include ROOT.'/pages/questions/afficher.php';
+    } else {
+        var_dump($app->getBdd()->query('SELECT * FROM question'));
+        echo '404';
+    }
+    
+    $content = ob_get_clean();
+    
+    //Injection du contenu dans le template correspondant
+    include ROOT.'/pages/templates/default.php';
 }
 
-$content = ob_get_clean();
-
-//Injection du contenu dans le template correspondant
-
-include ROOT.'/pages/templates/default.php';

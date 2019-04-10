@@ -1,0 +1,20 @@
+un incroyable fichier 
+
+<div class=row>
+            <div class="col-12">
+                <h2>
+                    <?php echo($question->nom); ?>
+                </h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <img src=<?php echo($question->url_image); ?> style="max-width:15%; min-width:15%;">
+            </div>
+            <div class="col-8">
+                <p>
+                    <?php echo($question->description) ?>
+                </p>
+            </div>
+            </div>
+        </div>
