@@ -10,19 +10,18 @@ function startsWith($string, $needle) {
     return (substr($string, 0, $length) === $needle);
 }
 
+ob_start();
 if (!empty($_GET['p'])) {
     $page = $_GET['p'];
-    if ($page === 'index') {
-        echo "index";
-    } else if (startsWith($page, 'questions/check')) {
-        $controller = new \Controllers\QuestionController();
-        $controller->check();
-    }  else if ($page = 'temp') {
-        $cont = new \Controllers\Controller();
-        $cont->render('temp.html');
-    } else {
-        echo "404";
+    if ($page === "temp"){
+        
+        include ROOT.'/views/temp.html';
     }
-} else {
-    echo 'index';
+    else {
+        echo 'index';
+    }
 }
+
+$content = ob_get_clean();
+
+include ROOT.'/views/templates/default.php';
