@@ -34,6 +34,7 @@
                 console.log(response.texte_reponse)
                 if (response.juste) {
                     question.classList.add('vrai')
+                    $('#score').value = "1";
                 } else {
                     question.classList.add('faux')
                 }

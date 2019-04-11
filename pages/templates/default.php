@@ -15,15 +15,16 @@
         <div class="container">
             <div class="row">
                 <div class="col-2">
-                    <div id="logo"> <a href="/home" >Qwwizzy </a> </div>
+                    <div id="logo"> <a href="/home"  >Qwwizzy </a> </div>
                 </div>
                 <div class="col-2">
-                    <div id="categorie">
-                        Catégorie <i class="fas fa-chevron-down"></i>
+                    <div id="categorie" class="center">
+                        Catégorie <i class="fas fa-chevron-down"></i> 
                         <ul id="dropdown">  
-                            <li> <a href="/theme/histoire_france"> Histoire de France </a> </li>
-                            <li> <a href="/theme/extraterrestres" > Extraterrestres </a> </li>
-                            <li> <a href="/theme/botanique" > Botanique </a> </li>
+                            <a href="/theme/histoire_france"><li>Histoire de France</li></a>
+                            <a href="/theme/extraterrestres" ><li>Les extraterrestres</li></a>
+                            <a href="/theme/botanique" ><li>Un peu de botanique</li></a>
+                            <a href="/theme/conquete_spatiale" > <li>La conquête spatiale</li></a>
                         </ul>
                     </div>
                     

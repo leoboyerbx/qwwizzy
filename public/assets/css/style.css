@@ -1,14 +1,82 @@
+:root {
+    --main-color: #5a3f99;
+}
 * {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
+
+html {
+    height: 100%;
+    margin: 0; 
+    padding: 0;
+}
+
 body {
     background-color: #f8f8f8;
+    overflow-x: hidden;
+	width: 100%;
 }
+
+main {
+    margin-bottom: 20px;
+}
+
+.btn {
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-size: 90%;
+}
+.btn-uc {
+    text-transform: uppercase;
+    font-weight: 500;
+}
+.btn-grow {
+    transition: all 0.2s ease-out;
+}
+.btn-grow:hover {
+    transform: scale(1.1);
+}
+.btn-chevron {
+    position: relative;
+    padding-left: 30px;
+    padding-right: 10px;
+	transition: all 0.2s ease-out;
+}
+.btn-chevron:hover {
+    padding-left: 20px;
+    padding-right: 20px;
+    transform: translateX(0);
+}
+
+.btn-chevron::after {
+    /*position: absolute;*/
+	content: "\f054";
+	font-family: "Font Awesome 5 Free";
+	font-weight: 900;
+	float: right;
+	width: 25px;
+	text-align: right;
+    opacity: 0;
+    transition: inherit;
+    transform: translateX(-20px);
+}
+.btn-chevron:hover::after {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.squareimg {
+    width: 100%;
+    padding-top: 100%;
+    background-size: cover;
+    background-position: center center;
+}
+
+
 #main-cont {
     padding-top: 20px;
-    padding-bottom: 20px;
+    padding-bottom: 120px;
+    min-height: 75vh;
 }
 
 #logo {
@@ -24,43 +92,62 @@ body {
 #categorie {
     padding-left: 8px;
     position: relative;
+    cursor: pointer;
 }
 header {
-    background-color: #5A3F99;
+    background-color: var(--main-color);
     color: white;
     line-height: 100px;
 }
 
 footer {
-    background-color: #5A3F99;
+    background-color: var(--main-color);
     color: white;
     line-height: 100px;
     margin-top: 20px;
+    /*display : table-row;*/
+    width: 100%;
 }
 
 #dropdown{
-    display: none;
+    visibility: hidden;
     padding-left: 0px;
+    position: absolute;
+	width: 200px;
+	top: 100%;
+	background-color: var(--main-color);
+    transform: translateY(-2em);
+	z-index: 10;
+	list-style: none;
+	text-align: center;
+	opacity: 0;
+	transition: all 0.3s;
+}
+
+#dropdown li {
+	color: white;
 }
 
 #dropdown li:hover {
     background-color: #6157A8;
+    opacity: 1;
 }
 #categorie:hover > #dropdown {
-    display: block;
-	position: absolute;
-	width: 200px;
-	top: 100%;
-	background-color: #5A3F99;
-	z-index: 10;
-	list-style: none;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0%);
+    transition-delay: 0s, 0s, 0.3s;
 }
 
-#categorie:hover > #dropdown a{
-    text-decoration: none;
+#categorie:hover > #dropdown li{
     color: #fff;
     padding-left: 5px;
 }
+
+#categorie:hover > #dropdown > a {
+    text-decoration: none;
+}
+
 
 .center {
     text-align:center;
@@ -75,10 +162,20 @@ footer {
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.11);
+    animation: arrive 0.8s cubic-bezier(.75,.19,.54,.99);
+}
+#form-envoi button {
+    display: none;
+}
+#question .bouton-reponse, #form-envoi button  {
+    margin: 5px;
 }
 
 #question.vrai .bouton-reponse, #question.faux .bouton-reponse {
     display: none;
+}
+#question.vrai #form-envoi button, #question.faux #form-envoi button {
+    display: block;
 }
 
 #question.vrai {
@@ -96,14 +193,57 @@ footer {
     padding: 30px 30px;
     border-left: solid #eee 2px;
 }
+#question-text h1 {
+    text-transform: uppercase;
+    color: var(--main-color);
+    font-size: 100%;
+}
+#question-text .enonce {
+    color: #222;
+    font-weight: normal;
+    font-size: 120%;
+}
+
+
+#question-image {
+    padding: 10px 30px 10px 10px;
+}
+
+#question-image .squareimg {
+    border-radius: 8px;
+}
+
 #question.vrai #texte-reponse span {
-    color: #66ff99;
+    color: #28a745;
+}
+#question.faux #texte-reponse span {
+    color: #dc3545;
 }
 #texte-reponse {
     display: none;
 }
-#question.vrai #texte-reponse, #question.faux #texte-reponse {
+#question.vrai #texte-reponse, #question.faux #texte-reponse, #texte-reponse.visible {
     display: block;
+}
+
+.btn-continue {
+    background-color: #eaeaea;
+}
+.btn-continue:hover {
+    color: #fafafa;
+    background-color: #999;
+}
+.btn-continue:hover::after {
+    color: #eee;
+}
+
+@keyframes arrive {
+    from {
+        transform: translateX(120%);
+    }
+    to {
+        transform: translateX(0);
+    }
 }
 
 @keyframes mauvaise_reponse {

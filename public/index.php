@@ -27,8 +27,8 @@ if (startsWith($page,"question/check")) {
         include ROOT.'/pages/accueil.php';
     }
     else if (startsWith($page, 'theme/')){
-        $theme = substr($page, 6);
-        include ROOT.'/pages/questions/afficher.php';
+        $cont = new Controllers\ThemeController(substr($page, 6));
+        $cont->quizz();
     } else {
         var_dump($app->getBdd()->query('SELECT * FROM question'));
         echo '404';
