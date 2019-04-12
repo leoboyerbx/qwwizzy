@@ -19,7 +19,7 @@
                 </div>
                 <div class="col-2">
                     <div id="categorie" class="center">
-                        Catégorie <i class="fas fa-chevron-down"></i> 
+                        Catégories <i class="fas fa-chevron-down"></i> 
                         <ul id="dropdown">  
                             <a href="/theme/histoire_france"><li>Histoire de France</li></a>
                             <a href="/theme/extraterrestres" ><li>Les extraterrestres</li></a>
@@ -27,7 +27,6 @@
                             <a href="/theme/conquete_spatiale" > <li>La conquête spatiale</li></a>
                         </ul>
                     </div>
-                    
                 </div>
                 <div class="col-6"></div>
                 <div class="col-2">
