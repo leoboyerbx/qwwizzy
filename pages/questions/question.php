@@ -1,4 +1,3 @@
-
     <main class="container" id="main-cont">
 
         <div id="question" data-id="<?= $question->id ?>" class="row">
