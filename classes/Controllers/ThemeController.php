@@ -43,10 +43,7 @@ class ThemeController {
                 $this->iter_question = $_POST['iter_question'] + 1;
             }
             if ($this->iter_question > 10) {
-                $calcul = $this->bdd->prepare("SELECT SUM(score) as score
-                                                       FROM historique_session
-                                                       WHERE id_session = ?", [$this->id_session]);
-                echo "Votre score: " . $calcul[0]->score;
+                $this->end();
             } else {
                 $this->question($this->theme->id);
             }
@@ -79,6 +76,16 @@ class ThemeController {
     
     public function start ($theme, $id_session) {
         include ROOT . '/pages/quizz/debut.php';
+    }
+    public function end () {
+        $calcul = $this->bdd->prepare("SELECT SUM(score) as score
+                                               FROM historique_session
+                                               WHERE id_session = ?", [$this->id_session]);
+        $this->theme->score = $calcul[0]->score;
+        // $this->theme->score = 11;
+        $theme = $this->theme;
+        include ROOT . '/pages/quizz/fin.php';
+        
     }
     
     public function stocker_score ($score, $id_question) {

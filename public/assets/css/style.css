@@ -1,5 +1,8 @@
 :root {
-    --main-color: #5a3f99;
+    /*--main-color: #5a3f99;*/
+    --main-color: #137177;
+    --main-color-lighter: #3D8A8F;
+    --main-color-darker: #105D62;
 }
 * {
     box-sizing: border-box;
@@ -42,7 +45,7 @@ main {
     padding-right: 10px;
 	transition: all 0.2s ease-out;
 }
-.btn-chevron:hover {
+.btn-chevron:hover{
     padding-left: 20px;
     padding-right: 20px;
     transform: translateX(0);
@@ -60,10 +63,49 @@ main {
     transition: inherit;
     transform: translateX(-20px);
 }
-.btn-chevron:hover::after {
+.btn-chevron:hover::after, .btn-chevron-left:hover::before {
     opacity: 1;
     transform: translateX(0);
 }
+.btn-chevron-left {
+    position: relative;
+    padding-left: 10px;
+    padding-right: 38px;
+	transition: all 0.2s ease-out;
+}
+.btn-chevron-left:hover {
+    padding-left: 24px;
+    padding-right: 24px;
+    transform: translateX(0);
+}
+.btn-chevron-left::before {
+	content: "\f053";
+	font-family: "Font Awesome 5 Free";
+	font-weight: 900;
+	float: left;
+	margin-right: 8px;
+	width: 25px;
+    opacity: 0;
+    transition: inherit;
+    transform: translateX(20px);
+}
+.btn-theme {
+    background-color: var(--main-color);
+    color: #fff;
+}
+.btn-theme:hover {
+    background-color: var(--main-color-darker);
+    color: #fff;
+}
+.btn-outline-theme {
+    border: solid var(--main-color) 1px;
+    color: var(--main-color);
+}
+.btn-outline-theme:hover {
+    background-color: var(--main-color);
+    color: #fff;
+}
+
 
 .squareimg {
     width: 100%;
@@ -118,19 +160,20 @@ footer {
 	background-color: var(--main-color);
     transform: translateY(-2em);
 	z-index: 10;
-	list-style: none;
 	text-align: center;
 	opacity: 0;
 	transition: all 0.3s;
-	border-radius: 0% 0% 1em 1em;
+	border-radius: 0% 0% 8px 8px;
 }
 
 #dropdown li {
 	color: white;
+	transition: all 0.2s;
+	list-style: none;
 }
 
 #dropdown li:hover {
-    background-color: #6157A8;
+    background-color: rgba(255,255,255, 0.2);
     opacity: 1;
 }
 #categorie:hover > #dropdown {
@@ -148,8 +191,8 @@ footer {
 #categorie:hover > #dropdown > a {
     text-decoration: none;
 }
-#dropdown > a:nth-child(4) > li:hover {
-    border-radius: 0 0 1em 1em;
+#dropdown > a:last-child > li:hover {
+    border-radius: 0 0 8px 8px;
 }
 #admin i {
     margin-left: 5px;
@@ -160,6 +203,7 @@ footer {
 }
 #admin {
     float:right;
+    color: #fff;
 }
 #question {
     margin: 20px;
@@ -242,6 +286,32 @@ footer {
 .btn-continue:hover::after {
     color: #eee;
 }
+
+#score {
+    text-align: center;
+}
+
+#barre-score {
+    position: relative;
+    width: 50%;
+    margin-left: 25%;
+    height: 10px;
+    border-radius: 5px;
+    background-color: #eee;
+    overflow: hidden;
+    
+}
+#barre-score div {
+    width: 50%;
+    height: 100%;
+    border-radius: 5px;
+    background-color: #66ff99;
+    transition: all 0.6s ease-out;
+}
+#barre-score div.start {
+    width: 0;
+}
+
 
 @keyframes arrive {
     from {
@@ -329,3 +399,153 @@ footer {
         transform: translateY(0);
     }
 }
+
+
+
+
+/* ----- ADMIN ----- */
+#admin-logo {
+    font-family: acier-bat-noir;
+    font-size: 40px;
+    margin-top: 15px;
+}
+
+#admin-logo a {
+    text-decoration: none;
+    color: white;
+}
+
+#admin-nav {
+    background-color: var(--main-color);
+    position: fixed;
+    height: 100%;
+}
+
+#admin-content {
+    position: absolute;
+    right: 0;
+}
+
+.menu_elements {
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    font-size: 120%;
+    margin: 15px;
+}
+ 
+.menu_elements:hover {
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    font-size: 120%;
+    margin: 15px;
+}
+
+
+#aside_theme{
+    visibility: hidden;
+    left: 100%;
+    position: absolute;
+    z-index: 100;
+    background-color: var(--main-color);
+    color: white;
+    list-style: none;
+    bottom: -35%;
+    border-radius: 0 8px 8px 0;
+    padding: 0px;
+	font-size: 120%;
+	transform: translateX(-2em);
+    transition: all 0.3s;
+}
+
+#aside_theme > a {
+    margin: 15px;
+}
+
+#theme_menu > ul {
+    width: 100%;         /* Permet d'élargir le menu aside */
+    opacity: 0;
+    transition: 0.3s ease-out;
+}
+
+#theme_menu > ul > div {
+    padding: 15px;        /* Permet d'augmenter la hauteur du menu aside */
+}
+
+#theme_menu > ul > div > a {   /* Sélectionner le lien pour le centrer dans le menu */
+    text-align: center;
+} 
+
+#theme_menu > ul > div:hover {
+    background-color: rgba(255, 255, 255, 0.2);    /* Donne une couleur de fond diffrente au sous menu ciblé */ 
+} 
+
+
+#theme_menu:hover > ul {
+    visibility: visible;    /* Rends le menu aside visible */
+    transform: translateX(0%);
+    opacity: 1;
+    
+}
+
+#aside_question{
+    visibility: hidden;
+    left: 100%;
+    position: absolute;
+    z-index: 100;
+    background-color: var(--main-color);
+    color: white;
+    list-style: none;
+    bottom: -40%;
+    border-radius: 0 8px 8px 0;
+    padding: 0px;
+	font-size: 120%;
+	transform: translateX(-2em);
+    transition: all 0.3s;
+	
+}
+
+#aside_question > a{
+    margin: 15px;    
+}
+
+#question_menu > ul  {    
+    width: 100%;         /* Permet d'élargir le menu aside */
+    opacity: 0;
+}
+
+#question_menu > ul > div {
+    padding: 15px;        /* Permet d'augmenter la hauteur du menu aside */
+}
+
+#question_menu > ul > div > a {   /* Sélectionner le lien pour le centrer dans le menu */
+    text-align: center;
+} 
+
+#question_menu > ul > div:hover {
+    background-color: rgba(255, 255, 255, 0.2);    /* Donne une couleur de fond diffrente au sous menu ciblé */ 
+    transition: all 0.2s;
+} 
+
+
+#question_menu:hover > ul {
+    visibility: visible;      /* Rends le menu aside visible */
+    transform: translateY(0%);
+    transition: 0.3s ease-out;
+    opacity: 1;
+}
+
+.admin-container {
+    margin: 20px;
+}
+
+
+.table-theme tbody tr {
+    line-height: 80px;
+} 
+
+/*.admin-actions {*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*}*/

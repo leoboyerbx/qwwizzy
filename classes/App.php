@@ -35,5 +35,24 @@ class App {
     public function load() {
         require ROOT . '/classes/Autoloader.php';
         Autoloader::register();
+        session_start();
+    }
+    
+    public function set_flash($type, $message) {
+        $_SESSION['flash'] = [
+            'type' => $type,
+            'message' => $message
+            ];
+    }
+    
+    public function get_flash() {
+        if (!empty($_SESSION['flash'])) {
+            $flash = '<div class="alert alert-'. $_SESSION['flash']['type'] .' role=\"alert\">
+         ' . $_SESSION['flash']['message'] ."
+        </div>";
+        unset($_SESSION['flash']);
+        return $flash;
+    
+        }
     }
 }

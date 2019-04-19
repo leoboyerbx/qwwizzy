@@ -19,7 +19,7 @@ foreach ($result as $question){
           <div class="card-body">
             <h5 class="card-title"><?php echo($question->nom); ?></h5>
             <p class="card-text"><?php echo($question->description); ?></p>
-            <a href="/theme/<?php echo($question->key_nom); ?>" class="btn btn-primary btn-chevron">Jouer</a>
+            <a href="/theme/<?php echo($question->key_nom); ?>" class="btn btn-primary btn-chevron btn-uc">Jouer</a>
         </div>
     </div>
     </div>

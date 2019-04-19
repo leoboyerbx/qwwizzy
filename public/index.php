@@ -22,21 +22,29 @@ if (startsWith($page,"question/check")) {
 } else {
     // Pages Avec une mise en page
     // Récupération du contenu
-    ob_start();
-    if ($page === "home"){
-        include ROOT.'/pages/accueil.php';
-    }
-    else if (startsWith($page, 'theme/')){
-        $cont = new Controllers\ThemeController(substr($page, 6));
-        $cont->quizz();
+    
+    if(startsWith($page, 'admin')) {
+        $page = substr($page, 6);
+        include './admin.php';
+        
     } else {
-        var_dump($app->getBdd()->query('SELECT * FROM question'));
-        echo '404';
+        ob_start();
+        if ($page === "home"){
+            include ROOT.'/pages/accueil.php';
+        }
+        else if (startsWith($page, 'theme/')){
+            $cont = new Controllers\ThemeController(substr($page, 6));
+            $cont->quizz();
+        } else {
+            var_dump($app->getBdd()->query('SELECT * FROM question'));
+            echo '404';
+        }
+        
+        $content = ob_get_clean();
+        
+        //Injection du contenu dans le template correspondant
+        include ROOT.'/pages/templates/default.php';
     }
     
-    $content = ob_get_clean();
-    
-    //Injection du contenu dans le template correspondant
-    include ROOT.'/pages/templates/default.php';
 }
 
