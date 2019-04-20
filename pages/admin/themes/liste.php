@@ -2,7 +2,7 @@
 
 $app = App::getInstance();
 $bdd = $app->getBdd();
-$themes = $bdd -> query("SELECT theme.id, theme.nom, count(*) as nbr_questions
+$themes = $bdd -> query("SELECT theme.id, theme.nom, count(question) as nbr_questions
                          FROM theme
                          LEFT JOIN question ON theme.id = question.theme_id
                         GROUP BY theme.id, theme.nom, question.theme_id");

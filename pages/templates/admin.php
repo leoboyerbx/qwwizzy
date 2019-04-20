@@ -70,5 +70,7 @@
             </div>
         </div>
     </div>
+    
+    <script type="text/javascript" src="/assets/js/admin.js"></script>
 </body>
 </html>

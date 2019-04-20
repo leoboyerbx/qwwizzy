@@ -33,18 +33,4 @@ if(isset($_POST['key_nom']) AND isset($_POST['nom']) AND isset($_POST['descripti
         </div>
         <input type=submit class="btn btn-primary" value="Ajouter">
     </form>
-    <?php
-    
-    if (isset($_POST['result'])){
-        ?>
-        
-        <div>
-            Rentré avec succès !
-        </div>
-        
-        <?php
-    }
-    
-    ?>
-    
-</div>
+ </div>

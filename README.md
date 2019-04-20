@@ -12,15 +12,24 @@ Et j'en refais un autre même
 
 ---
 
-TODO
-
-A faire
-- Template
-- Page thèmes
-- Page d'une question
-
-- Zone admin
-Fait
-
 
 maquette : https://xd.adobe.com/view/cad1f5ab-9bea-4a7a-54e1-3c29d48dd26a-bce0/
+
+
+
+
+LE TODO
+
+- Compléter le fichier pages/admin/themes/supprimer.php (pas long)
+- Répliquer le système d'administration pour les questions et pour les utilisateurs
+    - Questions
+        - Liste
+        - Ajouter
+        - Modifier
+        - Supprimer
+    -Utilisateurs
+        - Liste
+        - Ajouter
+        - Modifier
+        - Supprimer
+Vala
