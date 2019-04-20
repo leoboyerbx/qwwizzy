@@ -32,13 +32,13 @@
                     <hr/>
                     <div class="row">
                         <div id="theme_menu" class="col-12">
-                                <a id="admin_theme" href="#" class="menu_elements"> <div> <i class="far fa-clipboard"></i> Thèmes </div> </a>
+                                <a id="admin_theme" href="/admin/themes" class="menu_elements"> <div> <i class="far fa-clipboard"></i> Thèmes </div> </a>
                                 <ul id="aside_theme">
                                         <div id="ajouter_theme">
-                                            <a> <li> Ajouter </li></a>
+                                            <a href="/admin/themes/ajouter"> <li> Ajouter </li></a>
                                         </div>
                                         <div id="apercu_theme">
-                                            <a> <li> Aperçu </li></a>
+                                            <a href="/admin/themes"> <li> Aperçu </li></a>
                                         </div>
                                 </ul>
                         </div>
@@ -63,7 +63,7 @@
                     <hr/>
                     <div class="row">
                         <div class="col-12">
-                            <a href="#" class="menu_elements"> <div id="deco"> <i class="fas fa-door-open"> </i> Déconnexion </div> </a> 
+                            <a href="/admin/logout" class="menu_elements"> <div id="deco"> <i class="fas fa-door-open"> </i> Déconnexion </div> </a>
                         </div>
                     </div>
                 </nav>

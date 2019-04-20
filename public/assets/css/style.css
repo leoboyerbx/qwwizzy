@@ -461,6 +461,8 @@ footer {
 
 #aside_theme > a {
     margin: 15px;
+    text-decoration: none;
+    color: #fff;
 }
 
 #theme_menu > ul {

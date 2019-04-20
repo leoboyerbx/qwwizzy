@@ -32,4 +32,5 @@ LE TODO
         - Ajouter
         - Modifier
         - Supprimer
-Vala
+        
+Page login: rediriger vers l'admin si deja connecte.

@@ -6,7 +6,7 @@ $app = \App::getInstance();
 $bdd = $app->getBdd();
 
 if(isset($_POST['key_nom']) AND isset($_POST['nom']) AND isset($_POST['description']) AND isset($_POST['url_image'])){ //envoi des données si renseignées
-    $result = $bdd -> prepare('UPDATE  theme SET key_nom= :key_nom, nom= :nom, description= :description, url_image= :url_image', array("key_nom" => $_POST['key_nom'], "nom" => $_POST['nom'], "description" => $_POST['description'], "url_image" => $_POST['url_image']));
+    $result = $bdd -> prepare('UPDATE  theme SET key_nom= :key_nom, nom= :nom, description= :description, url_image= :url_image WHERE id= :id_theme', array("key_nom" => $_POST['key_nom'], "nom" => $_POST['nom'], "description" => $_POST['description'], "url_image" => $_POST['url_image'], "id_theme" => $id_theme));
     if($result){
         $app->set_flash('success', 'Thème modifié avec succès');
         header('Location: /admin/themes');
@@ -32,13 +32,14 @@ if(isset($_POST['key_nom']) AND isset($_POST['nom']) AND isset($_POST['descripti
         </div>
         <div class="form-group">
             <label for="description">Description</label>
-            <textarea class="form-control" name="description" value="<?= $theme->description ?>"></textarea>
+            <textarea class="form-control" name="description"><?= $theme->description ?></textarea>
         </div>
         <div class="form-group">
             <label for="url_image">URL Image</label>
             <input type="text" class="form-control" name="url_image" value="<?= $theme->url_image ?>">
         </div>
-        <input type=submit class="btn btn-primary" value="Ajouter">
+        <input type=submit class="btn btn-primary" value="Enregistrer">
+        <a class="btn btn-outline-secondary" href="/admin/themes">Annuler</a>
     </form>
  </div>
  

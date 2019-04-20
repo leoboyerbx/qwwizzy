@@ -16,8 +16,8 @@ if(isset($_POST['key_nom']) AND isset($_POST['nom']) AND isset($_POST['descripti
     <h1>Ajouter un thème</h1>
     <form method="post">
         <div class="form-group">
-            <label for="key_nom">Nom clé</label>
-            <input type="text" class="form-control" name="key_nom">
+            <label for="key_nom">Nom d'url <i>(Automatique, double-cliquer pour personnaliser)</i></label>
+            <input type="text" class="form-control" name="key_nom" readonly>
         </div>
         <div class="form-group">
             <label for="nom">Nom du thème</label>
@@ -28,9 +28,11 @@ if(isset($_POST['key_nom']) AND isset($_POST['nom']) AND isset($_POST['descripti
             <textarea class="form-control" name="description"></textarea>
         </div>
         <div class="form-group">
-            <label for="url_image">Description</label>
+            <label for="url_image">URL Image</label>
             <input type="text" class="form-control" name="url_image">
         </div>
-        <input type=submit class="btn btn-primary" value="Ajouter">
+        <input type=submit class="btn btn-primary" value="Enregistrer">
     </form>
  </div>
+
+<script type="text/javascript">document.page = "ajouter"</script>
