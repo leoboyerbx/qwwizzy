@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
 </head>
 <body>
     <div class="container-fluid">
@@ -20,13 +21,13 @@
                 <nav>
                     <div class="row">
                         <div class="col-12">
-                            <div id="admin-logo" class="center"> <a href="/home"  >Qwwizzy </a> </div>
+                            <div id="admin-logo" class="center"> <a href="/home" >Qwwizzy </a> </div>
                         </div>
                     </div>  
                     <hr/>
                     <div class="row">
                         <div class="col-12">
-                            <a href="#" class="menu_elements"> <div id="dashboard"> <i class="fas fa-tachometer-alt"> </i> Dashboard </div> </a>
+                            <a href="/admin" class="menu_elements"> <div id="dashboard"> <i class="fas fa-tachometer-alt"> </i> Dashboard </div> </a>
                         </div>
                     </div>
                     <hr/>

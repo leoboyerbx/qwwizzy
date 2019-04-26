@@ -11,12 +11,15 @@ class Auth {
         $this->db = $db;
     }
 
-    public function login($pseudo, $pass) {
+
+    public function login($pseudo, $pass, $bypass = false) {
         $result = $this->db->prepare('SELECT * FROM utilisateur WHERE pseudo = ?', [$pseudo], true);
         if ($result) {
             $user = $result[0];
             if (password_verify($pass, $user->pass_hash)) {
-                $_SESSION['auth'] = $user;
+                if (!$bypass) { // permet de simplement vérifier le mot de passe de l'utilisateur, sans le logger à nouveau.
+                    $_SESSION['auth'] = $user;
+                }
                 return true;
             }
         }

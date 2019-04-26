@@ -10,14 +10,35 @@ if (startsWith($page, "login")) { // pages sans template
         ob_start();
         if (startsWith($page, "themes/ajouter")) {
             include ROOT . '/pages/admin/themes/ajouter.php';
-        } else if (startsWith($page, "themes/supprimer")) {
+        }
+
+        else if (startsWith($page, "themes/supprimer")) {
             include ROOT . '/pages/admin/themes/supprimer.php';
-        } else if (startsWith($page, "themes/edit/")) {
+        }
+
+        else if (startsWith($page, "themes/edit/")) {
             $id_theme = substr($page, 12);
             include ROOT . '/pages/admin/themes/editer.php';
-        } else if (startsWith($page, "themes")) {
-            include ROOT . '/pages/admin/themes/liste.php';
+        }
 
+        else if (startsWith($page, "themes")) {
+            include ROOT . '/pages/admin/themes/liste.php';
+        }
+
+        else if (startsWith($page, "questions")) {
+            include ROOT . '/pages/admin/questions/liste.php';
+        }
+
+        else if (startsWith($page, "utilisateurs/changemdp")) {
+            include ROOT . '/pages/admin/utilisateurs/changemdp.php';
+        }
+
+        else if (!$page) {
+            include ROOT . "/pages/admin/dashboard.php";
+        }
+
+        else {
+            echo "Pas encore implémenté";
         }
 
         $content = ob_get_clean();

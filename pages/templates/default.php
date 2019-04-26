@@ -30,7 +30,7 @@
                 </div>
                 <div class="col-6"></div>
                 <div class="col-2">
-                    <a href="/admin/login"><div id="admin"> Se connecter<i class="fas fa-user"></i> </div></a>
+                    <?php include ROOT . '/pages/templates/modules/adminmenu.php';?>
                 </div>
             </div>
         </div>
