@@ -32,5 +32,5 @@ LE TODO
         - Ajouter
         - Modifier
         - Supprimer
+- Styliser la page login (cest moche là mdr)
         
-Page login: rediriger vers l'admin si deja connecte.

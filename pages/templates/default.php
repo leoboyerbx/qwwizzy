@@ -30,7 +30,7 @@
                 </div>
                 <div class="col-6"></div>
                 <div class="col-2">
-                    <a href="/admin"><div id="admin"> Admin <i class="fas fa-user"></i> </div></a>
+                    <a href="/admin/login"><div id="admin"> Se connecter<i class="fas fa-user"></i> </div></a>
                 </div>
             </div>
         </div>
