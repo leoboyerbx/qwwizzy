@@ -1,7 +1,4 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 // La variable ROOT permet d'accéder à la racine du projet.
 define('ROOT', dirname(__DIR__));
 require ROOT . '/classes/App.php';

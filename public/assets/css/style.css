@@ -165,7 +165,6 @@ footer {
 	z-index: 10;
 	text-align: center;
 	opacity: 0;
-	transition: all 0.3s;
 	border-radius: 0% 0% 8px 8px;
 }
 
@@ -183,7 +182,7 @@ footer {
     opacity: 1;
     visibility: visible;
     transform: translateY(0%);
-    transition-delay: 0s, 0s, 0.3s;
+	transition: all 0.3s;
 }
 
 #categorie:hover > #dropdown li{
@@ -488,11 +487,13 @@ footer {
 }
 
 #theme_menu > ul > div {
-    padding: 15px;        /* Permet d'augmenter la hauteur du menu aside */
+    padding: 15px; /* Permet d'augmenter la hauteur du menu aside */
 }
 
 #theme_menu > ul > div > a {   /* Sélectionner le lien pour le centrer dans le menu */
     text-align: center;
+    text-decoration: none;
+    color: white;
 } 
 
 #theme_menu > ul > div:hover {
@@ -539,6 +540,8 @@ footer {
 
 #question_menu > ul > div > a {   /* Sélectionner le lien pour le centrer dans le menu */
     text-align: center;
+    text-decoration: none;
+    color: white;
 } 
 
 #question_menu > ul > div:hover {
