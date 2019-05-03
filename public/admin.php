@@ -25,12 +25,19 @@ if (startsWith($page, "login")) { // pages sans template
             include ROOT . '/pages/admin/themes/liste.php';
         }
 
+        else if (startsWith($page, "questions/ajouter")) {
+            include ROOT . '/pages/admin/questions/ajouter.php';
+        }
+
         else if (startsWith($page, "questions")) {
             include ROOT . '/pages/admin/questions/liste.php';
         }
 
         else if (startsWith($page, "utilisateurs/changemdp")) {
             include ROOT . '/pages/admin/utilisateurs/changemdp.php';
+        }
+        else if (startsWith($page, "utilisateurs/changeimage")) {
+            include ROOT . '/pages/admin/utilisateurs/changeimage.php';
         }
 
         else if (!$page) {

@@ -32,6 +32,6 @@ LE TODO
         - Ajouter
         - Modifier
         - Supprimer
-- Styliser la page login (cest moche là mdr)
 - Javascript: Ajouter une vérification (re-tapez votre mot de passe) dans la page pour changer son mot de passe
+- Léo: upload d'images
         

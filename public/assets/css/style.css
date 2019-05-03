@@ -3,6 +3,7 @@
     --main-color: #137177;
     --main-color-lighter: #3D8A8F;
     --main-color-darker: #105D62;
+    --back-color: #F0F2ED;
 }
 * {
     box-sizing: border-box;
@@ -114,7 +115,7 @@ main {
     width: 100%;
     padding-top: 100%;
     background-size: cover;
-    background-position: center center;
+    background-position: center;
 }
 
 
@@ -410,7 +411,8 @@ footer {
     font-size: 400%;
 }
 
-.admin-user-img {
+
+#admin-user-img img {
     width: 100%;
 }
 .admin-user-pseudo {
@@ -570,3 +572,64 @@ footer {
 /*    display: flex;*/
 /*    align-items: center;*/
 /*}*/
+
+
+/* Les règles CSS suivantes concerne la page login.php */
+
+.form-signin {
+    width: 100%;
+    max-width: 400px;
+    padding: 15px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 1em;
+}
+
+.user_logo {
+    width: 180px;
+}
+
+.spacer_form {
+    margin: 5px;
+}
+
+.btn_validation {
+    margin-top: 30px;
+}
+
+.spacer_group{
+    margin-top: 15px;
+}
+
+#header_login {
+    margin-bottom: 30px;
+}
+
+#champs_log > input:nth-child(1), #champs_log > input:nth-child(2) {
+    background-color: var(--back-color);
+}
+
+/* Couleur verte et rouge pour la vérif de nouveau mdp */
+
+.red {
+    background-color: #EF7994;
+}
+
+.green {
+    background-color: #CBEFAF;
+}
+
+ /*onglets dans l'admin*/
+.tab-content {
+    padding: 20px;
+}
+#preview-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 8px;
+    -webkit-background-size: cover;
+    background-size: cover;
+    margin-bottom: 5px;
+}
+
+

@@ -1,5 +1,6 @@
 <?php
 // La variable ROOT permet d'accéder à la racine du projet.
+
 define('ROOT', dirname(__DIR__));
 require ROOT . '/classes/App.php';
 $app = App::getInstance();

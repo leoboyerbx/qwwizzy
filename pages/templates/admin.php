@@ -47,10 +47,10 @@
                             <a id="admin_question" href="#" class="menu_elements"> <div> <i class="fas fa-question"></i> Questions </div> </a>
                             <ul id="aside_question">
                                     <div id="ajouter_question">
-                                        <a href="/admin/question/ajouter"> <li> Ajouter </li></a>
+                                        <a href="/admin/questions/ajouter"> <li> Ajouter </li></a>
                                     </div>
                                     <div id="apercu_question">
-                                        <a href="/admin/question"> <li> Aperçu </li></a>
+                                        <a href="/admin/questions"> <li> Aperçu </li></a>
                                     </div>
                             </ul>
                         </div>

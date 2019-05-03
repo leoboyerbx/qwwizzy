@@ -56,8 +56,8 @@ $user = $auth->getUser();
                 </div>
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-md-3">
-                            <img src="/assets/img/user.svg" alt="user" class="admin-user-img">
+                        <div class="col-md-3" id="admin-user-img">
+                            <a href="/admin/utilisateurs/changeimage"><img src="/assets/img/user.svg" alt="user" title="Modifier ma photo"></a>
                         </div>
                         <div class="col-md-9" class="admin-user-pseudo">
                             <h5><?= $user->pseudo ?></h5>

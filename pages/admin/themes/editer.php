@@ -34,16 +34,32 @@ if(isset($_POST['key_nom']) AND isset($_POST['nom']) AND isset($_POST['descripti
             <label for="description">Description</label>
             <textarea class="form-control" name="description"><?= $theme->description ?></textarea>
         </div>
-        <div class="form-group">
-            <label for="url_image">URL Image</label>
-            <input type="text" class="form-control" name="url_image" value="<?= $theme->url_image ?>">
+        <ul class="nav nav-tabs" id="onglets" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active"  href="#upload" role="tab" aria-controls="home" aria-selected="true">Upload</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#url" role="tab" aria-controls="profile" aria-selected="false">URL de l'image</a>
+          </li>
+        </ul>
+        <div class="tab-content" id="contenuOnglets">
+            <div id="preview-image" style="background-image: url(<?= $theme->url_image ?>)"></div>
+          <div class="tab-pane fade show active" id="upload">
+              A implementer: veuillez utiliser l'url
+          </div>
+          <div class="tab-pane fade" id="url">
+            <div class="form-group">
+                <label for="url_image">URL Image</label>
+                <input type="text" class="form-control" id="url_image" name="url_image" value="<?= $theme->url_image ?>">
+            </div>
+          </div>
         </div>
         <input type=submit class="btn btn-primary" value="Enregistrer">
         <a class="btn btn-outline-secondary" href="/admin/themes">Annuler</a>
     </form>
  </div>
  
- <script type="text/javascript">document.page="edit"</script>
+ <script type="text/javascript">document.page="edit"; document.upload = true</script>
         <?php
     } else {
         $app->set_flash('danger', "Le thème demandé est introuvable.");

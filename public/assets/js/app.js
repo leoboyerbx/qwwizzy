@@ -1,7 +1,7 @@
 (() => {
     const $ = document.querySelector.bind(document)
     const $$ = document.querySelectorAll.bind(document)
-    if (document.page === "question") {
+if (document.page === "question") {
     
     async function checkReponse(questionId, reponse) {
         let data = new FormData()
