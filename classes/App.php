@@ -27,7 +27,11 @@ class App {
     public function getBdd() {
         if ($this->bdd_instance === null) {
             $config = $this->config('/config/config.php');
-            $this->bdd_instance = new Bdd\MysqlBdd($config['db_name'], $config['db_user'], $config['db_pass'], $config['db_host']);
+            if (!empty($config['db_port'])) {
+                $this->bdd_instance = new Bdd\MysqlBdd($config['db_name'], $config['db_user'], $config['db_pass'], $config['db_host'], $config['db_port']);
+            } else {
+                $this->bdd_instance = new Bdd\MysqlBdd($config['db_name'], $config['db_user'], $config['db_pass'], $config['db_host']);
+            }
         }
         return $this->bdd_instance;
     }
