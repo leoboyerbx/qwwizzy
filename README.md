@@ -32,6 +32,6 @@ LE TODO
         - Ajouter
         - Modifier
         - Supprimer
-- Javascript: Ajouter une vérification (re-tapez votre mot de passe) dans la page pour changer son mot de passe
+- Javascript: Ajouter une vérification (re-tapez votre mot de passe) dans la page pour changer son mot de passe => Vincent // En partie fait mais n'est pas tout à fais opérationnel
 - Léo: upload d'images
         

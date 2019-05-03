@@ -9,7 +9,7 @@ $result = $bdd -> query('SELECT * FROM theme');
 foreach ($result as $question){
 ?>
 
-    <div class="col-4">
+    <div class="col-4 text-center">
         <div id=id style=visibility:hidden;>
             <?php echo($question->id); ?>
         </div>
@@ -18,8 +18,8 @@ foreach ($result as $question){
           <div class="squareimg" style="background-image: url(<?= $question->url_image ?>)"></div>
           <div class="card-body">
             <h5 class="card-title"><?php echo($question->nom); ?></h5>
-            <p class="card-text"><?php echo($question->description); ?></p>
-            <a href="/theme/<?php echo($question->key_nom); ?>" class="btn btn-primary btn-chevron btn-uc">Jouer</a>
+            <!--<p class="card-text"><?php echo($question->description); ?></p>-->
+            <a href="/theme/<?php echo($question->key_nom); ?>" class="btn btn-theme btn-chevron btn-uc">Jouer</a>
         </div>
     </div>
     </div>

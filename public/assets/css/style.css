@@ -574,7 +574,7 @@ footer {
 /*}*/
 
 
-/* Les règles CSS suivantes concerne la page login.php */
+/* Les règles CSS suivantes concernent la page login.php */
 
 .form-signin {
     width: 100%;
@@ -617,6 +617,31 @@ footer {
 
 .green {
     background-color: #CBEFAF;
+}
+
+
+/*Les règles CSS suivantes concernent la page changemdp.php */
+
+.changemdp_box {    /*Modifie la box dans laquelle est contenu le formulaire */
+    width: 100%;
+    max-width: 600px;
+    padding: 15px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 1em;
+    margin-top: 30px;
+}
+
+.spacer_change_mdp {     /* Permet les margin des éléments de la box */
+    margin-bottom: 30px;
+}
+
+/*#form_change_mdp > div > input{       ------> En parler avec Léo 
+    background-color: var(--back-color);
+}*/
+
+.btn_changement_mdp {    /*Permet de gérer le margin entre les 2 boutons de la page */
+    margin: 10px;
 }
 
  /*onglets dans l'admin*/

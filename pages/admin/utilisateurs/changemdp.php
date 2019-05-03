@@ -23,23 +23,25 @@ if (!empty($_POST['oldpass']) && !empty($_POST['newpass'])) {
 ?>
 <div class="admin-container">
 <?= $app->get_flash() ?>
-    <h1>Changer mon mot de passe</h1>
-    <form method="post">
-        <div class="form-group">
-            <label for="nom">Ancien mot de passe</label>
-            <input type="password" class="form-control" name="oldpass">
-        </div>
-        <div class="form-group">
-            <label for="nom">Nouveau mot de passe</label>
-            <input type="password" class="form-control" name="newpass" id="mdp_a_confirm">
-        </div>
-        <div class="form-group">
-            <label for="nom">Confirmer nouveau mot de passe</label>
-            <input type="password" class="form-control" name="newpass" id="mdp_confirm">
-        </div>
-        <input type=submit class="btn btn-primary" value="Enregistrer">
-        <a class="btn btn-outline-secondary" href="/admin">Annuler</a>
-    </form>
+    <div class="text-center changemdp_box">
+        <h1 class="spacer_change_mdp">Changer mon mot de passe</h1>
+        <form method="post" id="form_change_mdp">
+            <div class="form-group spacer_change_mdp">
+                <!--<label for="nom">Ancien mot de passe</label>-->
+                <input type="password" class="form-control" name="oldpass" placeholder="Ancien mot de passe">
+            </div>
+            <div class="form-group spacer_change_mdp">
+                <!--<label for="nom">Nouveau mot de passe</label>-->
+                <input type="password" class="form-control" name="newpass" id="mdp_a_confirm" placeholder="Nouveau mot de passe">
+            </div>
+            <div class="form-group spacer_change_mdp">
+                <!--<label for="nom">Confirmer nouveau mot de passe</label>-->
+                <input type="password" class="form-control" name="newpass" id="mdp_confirm" placeholder="Confirmer nouveau mot de passe">
+            </div>
+            <input type=submit class="btn btn-primary btn_changement_mdp" value="Enregistrer" id="btn_sub_change">
+            <a class="btn btn-outline-secondary btn_changement_mdp" href="/admin">Annuler</a>
+        </form>
+    </div>
 </div>
 
 <script type="text/javascript">document.page = "changemdp"</script>

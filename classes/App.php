@@ -55,4 +55,24 @@ class App {
     
         }
     }
+    
+    public function upload($file, $dest_path, $maxsize = 8388608, $extensions_valides = ['jpg' , 'jpeg' , 'gif' , 'png']) {
+        if ($file['error'] > 0) $erreur = "Erreur lors du transfert";
+        if ($file['size'] > $maxsize) $erreur = "Le fichier est trop gros";
+        $extension_upload = strtolower(  substr(  strrchr($file['name'], '.')  ,1)  );
+        if (!in_array($extension_upload,$extensions_valides) ) $erreur = "Extension incorrecte: uniquement des fichiers jpg ou png";
+        if (empty($erreur)) {
+            if (move_uploaded_file($file['tmp_name'],$dest_path)) {
+                $success = true;
+            } else {
+                $success = false;
+            }
+        } else {
+            $success = false;
+        }
+        return [
+            "success" => $success,
+            "error" => $erreur
+            ];
+       }
 }

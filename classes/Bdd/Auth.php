@@ -34,4 +34,11 @@ class Auth {
         }
         return false;
     }
+    public function set_user_property($prop, $value) {
+        if (!empty($_SESSION['auth'])) {
+            $_SESSION['auth']->$prop = $value;
+            return true;
+        }
+        return false;
+    }
 }

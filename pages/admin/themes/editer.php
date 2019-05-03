@@ -1,5 +1,4 @@
 <?php
-// LÉO BOSSE SUR CE FICHIER
 
 
 $app = \App::getInstance();
