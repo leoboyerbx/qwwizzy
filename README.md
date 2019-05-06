@@ -34,5 +34,6 @@ LE TODO
         - Supprimer
 - Léo: upload d'images
         
+- Une belle page 404
 - Afficher la moyenne des résultats sur la page du score (si possible?)
 - Fonction de partage du résultat sur les réseaux sociaux sur la page de résultat

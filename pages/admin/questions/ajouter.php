@@ -23,7 +23,7 @@ $reponse = $bdd -> query("SELECT nom, id from theme")
     <form method="post">
         <div class="form-group">
             <label for="question">Question</label>
-            <input type="text" class="form-control" name="question" id=question>
+            <input type="text" class="form-control" name="question" id="admin-question">
         </div>
         <div class="form-group">
             <label for=vrai>Vrai</label><input type=radio id=vrai name=vf value=1><label for=faux>Faux</label><input type=radio id=faux name=vf value=0>
@@ -38,7 +38,7 @@ $reponse = $bdd -> query("SELECT nom, id from theme")
         </div>
         <div class="form-group">
             <label for="theme">Thème de la question</label>
-            <select name="theme" id="theme">
+            <select name="theme" id="theme" class="form-control">
                 <?php
                 
                 foreach ($reponse as $question){

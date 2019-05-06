@@ -13,7 +13,7 @@
         nom.addEventListener('input', function () {
             if (locked) {
                 let textNom = this.value;
-                keyNom.value = textNom.replace(/ /gi, '_').replace(/'/gi, '').toLowerCase()
+                keyNom.value = textNom.replace(/ /gi, '_').replace(/'/gi, '').replace(/é|è|ê/gi, 'e').replace(/â|à/gi,'a').toLowerCase()
             }
         })
         

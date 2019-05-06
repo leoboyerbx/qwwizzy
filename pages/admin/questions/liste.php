@@ -2,9 +2,10 @@
 
 $app = App::getInstance();
 $bdd = $app->getBdd();
-$questions = $bdd -> query("SELECT question.id, question.question, utilisateur.pseudo as auteur
+$questions = $bdd -> query("SELECT question.id, question.question, utilisateur.pseudo as auteur, theme.nom as theme_nom
                          FROM question
-                         LEFT JOIN utilisateur ON utilisateur.id = question.auteur_id");
+                         LEFT JOIN utilisateur ON utilisateur.id = question.auteur_id
+                         LEFT JOIN theme ON theme.id = question.theme_id");
 // $themes = $bdd -> query("SELECT id, nom, (SELECT count(*) FROM question) as nbr_questions
 //                          FROM theme");
 function crop($chaine) {
@@ -26,6 +27,7 @@ function crop($chaine) {
         <tr>
             <th>#</th>
             <th>Question</th>
+            <th>Thème</th>
             <th>Auteur</th>
             <th>Actions</th>
         </tr>
@@ -37,6 +39,7 @@ function crop($chaine) {
             <tr>
                 <td><?= $question->id ?></td>
                 <td><?= crop($question->question); ?></td>
+                <td><?= crop($question->theme_nom); ?></td>
                 <td><?= $question->auteur ?></td>
                 <td class="admin-actions">
                     <form method="post" action="/admin/questions/supprimer">
