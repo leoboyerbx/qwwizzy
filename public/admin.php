@@ -29,6 +29,15 @@ if (startsWith($page, "login")) { // pages sans template
             include ROOT . '/pages/admin/questions/ajouter.php';
         }
 
+        else if (startsWith($page, "questions/supprimer")) {
+            include ROOT . '/pages/admin/questions/supprimer.php';
+        }
+
+        else if (startsWith($page, "questions/par_theme/")) {
+            $id_theme = substr($page, 20);
+            include ROOT . '/pages/admin/questions/liste.php';
+        }
+
         else if (startsWith($page, "questions")) {
             include ROOT . '/pages/admin/questions/liste.php';
         }

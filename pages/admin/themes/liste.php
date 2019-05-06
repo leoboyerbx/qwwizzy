@@ -35,6 +35,7 @@ $themes = $bdd -> query("SELECT theme.id, theme.nom, count(question) as nbr_ques
                 <td><?= $theme->nbr_questions ?></td>
                 <td class="admin-actions">
                     <form method="post" action="/admin/themes/supprimer">
+                        <a href="/admin/questions/par_theme/<?= $theme->id ?>" class="btn btn-outline-secondary btn-uc"><i class="fas fa-list-ul" style="margin-right: 10px"></i> Questions</a>
                         <a href="/admin/themes/edit/<?= $theme->id ?>" class="btn btn-outline-theme btn-uc"><i class="fas fa-pen" style="margin-right: 10px"></i> Modifier</a>
                         <input type="hidden" name="id_theme" value="<?= $theme->id ?>"/>
                         <button type="submit" class="btn btn-outline-danger btn-uc"><i class="fas fa-trash" style="margin-right: 10px"></i> Supprimer</button>
