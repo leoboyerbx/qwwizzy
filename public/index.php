@@ -39,8 +39,7 @@ if (startsWith($page,"question/check")) {
             $cont = new Controllers\ThemeController(substr($page, 6));
             $cont->quizz();
         } else {
-            var_dump($app->getBdd()->query('SELECT * FROM question'));
-            echo '404';
+            include ROOT . '/pages/page404.php';
         }
         
         $content = ob_get_clean();

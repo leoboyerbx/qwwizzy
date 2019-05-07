@@ -87,5 +87,20 @@
     }
     
     
+    if (document.page === "ajouterQuestion") {
+        // let swap = function (e) {
+        //      buttons.forEach(e => e.classList.remove('active'))
+        //      e.classList.add('active')
+        //      e.querySelector('input').checked = true;
+        // }
+        // let buttons = $$('#vraifaux label')
+        // buttons.forEach(label => {
+        //     label.addEventListener('click', function() {
+        //         swap(this)
+        //     })
+        // })
+    }
+    
+    
 })()
 

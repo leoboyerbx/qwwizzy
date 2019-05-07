@@ -41,4 +41,19 @@ class Auth {
         }
         return false;
     }
+    
+
+    public function verif_permissions($requiredLevel) {
+        return $this->getUser()->permissions >= $requiredLevel;
+    }
+    
+    public function get_permission_nom () {
+        return \App::getInstance()->get_permission_nom($this->getUser()->permissions);
+    }
+    
+    public function auth_permission($requiredLevel) {
+        if (!$this->verif_permissions($requiredLevel)) {
+            \App::getInstance()->interdit();
+        }
+    }
 }

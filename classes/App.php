@@ -79,4 +79,31 @@ class App {
             "error" => $erreur
             ];
        }
+       
+    public function interdit() {
+        $this->set_flash('danger', "Vous n'avez pas le droit d'accéder à cette page");
+        header('Location: /admin');
+        die();
+    }
+       
+   public function toutes_permissions () {
+        return array(
+            '10' => 'Administrateur',
+            '7' => 'Éditeur',
+            '5' => 'Auteur',
+            '3' => 'Visiteur'
+        );
+    }
+    public function get_permission_nom ($permInt) {
+        $allPermissions = \App::getInstance()->toutes_permissions();
+        $permName = "";
+
+        foreach($allPermissions as $int => $permissionName) {
+            if ($permInt >= $int) {
+                $permName = $permissionName;
+                break;
+            }
+        }
+        return $permName;
+    }
 }

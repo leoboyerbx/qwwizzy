@@ -45,7 +45,6 @@ $user = $auth->getUser();
                             <p class="card-text dashboard-stat"><?= $nbr_parties ?></p>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -61,6 +60,7 @@ $user = $auth->getUser();
                         </div>
                         <div class="col-md-9" class="admin-user-pseudo">
                             <h5><?= $user->pseudo ?></h5>
+                            <h6><i><?= $auth->get_permission_nom() ?></i></h6>
                             <?= $user->email ?> <a style="margin-left: 8px;" href="/admin/utilisateurs/changemail" class="btn btn-outline-theme">Modifier</a>
                         </div>
                     </div>

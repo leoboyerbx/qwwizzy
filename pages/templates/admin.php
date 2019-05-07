@@ -1,3 +1,7 @@
+<?php
+$auth = new Bdd\Auth(\App::getInstance()->getBdd());
+
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -32,6 +36,9 @@
                     </div>
                     <hr/>
                     <div class="row">
+                        <?php
+                        if ($auth->verif_permissions(7)):
+                        ?>
                         <div id="theme_menu" class="col-12">
                                 <a id="admin_theme" href="/admin/themes" class="menu_elements"> <div> <i class="far fa-clipboard"></i> Thèmes </div> </a>
                                 <ul id="aside_theme">
@@ -43,6 +50,10 @@
                                         </div>
                                 </ul>
                         </div>
+                        <?php
+                        endif;
+                        
+                        ?>
                         <div id="question_menu" class="col-12">
                             <a id="admin_question" href="#" class="menu_elements"> <div> <i class="fas fa-question"></i> Questions </div> </a>
                             <ul id="aside_question">
@@ -57,9 +68,23 @@
                     </div>
                     <hr/>
                     <div class="row">
-                        <div class="col-12">
-                            <a href="#" class="menu_elements"> <div id="admin-users"> <i class="fas fa-user"></i> Utilisateurs </div> </a>
+                        <?php
+                        if ($auth->verif_permissions(10)):
+                        ?>
+                        <div id="utilisateurs_menu" class="col-12">
+                            <a href="/admin/utilisateurs" class="menu_elements"> <div id="admin-users"> <i class="fas fa-user"></i> Utilisateurs </div> </a>
+                            <ul id="aside_utilisateurs">
+                                    <div id="ajouter_utilisateurs">
+                                        <a href="/admin/utilisateurs/ajouter"> <li> Ajouter </li></a>
+                                    </div>
+                                    <div id="apercu_utilisateurs">
+                                        <a href="/admin/utilisateurs"> <li> Aperçu </li></a>
+                                    </div>
+                            </ul>
                         </div>
+                        <?php
+                        endif;
+                        ?>
                     </div>
                     <hr/>
                     <div class="row">
