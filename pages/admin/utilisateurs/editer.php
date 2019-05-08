@@ -19,13 +19,12 @@ if(isset($_POST['pseudo']) AND isset($_POST['email']) AND isset($_POST['permissi
     }
     
 } else {
-    $result = $bdd -> prepare('SELECT * FROM utilisateur WHERE id= ?', [$id_user], true);
-    if (!$result) {
+    $user = $bdd -> prepare('SELECT * FROM utilisateur WHERE id= ?', [$id_user], "\\Entites\\UserEntity", true);
+    if (!$user) {
         $app->set_flash('danger', "L'utilisateur n'existe pas.");
         header('Location: /admin/utilisateurs');
         die();
     }
-    $user = $result[0];
 }
 ?>
 <div class="admin-container">

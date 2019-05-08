@@ -9,7 +9,7 @@ if ($auth->estConnecte()) {
         <div class="col-8">
             <a href="/admin"><div id="admin">Administration<i class="fas fa-tools"></i> </div> </a>
         </div>
-        <div class="col-4" id="admin">
+        <div class="col-4" id="div_avatar_header">
             <a href="/admin"><div id="header_avatar" style="background-image: url(/users/avatars/<?= $user->avatar == "" ? 'default.svg' : $user->avatar ?>)"></div></a>
         </div>
     </div>

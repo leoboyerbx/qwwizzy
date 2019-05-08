@@ -803,3 +803,7 @@ footer {
     display: inline-block;
     
 }
+
+#div_avatar_header {
+    padding-left: 0px;
+}
