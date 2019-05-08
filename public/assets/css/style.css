@@ -807,3 +807,7 @@ footer {
 #div_avatar_header {
     padding-left: 0px;
 }
+
+.float_right {
+    float: right;
+}
