@@ -2,7 +2,12 @@
 
 $app = App::getInstance();
 $bdd = $app->getBdd();
-if (!empty($id_theme)) {
+$auth = new Bdd\Auth($bdd);
+$user = $auth->getUser();
+
+$isAdmin = $auth->verif_permissions(7);
+
+if (!empty($id_theme) && $isAdmin) {
     $questions = $bdd -> prepare("SELECT question.id, question.question, utilisateur.pseudo as auteur, theme.nom as theme_nom
                              FROM question
                              LEFT JOIN utilisateur ON utilisateur.id = question.auteur_id
@@ -10,10 +15,19 @@ if (!empty($id_theme)) {
                              WHERE question.theme_id = ?", [$id_theme]);
 
 } else {
-    $questions = $bdd -> query("SELECT question.id, question.question, utilisateur.pseudo as auteur, theme.nom as theme_nom
-                             FROM question
-                             LEFT JOIN utilisateur ON utilisateur.id = question.auteur_id
-                             LEFT JOIN theme ON theme.id = question.theme_id");
+    if ($isAdmin) {
+        $questions = $bdd -> query("SELECT question.id, question.question, utilisateur.pseudo as auteur, theme.nom as theme_nom
+                                 FROM question
+                                 LEFT JOIN utilisateur ON utilisateur.id = question.auteur_id
+                                 LEFT JOIN theme ON theme.id = question.theme_id");
+    } else {
+        $questions = $bdd -> prepare("SELECT question.id, question.question, utilisateur.pseudo as auteur, theme.nom as theme_nom
+                                 FROM question
+                                 LEFT JOIN utilisateur ON utilisateur.id = question.auteur_id
+                                 LEFT JOIN theme ON theme.id = question.theme_id
+                                 WHERE auteur_id = ?", [$user->id]);
+        
+    }
 
 }
 // $themes = $bdd -> query("SELECT id, nom, (SELECT count(*) FROM question) as nbr_questions
@@ -33,7 +47,9 @@ function crop($chaine) {
     if (!empty($id_theme) AND count($questions) > 0) {
         echo <<<END
         <h4>Thème: <i style=\"color: #888\">{$questions[0]->theme_nom}</i></h4>
-        <a href="/admin/themes" class="btn btn-outline-secondary btn-uc">Retour à la liste de thèmes</a><br>
+        <a href="/admin/themes" class="btn btn-outline-secondary btn-uc">Retour à la liste de thèmes</a>
+        <a href="/admin/questions/ajout_par_theme/{$id_theme}" class="btn btn-secondary btn-uc"><i class="fas fa-plus"></i> Ajouter une question</a>
+        <br>
 <br>
 END;
     } else if (!empty($id_theme)) {

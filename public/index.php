@@ -25,7 +25,7 @@ if (startsWith($page,"question/check")) {
 } else {
     // Pages Avec une mise en page
     // Récupération du contenu
-    
+    $noTemplate = false;
     if(startsWith($page, 'admin')) {
         $page = substr($page, 6);
         include './admin.php';
@@ -39,13 +39,16 @@ if (startsWith($page,"question/check")) {
             $cont = new Controllers\ThemeController(substr($page, 6));
             $cont->quizz();
         } else {
+            $noTemplate = true;
             include ROOT . '/pages/page404.php';
         }
         
-        $content = ob_get_clean();
+        if (!$noTemplate) {
+            $content = ob_get_clean();
+            //Injection du contenu dans le template correspondant
+            include ROOT.'/pages/templates/default.php';
+        }
         
-        //Injection du contenu dans le template correspondant
-        include ROOT.'/pages/templates/default.php';
     }
     
 }

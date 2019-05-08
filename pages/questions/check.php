@@ -1,11 +1,11 @@
 <?php
 $bdd = App::getInstance()->getBdd();
-$question = $bdd->prepare('SELECT * FROM question WHERE id = ?', [$_POST['question_id']], true);
+$question = $bdd->prepare('SELECT * FROM question WHERE id = ?', [$_POST['question_id']],null, true);
 if (!empty($question)) {
-    $juste = $question[0]->reponse === $_POST['reponse'];
-    $texte_reponse = $question[0]->texte_reponse;
+    $juste = $question->reponse === $_POST['reponse'];
+    $texte_reponse = $question->texte_reponse;
     
-    $textval = $question[0]->reponse ? 'VRAI': 'FAUX' ;
+    $textval = $question->reponse ? 'VRAI': 'FAUX' ;
     if ($juste) {
         $texte_reponse = '<span>Bravo ! Bonne réponse.</span> La réponse est '. $textval . '. ' . $texte_reponse;
     } else {

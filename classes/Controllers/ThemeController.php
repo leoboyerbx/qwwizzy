@@ -18,11 +18,11 @@ class ThemeController {
     public function __construct($theme) {
         $this->bdd = \App::getInstance()->getBdd();
 
-        $theme = $this->bdd->prepare("SELECT * FROM theme WHERE key_nom = ?", [$theme], true);
+        $theme = $this->bdd->prepare("SELECT * FROM theme WHERE key_nom = ?", [$theme], null, true);
         if (empty($theme)) {
             $this->theme = null;
         } else {
-            $this->theme = $theme[0];
+            $this->theme = $theme;
         }
     }
     
@@ -63,11 +63,11 @@ class ThemeController {
                 )
             ORDER BY rand()
             LIMIT 1
-        ", [$theme_id, $this->id_session], true);
+        ", [$theme_id, $this->id_session],null, true);
         if (empty($question)) {
             include ROOT . '/pages/quizz/vide.php';
         } else {
-            $question = $question[0];
+            $question = $question;
             $question->iter = $this->iter_question;
             $id_session = $this->id_session;
             include ROOT.'/pages/questions/question.php';

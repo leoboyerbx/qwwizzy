@@ -4,16 +4,16 @@ $bdd = $app->getBdd();
 
 if (!empty($_FILES['photo'])) {
     $user = $auth->getUser();
-    $nom = "avatar_{$user->id}.{$extension_upload}";
-    $path = ROOT . "/public/users/avatars/$nom";
+    $nom = "avatar_{$user->id}";
+    $dossier = ROOT . "/public/users/avatars";
     
-    $upload = $app->upload($_FILES['photo'], $path);
+    $upload = $app->upload($_FILES['photo'], $dossier, $nom);
     
     if ($upload['success']) {
-        $result = $bdd->prepare('UPDATE utilisateur SET avatar = ? WHERE id = ?', [$nom, $user->id]);
+        $result = $bdd->prepare('UPDATE utilisateur SET avatar = ? WHERE id = ?', [$upload['name'], $user->id]);
         if($result) {
             $app->set_flash('success', "Photo modifiée avec succès");
-            $auth->set_user_property('avatar', $nom);
+            $auth->set_user_property('avatar', $upload["name"]);
             header('Location: /admin');
             die();
         }

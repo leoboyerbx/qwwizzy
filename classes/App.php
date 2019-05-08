@@ -60,13 +60,17 @@ class App {
         }
     }
     
-    public function upload($file, $dest_path, $maxsize = 8388608, $extensions_valides = ['jpg' , 'jpeg' , 'gif' , 'png']) {
+    public function upload($file, $dest_path, $dest_name, $maxsize = 8388608, $extensions_valides = ['jpg' , 'jpeg' , 'gif' , 'png']) {
         if ($file['error'] > 0) $erreur = "Erreur lors du transfert";
         if ($file['size'] > $maxsize) $erreur = "Le fichier est trop gros";
         $extension_upload = strtolower(  substr(  strrchr($file['name'], '.')  ,1)  );
-        if (!in_array($extension_upload,$extensions_valides) ) $erreur = "Extension incorrecte: uniquement des fichiers jpg ou png";
+        
+        $full_name = $dest_name.'.'. $extension_upload;
+        $full_path = $dest_path.'/'. $full_name;
+        
+        if (!in_array($extension_upload,$extensions_valides) ) $erreur = "Extension incorrecte: uniquement des fichiers jpg ou png ou gif";
         if (empty($erreur)) {
-            if (move_uploaded_file($file['tmp_name'],$dest_path)) {
+            if (move_uploaded_file($file['tmp_name'], $full_path)) {
                 $success = true;
             } else {
                 $success = false;
@@ -76,7 +80,9 @@ class App {
         }
         return [
             "success" => $success,
-            "error" => $erreur
+            "error" => $erreur,
+            "path" => $full_path,
+            "name" => $full_name
             ];
        }
        
@@ -105,5 +111,10 @@ class App {
             }
         }
         return $permName;
+    }
+    
+    public function auth_verif_permissions ($permInt) {
+        $auth = new Bdd\Auth($this->getBdd());
+        return $auth->verif_permissions($permInt);
     }
 }

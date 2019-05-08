@@ -3,6 +3,19 @@
 
 $app = \App::getInstance();
 $bdd = $app->getBdd();
+$auth = new Bdd\Auth($bdd);
+$user = $auth->getUser();
+
+
+$question = $bdd -> prepare('SELECT * FROM question WHERE id= ?', [$id_question], null, true);
+
+if (!$auth->verif_permissions(7) && $question && $question->auteur_id != $user->id) { //  Si l'auteur n'a pas le droit de modifier la question
+    $app->set_flash('danger', "Vous n'avez pas le droit de modifier cette question, car vous n'en êtes pas l'auteur.");
+    header('Location: /admin/questions');
+    die();
+}
+
+
 
 if(isset($_POST['question']) AND isset($_POST['vf']) AND isset($_POST['txtrep']) AND isset($_POST['url_image'])){ //envoi des données si renseignées
     $result = $bdd -> prepare('UPDATE  question SET question= ?, reponse = ?, texte_reponse = ?, url_image= ? WHERE id= ?', array($_POST['question'], $_POST['vf'], $_POST['txtrep'], $_POST['url_image'], $id_question));
@@ -15,9 +28,8 @@ if(isset($_POST['question']) AND isset($_POST['vf']) AND isset($_POST['txtrep'])
     }
 
 } else {
-    $result = $bdd -> prepare('SELECT * FROM question WHERE id= ?', [$id_question], true);
-    if ($result) {
-        $question  = $result[0];
+    
+    if ($question) {
         $themes = $bdd -> query("SELECT nom, id from theme");
         ?>
 

@@ -25,10 +25,11 @@ LE TODO
 - Afficher la moyenne des résultats sur la page du score (tendu) ---> nouvelle table = Vincent
 - Fonction de partage du résultat sur les réseaux sociaux sur la page de résultat
 - Confirmation de supprimer
-- Les utilisateurs doivent voir leur image
+- Les utilisateurs doivent voir leurs questions uniquement
+- Couleur de thème
+- Afficher l'avatar dans le template du site si l'utilisateur est connecté
 
 
 plutar
-bouger liste permissions names vers config table
-
-L2O: j'etais en train de faire le bouton pour ajoujter questions par theme
+- Restructurer les url d'ajout par theme
+- bouger liste permissions names vers config table
