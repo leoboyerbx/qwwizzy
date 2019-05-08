@@ -1,6 +1,8 @@
 <?php
 // La variable ROOT permet d'accéder à la racine du projet.
-
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 define('ROOT', dirname(__DIR__));
 require ROOT . '/classes/App.php';
 $app = App::getInstance();
@@ -23,7 +25,7 @@ if (startsWith($page,"question/check")) {
 } else {
     // Pages Avec une mise en page
     // Récupération du contenu
-    
+    $noTemplate = false;
     if(startsWith($page, 'admin')) {
         $page = substr($page, 6);
         include './admin.php';
@@ -37,14 +39,16 @@ if (startsWith($page,"question/check")) {
             $cont = new Controllers\ThemeController(substr($page, 6));
             $cont->quizz();
         } else {
-            var_dump($app->getBdd()->query('SELECT * FROM question'));
-            echo '404';
+            $noTemplate = true;
+            include ROOT . '/pages/page404.php';
         }
         
-        $content = ob_get_clean();
+        if (!$noTemplate) {
+            $content = ob_get_clean();
+            //Injection du contenu dans le template correspondant
+            include ROOT.'/pages/templates/default.php';
+        }
         
-        //Injection du contenu dans le template correspondant
-        include ROOT.'/pages/templates/default.php';
     }
     
 }

@@ -1,3 +1,8 @@
+@font-face {
+ font-family: "Quantify";
+ src: local("rockstars/public/assets/fonts/Quantify.ttf") format("truetype");
+}
+
 :root {
     /*--main-color: #5a3f99;*/
     --main-color: #137177;
@@ -19,6 +24,7 @@ body {
     background-color: #F0F2ED;
     overflow-x: hidden;
 	width: 100%;
+	height: 100%;
 }
 
 main {
@@ -126,6 +132,7 @@ main {
     padding-top: 20px;
     padding-bottom: 120px;
     min-height: 75vh;
+    margin-top: 20px;
 }
 
 #logo {
@@ -153,10 +160,11 @@ footer {
     background-color: var(--main-color);
     color: white;
     line-height: 100px;
-    margin-top: 20px;
+   /* margin-top: 20px;*/
     /*display : table-row;*/
     width: 100%;
 }
+
 
 #dropdown{
     visibility: hidden;
@@ -208,7 +216,7 @@ footer {
     text-align:center;
 }
 #admin {
-    float:right;
+    float: left;
     color: #fff;
 }
 #question {
@@ -562,6 +570,57 @@ footer {
     opacity: 1;
 }
 
+/* menu aside pour les utilisateurs */
+
+#aside_utilisateurs{
+    visibility: hidden;
+    left: 100%;
+    position: absolute;
+    z-index: 100;
+    background-color: var(--main-color);
+    color: white;
+    list-style: none;
+    bottom: -40%;
+    border-radius: 0 8px 8px 0;
+    padding: 0px;
+	font-size: 120%;
+	transform: translateX(-2em);
+    transition: all 0.3s;
+	
+}
+
+#aside_utilisateurs > a{
+    margin: 15px;    
+}
+
+#utilisateurs_menu > ul  {    
+    width: 100%;         /* Permet d'élargir le menu aside */
+    opacity: 0;
+}
+
+#utilisateurs_menu > ul > div {
+    padding: 15px;        /* Permet d'augmenter la hauteur du menu aside */
+}
+
+#utilisateurs_menu > ul > div > a {   /* Sélectionner le lien pour le centrer dans le menu */
+    text-align: center;
+    text-decoration: none;
+    color: white;
+} 
+
+#utilisateurs_menu > ul > div:hover {
+    background-color: rgba(255, 255, 255, 0.2);    /* Donne une couleur de fond diffrente au sous menu ciblé */ 
+    transition: all 0.2s;
+} 
+
+#utilisateurs_menu:hover > ul {
+    visibility: visible;      /* Rends le menu aside visible */
+    transform: translateY(0%);
+    transition: 0.3s ease-out;
+    opacity: 1;
+}
+
+
 .admin-container {
     margin: 20px;
 }
@@ -661,3 +720,90 @@ footer {
 }
 
 
+/* Les règles suivantes concernent le design de la page 404 */
+
+#corp_404 {
+    background-color: black;
+    min-height: 100%;
+    position: relative;
+}
+
+#box_safety {
+    border: 1px solid;
+    border-color: white;
+    position: absolute;
+    bottom: 15%;
+    right: 15%;
+}
+
+#safety {
+    font-family: nazare, sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 40px;
+    padding: 10px;
+}
+
+#safety > a {
+    text-decoration: none;
+    color: white;
+}
+
+#error_404_text {
+    position: absolute;
+    left: 8%;
+    bottom:15%;
+}
+
+#title_404 {
+    font-family: nazare, sans-serif;
+    font-weight: 900;
+    font-style: normal;
+    color: white;
+    font-size: 80px;
+}
+
+#text_404 {
+    font-family: nazare, sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    color: white;
+    font-size: 25px;
+}
+
+/* Les règles suivantes concernent le design du footer */
+
+#copyright {
+    color: var(--back-color);
+}
+
+#copyright_logo {
+    font-family: acier-bat-noir;
+}
+
+#logo_footer {
+    color: var(--back-color);
+    text-decoration: none;
+    font-size: 30px;
+    margin-top: 35px;
+}
+
+
+
+/* Les règles suivantes concernent l'avatar utilisateurs dans le header lorsqu'il est connecté */
+
+#header_avatar {
+    border-radius: 100%;
+    background-size: cover;
+    background-position: center;
+    min-width: 35px;
+    max-width: 35px;
+    min-height: 35px;
+    max-height: 35px;
+    display: inline-block;
+    
+}
+
+#div_avatar_header {
+    padding-left: 0px;
+}

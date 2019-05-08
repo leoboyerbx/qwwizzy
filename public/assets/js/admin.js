@@ -13,7 +13,7 @@
         nom.addEventListener('input', function () {
             if (locked) {
                 let textNom = this.value;
-                keyNom.value = textNom.replace(/ /gi, '_').replace(/'/gi, '').toLowerCase()
+                keyNom.value = textNom.replace(/ /gi, '_').replace(/'/gi, '').replace(/é|è|ê/gi, 'e').replace(/â|à/gi,'a').toLowerCase()
             }
         })
         
@@ -84,6 +84,21 @@
                 alert("Les 2 mots de passe rentrés sont différents, veuillez les retaper.")
             }
         }
+    }
+    
+    
+    if (document.page === "ajouterQuestion") {
+        // let swap = function (e) {
+        //      buttons.forEach(e => e.classList.remove('active'))
+        //      e.classList.add('active')
+        //      e.querySelector('input').checked = true;
+        // }
+        // let buttons = $$('#vraifaux label')
+        // buttons.forEach(label => {
+        //     label.addEventListener('click', function() {
+        //         swap(this)
+        //     })
+        // })
     }
     
     

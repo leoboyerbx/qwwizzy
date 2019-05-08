@@ -1,20 +1,29 @@
-un incroyable fichier 
+Salut
 
-<div class=row>
-            <div class="col-12">
-                <h2>
-                    <?php echo($question->nom); ?>
-                </h2>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-4">
-                <img src=<?php echo($question->url_image); ?> style="max-width:15%; min-width:15%;">
-            </div>
-            <div class="col-8">
-                <p>
-                    <?php echo($question->description) ?>
-                </p>
-            </div>
-            </div>
-        </div>
+coucou
+id  pseudo et avatar c'est des méthodes? OK
+Après tu as pas tort
+je vais faire un truc -> Avec des get...
+En gros pour le moment tu peux utiliser ça, mais je vais faire en sorte que $user->getAvatar() te renvoie soit le chemin de son image soit l'image par déaut s'il en a pas :)
+Ok nickel! et ça je le tape dans default ou adminmenu.php?
+dans adminmenu
+mais pour le moment ça marche pas cette méthode hein ;)
+Oui oui Mais si j'utilise les  propriétés?
+tu peux utiliser $user-> avatar
+et ceux qui ont pas d'image tant pis pour le moment
+Ok vendu je tente ça cette arpem et je finis le design dela page 404! :)
+
+En gros:
+On récupère l'utilisateur avec un objet auth
+(qui a besoin de la base de données dans son constructeur)
+
+$auth = new Bdd\Auth($app->getBdd());
+$user = $auth->getUser();
+
+
+et ensuite tu as:
+$user->id
+$user->pseudo
+$user->avatar
+
+Sachant que avatar peut etre null et dans ce cas on envoie le fichier "/assets/img/user.svg"

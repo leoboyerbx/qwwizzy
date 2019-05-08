@@ -45,7 +45,6 @@ $user = $auth->getUser();
                             <p class="card-text dashboard-stat"><?= $nbr_parties ?></p>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -57,10 +56,12 @@ $user = $auth->getUser();
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-3" id="admin-user-img">
-                            <a href="/admin/utilisateurs/changeimage"><div class="roundimg" style="background-image: url(/users/avatars/<?= $user->avatar == "" ? 'default.svg' : $user->avatar ?>)"></div><!--<img src="" alt="user" title="Modifier ma photo">--></a>
+                            
+                            <a href="/admin/utilisateurs/changeimage"><div class="roundimg" style="background-image: url(<?= $user->getAvatar() ?>)"></div><!--<img src="" alt="user" title="Modifier ma photo">--></a>
                         </div>
                         <div class="col-md-9" class="admin-user-pseudo">
                             <h5><?= $user->pseudo ?></h5>
+                            <h6><i><?= $auth->get_permission_nom() ?></i></h6>
                             <?= $user->email ?> <a style="margin-left: 8px;" href="/admin/utilisateurs/changemail" class="btn btn-outline-theme">Modifier</a>
                         </div>
                     </div>

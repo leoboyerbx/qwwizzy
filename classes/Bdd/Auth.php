@@ -13,9 +13,8 @@ class Auth {
 
 
     public function login($pseudo, $pass, $bypass = false) {
-        $result = $this->db->prepare('SELECT * FROM utilisateur WHERE pseudo = ?', [$pseudo], true);
-        if ($result) {
-            $user = $result[0];
+        $user = $this->db->prepare('SELECT * FROM utilisateur WHERE pseudo = ?', [$pseudo], "\\Entites\\UserEntity", true);
+        if ($user) {
             if (password_verify($pass, $user->pass_hash)) {
                 if (!$bypass) { // permet de simplement vérifier le mot de passe de l'utilisateur, sans le logger à nouveau.
                     $_SESSION['auth'] = $user;
@@ -40,5 +39,20 @@ class Auth {
             return true;
         }
         return false;
+    }
+    
+
+    public function verif_permissions($requiredLevel) {
+        return $this->getUser()->permissions >= $requiredLevel;
+    }
+    
+    public function get_permission_nom () {
+        return \App::getInstance()->get_permission_nom($this->getUser()->permissions);
+    }
+    
+    public function auth_permission($requiredLevel) {
+        if (!$this->verif_permissions($requiredLevel)) {
+            \App::getInstance()->interdit();
+        }
     }
 }
