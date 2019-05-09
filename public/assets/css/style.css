@@ -208,6 +208,12 @@ footer {
 #dropdown > a:last-child > li:hover {
     border-radius: 0 0 8px 8px;
 }
+
+#admin {
+    float: right;
+    color: #fff;
+}
+
 #admin i {
     margin-left: 5px;
 }
@@ -215,10 +221,7 @@ footer {
 .center {
     text-align:center;
 }
-#admin {
-    float: left;
-    color: #fff;
-}
+
 #question {
     margin: 20px;
     margin-left: 30px;
@@ -623,6 +626,9 @@ footer {
 
 .admin-container {
     margin: 20px;
+    border-radius: 1em;
+    background-color: white;
+    padding: 20px;
 }
 
 
@@ -771,6 +777,12 @@ footer {
     font-size: 25px;
 }
 
+#astronaute {
+    position: absolute;
+    right: 19%;
+    top: 10%;
+}
+
 /* Les règles suivantes concernent le design du footer */
 
 #copyright {
@@ -801,13 +813,94 @@ footer {
     min-height: 35px;
     max-height: 35px;
     display: inline-block;
-    
+    position: absolute;
+    top: 30%;
 }
 
 #div_avatar_header {
     padding-left: 0px;
+    padding-right: 0px;
+    /*padding-top: 3%;*/
 }
 
-.float_right {
-    float: right;
+#div_admin_header {
+    padding-right: 20px;
+}
+
+/* Toutes les règles suivantes concernent le menu dropdown admin */
+
+#dropdown2{
+    visibility: hidden;
+    padding-left: 0px;
+    position: absolute;
+	width: 200px;
+	top: 100%;
+	background-color: var(--main-color);
+    transform: translateY(-2em);
+	z-index: 10;
+	text-align: center;
+	opacity: 0;
+	border-radius: 0% 0% 8px 8px;
+}
+
+#dropdown2 li {
+	color: white;
+	transition: all 0.2s;
+	list-style: none;
+}
+
+#dropdown2 li:hover {
+    background-color: rgba(255,255,255, 0.2);
+    opacity: 1;
+}
+#admin:hover > #dropdown2 {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0%);
+	transition: all 0.3s;
+}
+
+#admin:hover > #dropdown2 li{
+    color: #fff;
+    padding-left: 5px;
+}
+
+#admin:hover > #dropdown2 > a {
+    text-decoration: none;
+}
+#dropdown2 > a:last-child > li:hover {
+    border-radius: 0 0 8px 8px;
+}
+
+#admin  a {
+    text-decoration: none;
+    color: white;
+}
+
+/*Les règles CSS suivantes concernent les boutons de partage de résultats à la fin des quizz */
+
+#twitter {
+    font-size: 50px;
+}
+
+
+/*Les règles CSS suivantes concernent la dashboard admin */
+
+#dashboard-container {
+    margin-top: 20px;
+}
+
+#best_contributor_avatar {
+    border-radius: 100%;
+    background-size: cover;
+    background-position: center;
+    min-width: 130px;
+    max-width: 130px;
+    min-height: 130px;
+    max-height: 130px;
+    display: inline-block;
+}
+
+#best_contributor_box {
+    margin-top: 8px;
 }

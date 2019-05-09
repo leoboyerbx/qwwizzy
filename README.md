@@ -27,7 +27,8 @@ LE TODO
 - Confirmation de supprimer
 - Les utilisateurs doivent voir leurs questions uniquement
 - Couleur de thème
-- Afficher l'avatar dans le template du site si l'utilisateur est connecté
+- Possibilité de changer son mail
+- Formulaire de modifier mon compte
 
 
 plutar

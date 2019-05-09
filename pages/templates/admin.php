@@ -55,7 +55,7 @@ $auth = new Bdd\Auth(\App::getInstance()->getBdd());
                         
                         ?>
                         <div id="question_menu" class="col-12">
-                            <a id="admin_question" href="#" class="menu_elements"> <div> <i class="fas fa-question"></i> Questions </div> </a>
+                            <a id="admin_question" href="admin/questions" class="menu_elements"> <div> <i class="fas fa-question"></i> Questions </div> </a>
                             <ul id="aside_question">
                                     <div id="ajouter_question">
                                         <a href="/admin/questions/ajouter"> <li> Ajouter </li></a>

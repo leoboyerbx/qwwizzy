@@ -10,19 +10,28 @@ $result = $bdd->query("SELECT count(DISTINCT id_session) as nbrparties
                                 FROM historique_session");
 $nbr_parties = $result[0]->nbrparties;
 
+$best_contributor = $bdd->query("SELECT *
+                                    FROM utilisateur
+                                    WHERE id = (SELECT auteur_id
+                                    FROM question 
+                                    GROUP BY auteur_id HAVING count(*) >= ALL (SELECT count(*)
+                                                                                FROM question
+                                                                                GROUP BY auteur_id));", "\\Entites\\UserEntity", true);
+
+
 $auth = new Bdd\Auth($app->getBdd());
 $user = $auth->getUser();
 
 ?>
 
-<div class="admin-container">
+<div id="dashboard-container" class="container">
     <h1>Gestion du site Qwwizzy</h1>
     <hr>
     <?php
     echo $app->get_flash();
     ?>
     <div class="row">
-        <div class="col-lg">
+        <div class="col-6">
             <div class="card">
                 <div class="card-header">
                     Vue d'ensemble
@@ -48,7 +57,7 @@ $user = $auth->getUser();
                 </div>
             </div>
         </div>
-        <div class="col-lg">
+        <div class="col-6">
             <div class="card">
                 <div class="card-header">
                     Mon compte
@@ -69,6 +78,25 @@ $user = $auth->getUser();
                     <div class="row">
                         <div class="col-12 center">
                             <a href="/admin/utilisateurs/changemdp" class="btn btn-theme">Changer mon mot de passe</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="card" id="best_contributor_box">
+                <div class="card-header">
+                    Meilleur contributeur question
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <div id="best_contributor_avatar" class="center" style="background-image: url(<?= $best_contributor->getAvatar() ?>)"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div id="best_contributor_name" class="col-md-12 dashboard-stat text-center">
+                            <?= $best_contributor->pseudo ?>
                         </div>
                     </div>
                 </div>
