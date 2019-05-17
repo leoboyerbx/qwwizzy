@@ -36,6 +36,18 @@ class App {
         return $this->bdd_instance;
     }
 
+    public function getConfig($key) {
+        $req = $this->getBdd()->prepare('SELECT * FROM config WHERE clef = ?', [$key], null, true);
+        if ($req) {
+            return json_decode($req->valeur);
+        }
+        return false;
+    }
+    public function setConfig($key, $val) {
+        $req = $this->getBdd()->prepare('UPDATE config SET valeur=? WHERE clef=?', [$val, $key]);
+        return $req;
+    }
+
     public function load() {
         require ROOT . '/classes/Autoloader.php';
         Autoloader::register();
@@ -51,7 +63,7 @@ class App {
     
     public function get_flash() {
         if (!empty($_SESSION['flash'])) {
-            $flash = '<div class="alert alert-'. $_SESSION['flash']['type'] .' role=\"alert\">
+            $flash = '<div class="flashmsg alert alert-'. $_SESSION['flash']['type'] .'" data-type="'. $_SESSION['flash']['type'].'">
          ' . $_SESSION['flash']['message'] ."
         </div>";
         unset($_SESSION['flash']);
@@ -93,12 +105,13 @@ class App {
     }
        
    public function toutes_permissions () {
-        return array(
-            '10' => 'Administrateur',
-            '7' => 'Éditeur',
-            '5' => 'Auteur',
-            '3' => 'Visiteur'
-        );
+        // return array(
+        //     '10' => 'Administrateur',
+        //     '7' => 'Éditeur',
+        //     '5' => 'Auteur',
+        //     '3' => 'Visiteur'
+        // );
+        return (array) $this->getConfig('permissions');
     }
     public function get_permission_nom ($permInt) {
         $allPermissions = \App::getInstance()->toutes_permissions();
@@ -117,4 +130,21 @@ class App {
         $auth = new Bdd\Auth($this->getBdd());
         return $auth->verif_permissions($permInt);
     }
+    
+    public function getThemeColor() {
+        $couleurs = $this->getConfig('theme');
+        
+        if ($couleurs) {
+            return <<<END
+            <style>
+:root {
+    --main-color: {$couleurs->main};
+    --main-color-lighter: {$couleurs->main_lighter};
+    --main-color-darker: {$couleurs->main_darker};
+}
+            </style>
+END;
+        }
+    }
+    
 }

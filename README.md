@@ -23,12 +23,12 @@ LE TODO
 - Léo: upload d'images
         
 - Afficher la moyenne des résultats sur la page du score (tendu) ---> nouvelle table = Vincent
-- Fonction de partage du résultat sur les réseaux sociaux sur la page de résultat
-- Confirmation de supprimer
-- Les utilisateurs doivent voir leurs questions uniquement
+- Fonction de partage du résultat sur les réseaux sociaux sur la page de résultat (Twitter fais ----> Faire les autres = Thomas)
 - Couleur de thème
 - Possibilité de changer son mail
 - Formulaire de modifier mon compte
+- Implémenter catégories
+- textes en gras et italique avec syntaxe markdown
 
 
 plutar

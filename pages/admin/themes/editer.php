@@ -12,9 +12,9 @@ if(isset($_POST['key_nom']) AND isset($_POST['nom']) AND isset($_POST['descripti
     }
     
 } else {
-    $result = $bdd -> prepare('SELECT * FROM theme WHERE id= ?', [$id_theme], true);
+    $result = $bdd -> prepare('SELECT * FROM theme WHERE id= ?', [$id_theme], null, true);
     if ($result) {
-        $theme = $result[0];
+        $theme = $result;
         ?>
         
         

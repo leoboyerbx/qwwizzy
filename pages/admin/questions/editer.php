@@ -17,8 +17,8 @@ if (!$auth->verif_permissions(7) && $question && $question->auteur_id != $user->
 
 
 
-if(isset($_POST['question']) AND isset($_POST['vf']) AND isset($_POST['txtrep']) AND isset($_POST['url_image'])){ //envoi des données si renseignées
-    $result = $bdd -> prepare('UPDATE  question SET question= ?, reponse = ?, texte_reponse = ?, url_image= ? WHERE id= ?', array($_POST['question'], $_POST['vf'], $_POST['txtrep'], $_POST['url_image'], $id_question));
+if(isset($_POST['question']) AND isset($_POST['vf']) AND isset($_POST['txtrep']) AND isset($_POST['theme']) AND isset($_POST['url_image'])){ //envoi des données si renseignées
+    $result = $bdd -> prepare('UPDATE  question SET question= ?, reponse = ?, texte_reponse = ?, theme_id=?, url_image= ? WHERE id= ?', array($_POST['question'], $_POST['vf'], $_POST['txtrep'], $_POST['theme'], $_POST['url_image'], $id_question));
     if($result){
         $app->set_flash('success', 'Question modifiée avec succès');
         header('Location: /admin/questions');
@@ -31,7 +31,10 @@ if(isset($_POST['question']) AND isset($_POST['vf']) AND isset($_POST['txtrep'])
     
     if ($question) {
         $themes = $bdd -> query("SELECT nom, id from theme");
-        ?>
+        
+
+
+?>
 
 
 <div class="admin-container">
@@ -68,7 +71,7 @@ if(isset($_POST['question']) AND isset($_POST['vf']) AND isset($_POST['txtrep'])
                 
                 foreach ($themes as $theme){
                     if ($theme->id == $question->theme_id) {
-                        echo('<option selected value=' . $theme -> id . '>' . $theme -> nom . '</option>');
+                        echo('<option neme="theme" selected value=' . $theme -> id . '>' . $theme -> nom . '</option>');
                         
                     } else {
                         echo('<option value=' . $theme -> id . '>' . $theme -> nom . '</option>');

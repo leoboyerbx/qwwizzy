@@ -22,6 +22,9 @@ if (!empty($_GET['p'])) {
     // Pages sans mise en page, qui font du traitement uniquement
 if (startsWith($page,"question/check")) {
     include ROOT.'/pages/questions/check.php';
+} else if (startsWith($page, "flashmesomestuff")) {
+    $app->set_flash('info', "Some stuff ! hehe");
+    header('Location: /admin');
 } else {
     // Pages Avec une mise en page
     // Récupération du contenu
@@ -34,8 +37,9 @@ if (startsWith($page,"question/check")) {
         ob_start();
         if ($page === "home"){
             include ROOT.'/pages/accueil.php';
-        }
-        else if (startsWith($page, 'theme/')){
+        } else if (startsWith($page, 'apropos')) {
+            include ROOT . '/pages/apropos.php';
+        } else if (startsWith($page, 'theme/')){
             $cont = new Controllers\ThemeController(substr($page, 6));
             $cont->quizz();
         } else {

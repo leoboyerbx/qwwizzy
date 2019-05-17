@@ -11,7 +11,9 @@ if ($auth->estConnecte()) {
                 <ul id="dropdown2" class="center">
                     <a href="/admin"> <li> <i class="fas fa-tachometer-alt"> </i> Dashboard </li> </a>
                     <a href="/admin/questions"> <li> <i class="fas fa-question"></i> Questions </li> </a>
+                    <?php if ($auth->verif_permissions(10)):  ?>
                     <a href=/admin/themes> <li>  <i class="far fa-clipboard"></i> Thèmes </li> </a>
+                    <?php endif; ?>
                     <a href="/admin/logout"> <li> <i class="fas fa-door-open"> </i> Déconnexion </li> </a>
                 </ul>
             </div>

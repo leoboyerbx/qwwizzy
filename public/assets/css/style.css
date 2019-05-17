@@ -117,6 +117,7 @@ main {
 }
 
 
+
 .squareimg, .roundimg {
     width: 100%;
     padding-top: 100%;
@@ -127,6 +128,55 @@ main {
     border-radius: 100%;
 }
 
+
+.dyn-msg {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    max-width: 70%;
+    animation: newmsg 0.2s ease;
+    transition: all 0.2s;
+}
+.dyn-msg.closed {
+    opacity: 0;
+}
+.dyn-msg .alert {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.2s;
+
+}
+.dyn-msg.closed .alert {
+    /*transform: translateX(150%);*/
+}
+.dyn-msg-content {
+    margin-right: 50px;
+}
+.dyn-msg-close {
+    cursor: pointer;
+    margin-left: 20px;
+}
+.dyn-msg-prompt {
+    margin-left: 40px;
+    text-align: right;
+}
+.dyn-msg-prompt .btn {
+    padding: 8px 20px;
+}
+.dyn-msg-prompt .btn:first-child, .dyn-msg-prompt .btn:first-child:hover {
+    color: #fff;
+    margin-right: 8px;
+}
+.flashmsg {
+    display: none;
+    animation: delaishow 0s 0.2s;
+}
+@keyframes delaishow {
+    from {display: none;}
+    to {display: block;}
+}
 
 #main-cont {
     padding-top: 20px;
@@ -338,6 +388,16 @@ footer {
         transform: translateX(0);
     }
 }
+
+@keyframes newmsg {
+    from {
+        transform: translateY(160%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
 
 @keyframes mauvaise_reponse {
     10% {
@@ -786,7 +846,7 @@ footer {
 /* Les règles suivantes concernent le design du footer */
 
 #copyright {
-    color: var(--back-color);
+    color: white;
 }
 
 #copyright_logo {
@@ -794,7 +854,7 @@ footer {
 }
 
 #logo_footer {
-    color: var(--back-color);
+    color: white;
     text-decoration: none;
     font-size: 30px;
     margin-top: 35px;
@@ -885,6 +945,9 @@ footer {
 
 
 /*Les règles CSS suivantes concernent la dashboard admin */
+#best_contributor_box {
+    margin-top: 8px;
+}
 
 #dashboard-container {
     margin-top: 20px;
@@ -901,6 +964,24 @@ footer {
     display: inline-block;
 }
 
-#best_contributor_box {
-    margin-top: 8px;
+
+
+#top_question_avatar {
+    border-radius: 8px;
+    background-size: cover;
+    background-position: center;
+    min-width: 130px;
+    max-width: 130px;
+    min-height: 130px;
+    max-height: 130px;
+    display: inline-block;
 }
+
+#top_question {
+    font-size: 20px;
+}
+
+#personnalisation_box {
+    padding-top: 7px;
+}
+

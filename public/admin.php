@@ -1,9 +1,11 @@
 <?php
 if (startsWith($page, "login")) { // pages sans template
     include ROOT . '/pages/admin/login.php';
-} else if (startsWith($page, "logout")) { // pages sans template
+} else if (startsWith($page, "logout")) { 
     session_destroy();
     header("Location: /");
+} else if (startsWith($page, "couleur_theme")) { 
+    include ROOT . '/pages/admin/general/edit_couleur_theme.php';
 } else {
     $auth = new Bdd\Auth($app->getBdd());
     if ($auth->estConnecte()) {

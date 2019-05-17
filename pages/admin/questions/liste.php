@@ -53,10 +53,10 @@ function crop($chaine) {
 <br>
 END;
     } else if (!empty($id_theme)) {
-        $req= $bdd->prepare('SELECT nom FROM theme WHERE id = ?', [$id_theme], true);
+        $req= $bdd->prepare('SELECT nom FROM theme WHERE id = ?', [$id_theme], null, true);
 
         echo <<<END
-<h4>Thème: <i style=\"color: #888\">{$req[0]->nom}</i></h4>
+<h4>Thème: <i style=\"color: #888\">{$req->nom}</i></h4>
 <b>Aucune question dans ce thème</b><br>
         <a href="/admin/themes" class="btn btn-outline-secondary btn-uc">Retour à la liste de thèmes</a><br>
 END;
@@ -84,7 +84,7 @@ END;
                 <td><?= crop($question->theme_nom); ?></td>
                 <td><?= $question->auteur ?></td>
                 <td class="admin-actions">
-                    <form method="post" action="/admin/questions/supprimer">
+                    <form method="post" action="/admin/questions/supprimer" class="form-delete">
                         <a href="/admin/questions/edit/<?= $question->id ?>" class="btn btn-outline-theme btn-uc"><i class="fas fa-pen" style="margin-right: 10px"></i> Modifier</a>
                         <input type="hidden" name="id_question" value="<?= $question->id; ?>" />
                         <button type="submit" class="btn btn-outline-danger btn-uc"><i class="fas fa-trash" style="margin-right: 10px"></i> Supprimer</button>

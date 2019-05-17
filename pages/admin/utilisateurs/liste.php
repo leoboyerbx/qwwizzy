@@ -32,7 +32,7 @@ $utilisateurs = $bdd -> query("SELECT *
                 <td><?= $user->email ?></td>
                 <td><?= $app->get_permission_nom($user->permissions) ?></td>
                 <td class="admin-actions">
-                    <form method="post" action="/admin/utilisateurs/supprimer">
+                    <form method="post" action="/admin/utilisateurs/supprimer" class="form-delete">
                         <a href="/admin/utilisateurs/edit/<?= $user->id ?>" class="btn btn-outline-theme btn-uc"><i class="fas fa-pen" style="margin-right: 10px"></i> Modifier</a>
                         <input type="hidden" name="id_user" value="<?= $user->id ?>"/>
                         <button type="submit" class="btn btn-outline-danger btn-uc"><i class="fas fa-trash" style="margin-right: 10px"></i> Supprimer</button>

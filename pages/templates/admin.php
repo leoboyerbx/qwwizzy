@@ -13,7 +13,7 @@ $auth = new Bdd\Auth(\App::getInstance()->getBdd());
     <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-
+    <?= \App::getInstance()->getThemeColor() ?>
 </head>
 <body>
     <div class="container-fluid">
@@ -55,7 +55,7 @@ $auth = new Bdd\Auth(\App::getInstance()->getBdd());
                         
                         ?>
                         <div id="question_menu" class="col-12">
-                            <a id="admin_question" href="admin/questions" class="menu_elements"> <div> <i class="fas fa-question"></i> Questions </div> </a>
+                            <a id="admin_question" href="/admin/questions" class="menu_elements"> <div> <i class="fas fa-question"></i> Questions </div> </a>
                             <ul id="aside_question">
                                     <div id="ajouter_question">
                                         <a href="/admin/questions/ajouter"> <li> Ajouter </li></a>

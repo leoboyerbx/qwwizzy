@@ -13,11 +13,42 @@ $nbr_parties = $result[0]->nbrparties;
 $best_contributor = $bdd->query("SELECT *
                                     FROM utilisateur
                                     WHERE id = (SELECT auteur_id
-                                    FROM question 
-                                    GROUP BY auteur_id HAVING count(*) >= ALL (SELECT count(*)
-                                                                                FROM question
-                                                                                GROUP BY auteur_id));", "\\Entites\\UserEntity", true);
+                                                FROM question 
+                                                GROUP BY auteur_id HAVING count(*) >= ALL (SELECT count(*)
+                                                                                        FROM question
+                                                                                        GROUP BY auteur_id));", "\\Entites\\UserEntity", true);
+                                                                                        
+$result = $bdd->query("SELECT count(auteur_id) as best_contributor_nb
+                        FROM question 
+                        GROUP BY auteur_id HAVING count(*) >= ALL (SELECT count(*)
+                                                                    FROM question
+                                                                    GROUP BY auteur_id);");
+$best_contributor_nb = $result[0]->best_contributor_nb;
 
+$result = $bdd->query("SELECT question as top_question              
+                            FROM question
+                            WHERE id = (SELECT question_id
+			                            FROM historique_session 
+			                            GROUP BY question_id HAVING count(*) >= ALL (SELECT count(*)
+                                            			                             FROM historique_session
+                                            			                             GROUP BY question_id) LIMIT 1);");  /*Permet de récupérer l'énoncé de la question la plus jouée*/
+$top_question = $result[0]->top_question;
+
+$result = $bdd->query("SELECT url_image as top_question_avatar
+                            FROM question
+                            WHERE id = (SELECT question_id
+			                            FROM historique_session 
+			                            GROUP BY question_id HAVING count(*) >= ALL (SELECT count(*)
+                                            			                             FROM historique_session
+                                            			                             GROUP BY question_id) LIMIT 1);");    /*Permet de récupérer l'image de la question la plus jouée*/
+$top_question_avatar = $result[0]->top_question_avatar;
+
+$result = $bdd->query("SELECT count(question_id) as nb_jeux_top_question
+			            FROM historique_session 
+			            GROUP BY question_id HAVING count(*) >= ALL (SELECT count(*)
+                                            			             FROM historique_session
+                                            			             GROUP BY question_id);"); /*Permet de récupérer le nombre de fois qu'à était jouée la question la plus jouée */
+$nb_jeux_top_question = $result[0]->nb_jeux_top_question;
 
 $auth = new Bdd\Auth($app->getBdd());
 $user = $auth->getUser();
@@ -31,72 +62,136 @@ $user = $auth->getUser();
     echo $app->get_flash();
     ?>
     <div class="row">
-        <div class="col-6">
-            <div class="card">
-                <div class="card-header">
-                    Vue d'ensemble
-                </div>
-                <div class="card-body center">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <h5 class="card-title">Nombre de questions</h5>
-                            <p class="card-text dashboard-stat"><?= $nbr_questions ?></p>
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            Vue d'ensemble
                         </div>
-                        <div class="col-lg-6">
-                            <h5 class="card-title">Nombre de thèmes</h5>
-                            <p class="card-text dashboard-stat"><?= $nbr_themes ?></p>
+                        <div class="card-body center">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <h5 class="card-title">Nombre de questions</h5>
+                                    <p class="card-text dashboard-stat"><?= $nbr_questions ?></p>
+                                </div>
+                                <div class="col-lg-6">
+                                    <h5 class="card-title">Nombre de thèmes</h5>
+                                    <p class="card-text dashboard-stat"><?= $nbr_themes ?></p>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <h5 class="card-title">Nombre de parties jouées</h5>
+                                    <p class="card-text dashboard-stat"><?= $nbr_parties ?></p>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <hr>
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <h5 class="card-title">Nombre de parties jouées</h5>
-                            <p class="card-text dashboard-stat"><?= $nbr_parties ?></p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="card" id="best_contributor_box">
+                        <div class="card-header">
+                            Meilleur contributeur question
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12 text-center">
+                                    <div id="best_contributor_avatar" class="center" style="background-image: url(<?= $best_contributor->getAvatar() ?>)"></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div id="best_contributor_name" class="col-md-12 dashboard-stat text-center">
+                                    <?= $best_contributor->pseudo ?>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div id="top_question" class="col-md-12 dashboard-stat text-center">
+                                    Nombre de questions créées : <b><?= $best_contributor_nb ?></b> questions
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-6">
-            <div class="card">
-                <div class="card-header">
-                    Mon compte
-                </div>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-3" id="admin-user-img">
-                            
-                            <a href="/admin/utilisateurs/changeimage"><div class="roundimg" style="background-image: url(<?= $user->getAvatar() ?>)"></div><!--<img src="" alt="user" title="Modifier ma photo">--></a>
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            Mon compte
                         </div>
-                        <div class="col-md-9" class="admin-user-pseudo">
-                            <h5><?= $user->pseudo ?></h5>
-                            <h6><i><?= $auth->get_permission_nom() ?></i></h6>
-                            <?= $user->email ?> <a style="margin-left: 8px;" href="/admin/utilisateurs/changemail" class="btn btn-outline-theme">Modifier</a>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="row">
-                        <div class="col-12 center">
-                            <a href="/admin/utilisateurs/changemdp" class="btn btn-theme">Changer mon mot de passe</a>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-3" id="admin-user-img">
+                                    
+                                    <a href="/admin/utilisateurs/changeimage"><div class="roundimg" style="background-image: url(<?= $user->getAvatar() ?>)"></div><!--<img src="" alt="user" title="Modifier ma photo">--></a>
+                                </div>
+                                <div class="col-sm-9" class="admin-user-pseudo">
+                                    <h5><?= $user->pseudo ?></h5>
+                                    <h6><i><?= $auth->get_permission_nom() ?></i></h6>
+                                    <?= $user->email ?> <a style="margin-left: 8px;" href="/admin/utilisateurs/changemail" class="btn btn-outline-theme">Modifier</a>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-12 center">
+                                    <a href="/admin/utilisateurs/changemdp" class="btn btn-theme">Changer mon mot de passe</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-6">
-            <div class="card" id="best_contributor_box">
-                <div class="card-header">
-                    Meilleur contributeur question
-                </div>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-12 text-center">
-                            <div id="best_contributor_avatar" class="center" style="background-image: url(<?= $best_contributor->getAvatar() ?>)"></div>
+            <?php if ($auth->verif_permissions(10)):  ?>
+            <div class="row">
+                <div class="col-12" id="personnalisation_box">
+                    <div class="card">
+                        <div class="card-header">
+                            Personnalisation
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="url_image">Couleur dominante du site</label>
+                                <input type="text" class="form-control jscolor" name="jscolor" id="sitecolor" value="<?= $app->getConfig('theme')->main ?>">
+                            </div>
+                            <hr>
+                            <p>Utiliser un préréglage</p>
+                            <a style="background-color: #2CA78A" class="btn colorpreset"></a>
                         </div>
                     </div>
-                    <div class="row">
-                        <div id="best_contributor_name" class="col-md-12 dashboard-stat text-center">
-                            <?= $best_contributor->pseudo ?>
+                </div>
+            </div>
+            <?php endif; ?>
+            <div class="row">
+                <div class="col-12">
+                    <div class="card" id="best_contributor_box">
+                        <div class="card-header">
+                            Question la plus jouée
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12 text-center">
+                                    <div id="top_question_avatar" style="background-image: url(<?= $top_question_avatar ?>)"></div>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div id="top_question" class="col-md-12 dashboard-stat text-center">
+                                    <?= $top_question ?>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div id="top_question" class="col-md-12 dashboard-stat text-center">
+                                    Question jouée <b><?= $nb_jeux_top_question ?></b> fois.
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -104,3 +199,8 @@ $user = $auth->getUser();
         </div>
     </div>
 </div>
+
+
+
+<script src="/assets/js/lib/jscolor.js"></script>
+<script>document.page="dashboard"</script>
