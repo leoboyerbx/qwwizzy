@@ -29,8 +29,10 @@ LE TODO
 - Couleur de thème
 - Possibilité de changer son mail
 - Formulaire de modifier mon compte
+- séparer le js
 
 
 plutar
 - Restructurer les url d'ajout par theme
 - bouger liste permissions names vers config table
+- filtre des thèmes sur page d'accueil
