@@ -27,10 +27,15 @@ LE TODO
 - Couleur de thème
 - Possibilité de changer son mail
 - Formulaire de modifier mon compte
+<<<<<<< HEAD
 - Implémenter catégories
 - textes en gras et italique avec syntaxe markdown
+=======
+- séparer le js
+>>>>>>> d8b3454529c194ea7ac688cbea2f36dfa563f228
 
 
 plutar
 - Restructurer les url d'ajout par theme
 - bouger liste permissions names vers config table
+- filtre des thèmes sur page d'accueil
