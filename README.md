@@ -17,25 +17,28 @@ maquette : https://xd.adobe.com/view/cad1f5ab-9bea-4a7a-54e1-3c29d48dd26a-bce0/
 
 
 
-
 LE TODO
 
-- Léo: upload d'images
-        
-- Afficher la moyenne des résultats sur la page du score (tendu) ---> nouvelle table = Vincent
-- Fonction de partage du résultat sur les réseaux sociaux sur la page de résultat (Twitter fais ----> Faire les autres = Thomas)
-- Couleur de thème
-- Possibilité de changer son mail
-- Formulaire de modifier mon compte
-<<<<<<< HEAD
-- Implémenter catégories
-- textes en gras et italique avec syntaxe markdown
-=======
-- séparer le js
->>>>>>> d8b3454529c194ea7ac688cbea2f36dfa563f228
+- [ ] Afficher la moyenne des résultats sur la page du score (tendu) ---> nouvelle table = Vincent
 
+- [ ] Fonction de partage du résultat sur les réseaux sociaux sur la page de résultat (Twitter fais ----> Faire les autres = Thomas)
+
+- [x] Couleur de thème
+
+- [ ] Possibilité de changer son mail
+
+- [ ] Formulaire de modifier mon compte
+
+- [ ] Implémenter catégories
+
+- [x] Editeur de text visuel
+
+- [x] séparer le js
+- [ ] ajouter des boutons retour là ou il n'y en a pas
+- [ ] virer les onglets upload
 
 plutar
-- Restructurer les url d'ajout par theme
-- bouger liste permissions names vers config table
-- filtre des thèmes sur page d'accueil
+
+- [ ] Restructurer les url d'ajout par theme
+- [ ] bouger liste permissions names vers config table
+- [ ] filtre des thèmes sur page d'accueil

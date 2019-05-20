@@ -12,9 +12,12 @@ if(isset($_POST['key_nom']) AND isset($_POST['nom']) AND isset($_POST['descripti
     
 }
 ?>
+
+<!--Plugin editeur de texte-->
+<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
 <div class="admin-container">
     <h1>Ajouter un thème</h1>
-    <form method="post">
+    <form method="post" class="form-editeur">
         <div class="form-group">
             <label for="key_nom">Nom d'url <i>(Automatique, double-cliquer pour personnaliser)</i></label>
             <input type="text" class="form-control" name="key_nom" readonly>
@@ -25,14 +28,18 @@ if(isset($_POST['key_nom']) AND isset($_POST['nom']) AND isset($_POST['descripti
         </div>
         <div class="form-group">
             <label for="description">Description</label>
-            <textarea class="form-control" name="description"></textarea>
+            <input type="hidden" name="description" id="editeurval" />
+            <div id="editeur">
+            </div>
         </div>
         <div class="form-group">
             <label for="url_image">URL Image</label>
-            <input type="text" class="form-control" name="url_image">
+            <input type="text" class="form-control" name="url_image" id='url_image'>
         </div>
         <input type=submit class="btn btn-primary" value="Enregistrer">
     </form>
  </div>
 
-<script type="text/javascript">document.page = "ajouter"</script>
+<script defer src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+<script defer src="/assets/js/admin/edittheme.js" type="text/javascript"></script>
+<script defer src="/assets/js/admin/editeur.js"></script>

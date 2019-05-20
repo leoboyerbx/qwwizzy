@@ -162,7 +162,15 @@ $user = $auth->getUser();
                             </div>
                             <hr>
                             <p>Utiliser un préréglage</p>
-                            <a style="background-color: #2CA78A" class="btn colorpreset"></a>
+                            <div id="colorpresets">
+                                <a style="background-color: #c10000" data-color="#c10000" class="btn colorpreset"></a>
+                                <a style="background-color: #260033" data-color="#260033" class="btn colorpreset"></a>
+                                <a style="background-color: #05445c" data-color="#05445c" class="btn colorpreset"></a>
+                                <a style="background-color: #4bc2c5" data-color="#4bc2c5" class="btn colorpreset"></a>
+                                <a style="background-color: #005792" data-color="#005792" class="btn colorpreset"></a>
+                                <a style="background-color: #fd5f00" data-color="#fd5f00" class="btn colorpreset"></a>
+                                <a style="background-color: #2E94B9" data-color="#2E94B9" class="btn colorpreset"></a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -203,4 +211,4 @@ $user = $auth->getUser();
 
 
 <script src="/assets/js/lib/jscolor.js"></script>
-<script>document.page="dashboard"</script>
+<script defer src="/assets/js/admin/dashboard.js"></script>

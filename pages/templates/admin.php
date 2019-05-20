@@ -14,6 +14,9 @@ $auth = new Bdd\Auth(\App::getInstance()->getBdd());
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <?= \App::getInstance()->getThemeColor() ?>
+    
+    
+    <script defer type="text/javascript" src="/assets/js/admin/admin.js"></script>
 </head>
 <body>
     <div class="container-fluid">
@@ -97,6 +100,5 @@ $auth = new Bdd\Auth(\App::getInstance()->getBdd());
         </div>
     </div>
     
-    <script type="text/javascript" src="/assets/js/admin.js"></script>
 </body>
 </html>

@@ -25,4 +25,4 @@
         </div>
     </main>
     
-    <script type="text/javascript">document.page = "question"</script>
+    <script defer src="/assets/js/app/question.js" type="text/javascript"></script>

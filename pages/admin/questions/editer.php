@@ -36,11 +36,13 @@ if(isset($_POST['question']) AND isset($_POST['vf']) AND isset($_POST['txtrep'])
 
 ?>
 
+<!--Plugin editeur de texte-->
+<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
 
 <div class="admin-container">
     <h1>Modifier une question</h1>
     <?= $app->get_flash() ?>
-    <form method="post">
+    <form method="post" class="form-editeur">
         <div class="form-group">
             <label for="question">Question</label>
             <input type="text" class="form-control" name="question" id="admin-question" value="<?= $question->question ?>">
@@ -58,7 +60,10 @@ if(isset($_POST['question']) AND isset($_POST['vf']) AND isset($_POST['txtrep'])
         <!--</div>-->
         <div class="form-group">
             <label for="txtrep">Texte réponse</label>
-            <textarea class="form-control" name="txtrep" id=txtrep><?= $question->texte_reponse ?></textarea>
+            <input type="hidden" class="form-control" name="txtrep" id="editeurval" />
+            <div id="editeur">
+                <?= $question->texte_reponse ?>
+            </div>
         </div>
         <div class="form-group">
             <label for="url_image">URL Image</label>
@@ -85,6 +90,10 @@ if(isset($_POST['question']) AND isset($_POST['vf']) AND isset($_POST['txtrep'])
         
         <input type=submit class="btn btn-primary" value="Enregistrer">
     </form>
+    
+    
+<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+<script defer src="/assets/js/admin/editeur.js"></script>
  </div>
         <?php
     } else {

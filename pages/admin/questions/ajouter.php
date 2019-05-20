@@ -36,10 +36,12 @@ if (isset($id_theme)) {
 
 
 
+<!--Plugin editeur de texte-->
+<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
 <div class="admin-container">
     <h1>Ajouter une question<?= !empty($theme) ? " au thème ".$theme : "" ?></h1>
     <?= $app->get_flash() ?>
-    <form method="post">
+    <form method="post" class="form-editeur">
         <div class="form-group">
             <label for="question">Question</label>
             <input type="text" class="form-control" name="question" id="admin-question">
@@ -57,11 +59,13 @@ if (isset($id_theme)) {
         <!--</div>-->
         <div class="form-group">
             <label for="txtrep">Texte réponse</label>
-            <textarea class="form-control" name="txtrep" id=txtrep></textarea>
+            <input type="hidden" name="txtrep" id="editeurval" />
+            <div id="editeur">
+            </div>
         </div>
         <div class="form-group">
             <label for="url_image">URL Image</label>
-            <input type="text" class="form-control" name="url_image" id=url_image>
+            <input type="text" class="form-control" name="url_image" id="url_image">
         </div>
         <?php
         if (!empty($reponse)) {
@@ -88,4 +92,5 @@ if (isset($id_theme)) {
     </form>
  </div>
 
-<script type="text/javascript">document.page = "ajouterQuestion"</script>
+<script defer src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+<script defer src="/assets/js/admin/editeur.js"></script>

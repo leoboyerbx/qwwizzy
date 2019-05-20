@@ -44,4 +44,5 @@ if (!empty($_POST['oldpass']) && !empty($_POST['newpass'])) {
     </div>
 </div>
 
-<script type="text/javascript">document.page = "changemdp"</script>
+
+<script defer src="/assets/js/admin/changemdp.js" type="text/javascript"></script>

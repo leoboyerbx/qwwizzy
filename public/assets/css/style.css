@@ -951,6 +951,7 @@ footer {
 
 #dashboard-container {
     margin-top: 20px;
+    margin-bottom: 30px;
 }
 
 #best_contributor_avatar {
@@ -985,3 +986,15 @@ footer {
     padding-top: 7px;
 }
 
+#colorpresets {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+.colorpreset {
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    margin: 8px;
+}

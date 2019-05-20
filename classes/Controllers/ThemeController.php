@@ -70,7 +70,7 @@ class ThemeController {
             $question = $question;
             $question->iter = $this->iter_question;
             $id_session = $this->id_session;
-            include ROOT.'/pages/questions/question.php';
+            include ROOT.'/pages/quizz/question.php';
         }
     }
     

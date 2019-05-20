@@ -27,4 +27,4 @@
         </div>
     </main>
     
-<script type="text/javascript">document.page = "finquizz"</script>
+<script defer src="/assets/js/app/finquizz.js" type="text/javascript"></script>

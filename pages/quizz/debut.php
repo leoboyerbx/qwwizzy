@@ -19,4 +19,3 @@
         </div>
     </main>
     
-    <!--<script type="text/javascript">document.page = "debut"</script>-->

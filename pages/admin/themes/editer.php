@@ -18,9 +18,12 @@ if(isset($_POST['key_nom']) AND isset($_POST['nom']) AND isset($_POST['descripti
         ?>
         
         
+
+<!--Plugin editeur de texte-->
+<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
 <div class="admin-container">
     <h1>Modifier le thème <i><?= $theme->nom ?></i></h1>
-    <form method="post">
+    <form method="post" class="form-editeur">
         <div class="form-group">
             <label for="key_nom">Nom d'url <i>(Automatique, double-cliquer pour personnaliser)</i></label>
             <input type="text" class="form-control" name="key_nom" value="<?= $theme->key_nom ?>" readonly>
@@ -31,7 +34,12 @@ if(isset($_POST['key_nom']) AND isset($_POST['nom']) AND isset($_POST['descripti
         </div>
         <div class="form-group">
             <label for="description">Description</label>
-            <textarea class="form-control" name="description"><?= $theme->description ?></textarea>
+            
+            <input type="hidden" name="txtrep" id="editeurval" />
+            <div id="editeur">
+                <?= $theme->description ?>
+            </div>
+            
         </div>
         <ul class="nav nav-tabs" id="onglets" role="tablist">
           <li class="nav-item">
@@ -58,7 +66,12 @@ if(isset($_POST['key_nom']) AND isset($_POST['nom']) AND isset($_POST['descripti
     </form>
  </div>
  
- <script type="text/javascript">document.page="edit"; document.upload = true</script>
+ 
+ 
+<script defer src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+<script defer src="/assets/js/admin/edittheme.js" type="text/javascript"></script>
+<script defer src="/assets/js/admin/editeur.js" type="text/javascript"></script>
+
         <?php
     } else {
         $app->set_flash('danger', "Le thème demandé est introuvable.");
