@@ -39,7 +39,7 @@ if (!empty($_POST['oldpass']) && !empty($_POST['newpass'])) {
                 <input type="password" class="form-control" name="newpass" id="mdp_confirm" placeholder="Confirmer nouveau mot de passe">
             </div>
             <input type=submit class="btn btn-primary btn_changement_mdp" value="Enregistrer" id="btn_sub_change">
-            <a class="btn btn-outline-secondary btn_changement_mdp" href="/admin">Annuler</a>
+            <a class="btn btn-outline-secondary btn_changement_mdp btn-retour" href="/admin">Retour</a>
         </form>
     </div>
 </div>

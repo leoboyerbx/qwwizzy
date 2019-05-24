@@ -51,8 +51,6 @@ if(isset($_POST['pseudo']) AND isset($_POST['email']) AND isset($_POST['permissi
             </select>
         </div>
         <input type=submit class="btn btn-primary" value="Enregistrer">
-        <a href="/admin/utilisateurs" class="btn btn-secondary">Annuler</a>
+        <a href="/admin/utilisateurs" class="btn btn-secondary btn-retour">Retour</a>
     </form>
  </div>
-
-<script type="text/javascript">document.page = ""</script>

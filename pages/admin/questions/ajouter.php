@@ -89,6 +89,7 @@ if (isset($id_theme)) {
         ?>
         
         <input type=submit class="btn btn-primary" value="Enregistrer">
+        <a class="btn btn-outline-secondary btn-retour" href="/admin/questions">Retour</a>
     </form>
  </div>
 

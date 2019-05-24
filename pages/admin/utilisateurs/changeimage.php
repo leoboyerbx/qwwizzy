@@ -37,6 +37,6 @@ if (!empty($_FILES['photo'])) {
             <input type="file" class="form-control-file" name="photo">
         </div>
         <input type=submit class="btn btn-primary" value="Enregistrer">
-        <a class="btn btn-outline-secondary" href="/admin">Annuler</a>
+        <a class="btn btn-outline-secondary btn-retour" href="/admin">Retour</a>
     </form>
 </div>

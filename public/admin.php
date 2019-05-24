@@ -43,6 +43,11 @@ if (startsWith($page, "login")) { // pages sans template
             include ROOT . '/pages/admin/themes/liste.php';
         }
 
+        else if (startsWith($page, "categories")) {
+            $auth->auth_permission(7);
+            include ROOT . '/pages/admin/categories/liste.php';
+        }
+
         //Questions
         else if (startsWith($page, "questions/ajouter")) {
             $auth->auth_permission(5);

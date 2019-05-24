@@ -843,6 +843,32 @@ footer {
     top: 10%;
 }
 
+.anim_astro {        /* règles pour l'naimation de  l'astronaute */
+    animation-duration: 30s;
+    animation-iteration-count: infinite;
+    animation-name: astro;
+    animation-timing-function: linear;
+}
+
+@keyframes astro {
+  0% {
+    right: 19%;
+    top: 10%;
+  }
+  
+  50% {
+    right:49%;
+    top: 10%;
+    transform: rotate(0.2turn);
+  } 
+  
+  100% {
+    right: 19%;
+    top: 10%;
+    rotate(0.4turn)
+  }
+}
+
 /* Les règles suivantes concernent le design du footer */
 
 #copyright {
@@ -997,4 +1023,45 @@ footer {
     height: 30px;
     border-radius: 15px;
     margin: 8px;
+}
+
+/* Premiere ligne de la dashboard qui permet l'affichage des stats du site */
+
+.stat_row {
+    padding: 15px;
+    padding-top: 0px;
+}
+
+.stat_box {
+    border: solid 1px;
+    border-radius: 5px;
+    padding: 25px;
+    color: white;
+    font-size: 20px;
+}
+
+.stat {
+    font-family: zeitung-micro, sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+#box_nb_questions {
+    background-color: #39B585;
+    background-image: linear-gradient(to bottom right, #29825F, #5DC29B);
+}
+
+#box_nb_themes {
+    background-color: #584DF9;
+    background-image: linear-gradient(to bottom right, #4139B6, #857DFA);
+}
+
+#box_nb_parties {
+    background-color: #D81159;
+    background-image: linear-gradient(to bottom right, #B10E49, #DF3C77);
+}
+
+#box_nb_inscrits {
+    background-color: #FFC456;
+    background-image: linear-gradient(to bottom right, #B58B3D, #FFC760);
 }

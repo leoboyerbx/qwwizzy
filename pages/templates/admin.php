@@ -51,6 +51,9 @@ $auth = new Bdd\Auth(\App::getInstance()->getBdd());
                                         <div id="apercu_theme">
                                             <a href="/admin/themes"> <li> Aperçu </li></a>
                                         </div>
+                                        <div id="apercu_theme">
+                                            <a href="/admin/categories"> <li> Catégories </li></a>
+                                        </div>
                                 </ul>
                         </div>
                         <?php

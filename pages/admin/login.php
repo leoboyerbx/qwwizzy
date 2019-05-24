@@ -23,6 +23,7 @@ if (!empty($_POST['pseudo']) && !empty($_POST['pass'])) {
     <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <?= $app->getThemeColor() ?>
 </head>
 <body class="text-center">
     <header id="header_login">

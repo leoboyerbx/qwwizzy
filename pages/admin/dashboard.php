@@ -50,6 +50,10 @@ $result = $bdd->query("SELECT count(question_id) as nb_jeux_top_question
                                             			             GROUP BY question_id);"); /*Permet de récupérer le nombre de fois qu'à était jouée la question la plus jouée */
 $nb_jeux_top_question = $result[0]->nb_jeux_top_question;
 
+$result = $bdd->query("SELECT count(pseudo) as nb_users
+                       FROM utilisateur;");    /*  Récupère le nombre de comptes*/
+$nbr_users = $result[0]->nb_users;
+
 $auth = new Bdd\Auth($app->getBdd());
 $user = $auth->getUser();
 
@@ -62,35 +66,57 @@ $user = $auth->getUser();
     echo $app->get_flash();
     ?>
     <div class="row">
-        <div class="col-md-6">
-            <div class="row">
-                <div class="col-12">
-                    <div class="card">
-                        <div class="card-header">
-                            Vue d'ensemble
-                        </div>
-                        <div class="card-body center">
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <h5 class="card-title">Nombre de questions</h5>
-                                    <p class="card-text dashboard-stat"><?= $nbr_questions ?></p>
-                                </div>
-                                <div class="col-lg-6">
-                                    <h5 class="card-title">Nombre de thèmes</h5>
-                                    <p class="card-text dashboard-stat"><?= $nbr_themes ?></p>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <h5 class="card-title">Nombre de parties jouées</h5>
-                                    <p class="card-text dashboard-stat"><?= $nbr_parties ?></p>
-                                </div>
-                            </div>
-                        </div>
+        <div class="col-3 stat_row">
+            <div class="stat_box" id="box_nb_questions">
+                <div class="row">
+                    <div class="col-9">
+                        <span class="stat"> <?= $nbr_questions ?> questions</span> 
+                    </div>
+                    <div class="col-3"> 
+                        <i class="fas fa-question"></i>
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="col-3 stat_row">
+            <div class="stat_box" id="box_nb_themes">
+                <div class="row">
+                    <div class="col-9">
+                        <span class="stat"> <?= $nbr_themes ?> thèmes</span> 
+                    </div>
+                    <div class="col-3"> 
+                        <i class="far fa-clipboard"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-3 stat_row">
+            <div class="stat_box" id="box_nb_parties">
+                <div class="row">
+                    <div class="col-9">
+                        <span class="stat"> <?= $nbr_parties ?> parties</span> 
+                    </div>
+                    <div class="col-3"> 
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-3 stat_row">
+            <div class="stat_box" id="box_nb_inscrits">
+                <div class="row">
+                    <div class="col-9">
+                        <span class="stat"> <?= $nbr_users ?> inscrits</span> 
+                    </div>
+                    <div class="col-3"> 
+                        <i class="fas fa-user"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
             <div class="row">
                 <div class="col-12">
                     <div class="card" id="best_contributor_box">
@@ -112,6 +138,34 @@ $user = $auth->getUser();
                             <div class="row">
                                 <div id="top_question" class="col-md-12 dashboard-stat text-center">
                                     Nombre de questions créées : <b><?= $best_contributor_nb ?></b> questions
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="card" id="best_contributor_box">
+                        <div class="card-header">
+                            Question la plus jouée
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12 text-center">
+                                    <div id="top_question_avatar" style="background-image: url(<?= $top_question_avatar ?>)"></div>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div id="top_question" class="col-md-12 dashboard-stat text-center">
+                                    <?= $top_question ?>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div id="top_question" class="col-md-12 dashboard-stat text-center">
+                                    Question jouée <b><?= $nb_jeux_top_question ?></b> fois.
                                 </div>
                             </div>
                         </div>
@@ -176,34 +230,6 @@ $user = $auth->getUser();
                 </div>
             </div>
             <?php endif; ?>
-            <div class="row">
-                <div class="col-12">
-                    <div class="card" id="best_contributor_box">
-                        <div class="card-header">
-                            Question la plus jouée
-                        </div>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-12 text-center">
-                                    <div id="top_question_avatar" style="background-image: url(<?= $top_question_avatar ?>)"></div>
-                                </div>
-                            </div>
-                            <br>
-                            <div class="row">
-                                <div id="top_question" class="col-md-12 dashboard-stat text-center">
-                                    <?= $top_question ?>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div id="top_question" class="col-md-12 dashboard-stat text-center">
-                                    Question jouée <b><?= $nb_jeux_top_question ?></b> fois.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 </div>

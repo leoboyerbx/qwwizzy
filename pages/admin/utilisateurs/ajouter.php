@@ -40,7 +40,7 @@ if(isset($_POST['pseudo']) AND isset($_POST['email']) AND isset($_POST['pass']) 
             </select>
         </div>
         <input type=submit class="btn btn-primary" value="Ajouter">
-        <a href="/admin/utilisateurs" class="btn btn-secondary">Annuler</a>
+        <a href="/admin/utilisateurs" class="btn btn-secondary btn-retour">Retour</a>
     </form>
  </div>
 

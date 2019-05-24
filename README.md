@@ -36,6 +36,7 @@ LE TODO
 - [x] séparer le js
 - [ ] ajouter des boutons retour là ou il n'y en a pas
 - [ ] virer les onglets upload
+- [ ] problemes de design firefox
 
 plutar
 

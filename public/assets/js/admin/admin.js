@@ -157,6 +157,13 @@ function lightenDarkenColor (c,p) {
         })
     }
     
+    $$('.btn-retour').forEach(btn => {
+        btn.addEventListener('click', e => {
+            e.preventDefault()
+            history.go(-1)
+        })
+    })
+    
     document.addEventListener('DOMContentLoaded', function() {
         DynamicMessage.autoFromFlash()
     })
