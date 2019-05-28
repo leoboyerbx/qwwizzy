@@ -115,8 +115,20 @@ main {
     background-color: var(--main-color);
     color: #fff;
 }
+.btn-transparent-dark {
+    background-color: rgba(20, 20, 20, 0.5);
+    color: #fff;
+}
+.btn-transparent-dark:hover {
+    background-color: rgba(20, 20, 20, 0.8);;
+    color: #fff;
+}
 
-
+.form-check-input {
+    width: 18px;
+    height: 18px;
+    margin-right: 5px;
+}
 
 .squareimg, .roundimg {
     width: 100%;
@@ -146,6 +158,7 @@ main {
     justify-content: space-between;
     align-items: center;
     transition: all 0.2s;
+    box-shadow: 0px 0px 20px -10px rgba(0, 0, 0, 0.4);
 
 }
 .dyn-msg.closed .alert {
@@ -214,7 +227,24 @@ footer {
     /*display : table-row;*/
     width: 100%;
 }
-
+.slide-canvas {
+    position: relative;
+}
+.slide-content {
+    color: #fff;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 40px;
+    bottom: 20px;
+    width: auto;
+}
+.slide-content .squareimg {
+    width: 90%;
+}
+.slide-text {
+    padding-top: 20px;
+}
 
 #dropdown{
     visibility: hidden;
@@ -557,7 +587,7 @@ footer {
 }
 
 #theme_menu > ul {
-    width: 100%;         /* Permet d'élargir le menu aside */
+    width: 100%;         /* Permet d'Ã©largir le menu aside */
     opacity: 0;
     transition: 0.3s ease-out;
 }
@@ -566,14 +596,14 @@ footer {
     padding: 15px; /* Permet d'augmenter la hauteur du menu aside */
 }
 
-#theme_menu > ul > div > a {   /* Sélectionner le lien pour le centrer dans le menu */
+#theme_menu > ul > div > a {   /* SÃ©lectionner le lien pour le centrer dans le menu */
     text-align: center;
     text-decoration: none;
     color: white;
 } 
 
 #theme_menu > ul > div:hover {
-    background-color: rgba(255, 255, 255, 0.2);    /* Donne une couleur de fond diffrente au sous menu ciblé */ 
+    background-color: rgba(255, 255, 255, 0.2);    /* Donne une couleur de fond diffrente au sous menu ciblÃ© */ 
 } 
 
 
@@ -606,7 +636,7 @@ footer {
 }
 
 #question_menu > ul  {    
-    width: 100%;         /* Permet d'élargir le menu aside */
+    width: 100%;         /* Permet d'Ã©largir le menu aside */
     opacity: 0;
 }
 
@@ -614,14 +644,14 @@ footer {
     padding: 15px;        /* Permet d'augmenter la hauteur du menu aside */
 }
 
-#question_menu > ul > div > a {   /* Sélectionner le lien pour le centrer dans le menu */
+#question_menu > ul > div > a {   /* SÃ©lectionner le lien pour le centrer dans le menu */
     text-align: center;
     text-decoration: none;
     color: white;
 } 
 
 #question_menu > ul > div:hover {
-    background-color: rgba(255, 255, 255, 0.2);    /* Donne une couleur de fond diffrente au sous menu ciblé */ 
+    background-color: rgba(255, 255, 255, 0.2);    /* Donne une couleur de fond diffrente au sous menu ciblÃ© */ 
     transition: all 0.2s;
 } 
 
@@ -657,7 +687,7 @@ footer {
 }
 
 #utilisateurs_menu > ul  {    
-    width: 100%;         /* Permet d'élargir le menu aside */
+    width: 100%;         /* Permet d'Ã©largir le menu aside */
     opacity: 0;
 }
 
@@ -665,14 +695,14 @@ footer {
     padding: 15px;        /* Permet d'augmenter la hauteur du menu aside */
 }
 
-#utilisateurs_menu > ul > div > a {   /* Sélectionner le lien pour le centrer dans le menu */
+#utilisateurs_menu > ul > div > a {   /* SÃ©lectionner le lien pour le centrer dans le menu */
     text-align: center;
     text-decoration: none;
     color: white;
 } 
 
 #utilisateurs_menu > ul > div:hover {
-    background-color: rgba(255, 255, 255, 0.2);    /* Donne une couleur de fond diffrente au sous menu ciblé */ 
+    background-color: rgba(255, 255, 255, 0.2);    /* Donne une couleur de fond diffrente au sous menu ciblÃ© */ 
     transition: all 0.2s;
 } 
 
@@ -702,7 +732,7 @@ footer {
 /*}*/
 
 
-/* Les règles CSS suivantes concernent la page login.php */
+/* Les rÃ¨gles CSS suivantes concernent la page login.php */
 
 .form-signin {
     width: 100%;
@@ -737,7 +767,7 @@ footer {
     background-color: var(--back-color);
 }
 
-/* Couleur verte et rouge pour la vérif de nouveau mdp */
+/* Couleur verte et rouge pour la vÃ©rif de nouveau mdp */
 
 .red {
     background-color: #EF7994;
@@ -748,7 +778,7 @@ footer {
 }
 
 
-/*Les règles CSS suivantes concernent la page changemdp.php */
+/*Les rÃ¨gles CSS suivantes concernent la page changemdp.php et changemail.php */
 
 .changemdp_box {    /*Modifie la box dans laquelle est contenu le formulaire */
     width: 100%;
@@ -760,16 +790,20 @@ footer {
     margin-top: 30px;
 }
 
-.spacer_change_mdp {     /* Permet les margin des éléments de la box */
+.spacer_change_mdp {     /* Permet les margin des Ã©lÃ©ments de la box */
     margin-bottom: 30px;
 }
 
-/*#form_change_mdp > div > input{       ------> En parler avec Léo 
+/*#form_change_mdp > div > input{       ------> En parler avec LÃ©o 
     background-color: var(--back-color);
 }*/
 
-.btn_changement_mdp {    /*Permet de gérer le margin entre les 2 boutons de la page */
+.btn_changement_mdp {    /*Permet de gÃ©rer le margin entre les 2 boutons de la page */
     margin: 10px;
+}
+
+.change_mdp-container {
+    position: relative;
 }
 
  /*onglets dans l'admin*/
@@ -777,16 +811,16 @@ footer {
     padding: 20px;
 }
 #preview-image {
-    width: 150px;
-    height: 150px;
     border-radius: 8px;
-    -webkit-background-size: cover;
-    background-size: cover;
-    margin-bottom: 5px;
+    background-color: #ccc;
+    background-image: url('/assets/img/default.png');
+}
+#edit-imgbloc {
+    padding: 5px;
+    margin: 10px;
 }
 
-
-/* Les règles suivantes concernent le design de la page 404 */
+/* Les rÃ¨gles suivantes concernent le design de la page 404 */
 
 #corp_404 {
     background-color: black;
@@ -843,7 +877,7 @@ footer {
     top: 10%;
 }
 
-.anim_astro {        /* règles pour l'naimation de  l'astronaute */
+.anim_astro {        /* rÃ¨gles pour l'naimation de  l'astronaute */
     animation-duration: 30s;
     animation-iteration-count: infinite;
     animation-name: astro;
@@ -865,11 +899,11 @@ footer {
   100% {
     right: 19%;
     top: 10%;
-    rotate(0.4turn)
+    rotate(0.4turn);
   }
 }
 
-/* Les règles suivantes concernent le design du footer */
+/* Les rÃ¨gles suivantes concernent le design du footer */
 
 #copyright {
     color: white;
@@ -888,7 +922,7 @@ footer {
 
 
 
-/* Les règles suivantes concernent l'avatar utilisateurs dans le header lorsqu'il est connecté */
+/* Les rÃ¨gles suivantes concernent l'avatar utilisateurs dans le header lorsqu'il est connectÃ© */
 
 #header_avatar {
     border-radius: 100%;
@@ -909,11 +943,11 @@ footer {
     /*padding-top: 3%;*/
 }
 
-#div_admin_header {
+#div_header {
     padding-right: 20px;
 }
 
-/* Toutes les règles suivantes concernent le menu dropdown admin */
+/* Toutes les rÃ¨gles suivantes concernent le menu dropdown admin */
 
 #dropdown2{
     visibility: hidden;
@@ -962,15 +996,19 @@ footer {
     text-decoration: none;
     color: white;
 }
+.title_cat {
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
 
-/*Les règles CSS suivantes concernent les boutons de partage de résultats à la fin des quizz */
+/*Les rÃ¨gles CSS suivantes concernent les boutons de partage de rÃ©sultats Ã  la fin des quizz */
 
 #twitter {
     font-size: 50px;
 }
 
 
-/*Les règles CSS suivantes concernent la dashboard admin */
+/*Les rÃ¨gles CSS suivantes concernent la dashboard admin */
 #best_contributor_box {
     margin-top: 8px;
 }

@@ -23,10 +23,9 @@
                     <div id="categorie" class="center">
                         Catégories <i class="fas fa-chevron-down"></i> 
                         <ul id="dropdown">  
-                            <a href="/theme/histoire_france"><li>Histoire de France</li></a>
-                            <a href="/theme/extraterrestres" ><li>Les extraterrestres</li></a>
-                            <a href="/theme/botanique" ><li>Un peu de botanique</li></a>
-                            <a href="/theme/conquete_spatiale" > <li>La conquête spatiale</li></a>
+                            <a href="#"><li>Non classé</li></a>
+                            <a href="#" ><li>Histoire</li></a>
+                            <a href="#" ><li>Sciences & technologies</li></a>
                         </ul>
                     </div>
                 </div>

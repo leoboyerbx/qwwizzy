@@ -4,13 +4,20 @@
 $app = \App::getInstance();
 $bdd = $app->getBdd();
 
-if(isset($_POST['key_nom']) AND isset($_POST['nom']) AND isset($_POST['description']) AND isset($_POST['url_image'])){ //envoi des données si renseignées
-    $result = $bdd -> prepare('UPDATE  theme SET key_nom= :key_nom, nom= :nom, description= :description, url_image= :url_image WHERE id= :id_theme', array("key_nom" => $_POST['key_nom'], "nom" => $_POST['nom'], "description" => $_POST['description'], "url_image" => $_POST['url_image'], "id_theme" => $id_theme));
+if(isset($_POST['key_nom']) AND isset($_POST['nom']) AND isset($_POST['description']) AND isset($_POST['url_image']) AND isset($_POST['couleur'])){ //envoi des données si renseignées
+    $featured = 0;
+    if($_POST['featured']) {
+        $featured = 1;
+    }
+    $couleur = "#".strtolower($_POST['couleur']);
+    $result = $bdd -> prepare('UPDATE  theme SET key_nom= :key_nom, nom= :nom, description= :description, url_image= :url_image, couleur= :couleur, featured = :featured WHERE id= :id_theme', array("key_nom" => $_POST['key_nom'], "nom" => $_POST['nom'], "description" => $_POST['description'], "url_image" => $_POST['url_image'],"couleur" => $couleur, "featured" => $featured, "id_theme" => $id_theme));
     if($result){
         $app->set_flash('success', 'Thème modifié avec succès');
         header('Location: /admin/themes');
     }
     
+} else if (!empty($_POST)) {
+    $app->set_flash('danger', "Un erreur s'est produite: certains champs ne sont pas remplis.");
 } else {
     $result = $bdd -> prepare('SELECT * FROM theme WHERE id= ?', [$id_theme], null, true);
     if ($result) {
@@ -30,36 +37,37 @@ if(isset($_POST['key_nom']) AND isset($_POST['nom']) AND isset($_POST['descripti
         </div>
         <div class="form-group">
             <label for="nom">Nom du thème</label>
-            <input type="text" class="form-control" name="nom" value="<?= $theme->nom ?>">
+            <input type="text" class="form-control" id="nom" name="nom" value="<?= $theme->nom ?>">
         </div>
         <div class="form-group">
             <label for="description">Description</label>
             
-            <input type="hidden" name="txtrep" id="editeurval" />
+            <input type="hidden" name="description" id="editeurval" />
             <div id="editeur">
                 <?= $theme->description ?>
             </div>
             
         </div>
-        <ul class="nav nav-tabs" id="onglets" role="tablist">
-          <li class="nav-item">
-            <a class="nav-link active"  href="#upload" role="tab" aria-controls="home" aria-selected="true">Upload</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#url" role="tab" aria-controls="profile" aria-selected="false">URL de l'image</a>
-          </li>
-        </ul>
-        <div class="tab-content" id="contenuOnglets">
-            <div id="preview-image" style="background-image: url(<?= $theme->url_image ?>)"></div>
-          <div class="tab-pane fade show active" id="upload">
-              A implementer: veuillez utiliser l'url
-          </div>
-          <div class="tab-pane fade" id="url">
-            <div class="form-group">
-                <label for="url_image">URL Image</label>
-                <input type="text" class="form-control" id="url_image" name="url_image" value="<?= $theme->url_image ?>">
+        <div class="row" id="edit-imgbloc">
+            <div class="col-md-3">
+                <div class="squareimg" id="preview-image" style="background-image: url(<?= $theme->url_image ?>)"></div>
             </div>
-          </div>
+            <div class="col-md-9">
+                <div class="form-group">
+                    <label for="url_image">URL de l'Image</label>
+                    <input type="text" class="form-control" id="url_image" name="url_image" value="<?= $theme->url_image ?>">
+                </div>
+                <div class="form-group">
+                    <label for="couleur">Couleur correspondante</label>
+                    <input type="text" class="form-control jscolor" name="couleur" id="couleur" value="<?= $theme->couleur ?>">
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" name="featured" id="featured" <?= $theme->featured ? 'checked=checked' : '' ?>>
+                  <label class="form-check-label" for="featured">
+                    Thème mis en avant
+                  </label>
+                </div>
+            </div>
         </div>
         <input type=submit class="btn btn-primary" value="Enregistrer">
         <a class="btn btn-outline-secondary btn-retour" href="/admin/themes">Retour</a>
@@ -69,7 +77,9 @@ if(isset($_POST['key_nom']) AND isset($_POST['nom']) AND isset($_POST['descripti
  
  
 <script defer src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+<script defer src="/assets/js/lib/jscolor.js"></script>
 <script defer src="/assets/js/admin/edittheme.js" type="text/javascript"></script>
+<script defer src="/assets/js/admin/preview-img.js"></script>
 <script defer src="/assets/js/admin/editeur.js" type="text/javascript"></script>
 
         <?php

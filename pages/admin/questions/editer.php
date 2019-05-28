@@ -66,10 +66,6 @@ if(isset($_POST['question']) AND isset($_POST['vf']) AND isset($_POST['txtrep'])
             </div>
         </div>
         <div class="form-group">
-            <label for="url_image">URL Image</label>
-            <input type="text" class="form-control" name="url_image" id=url_image value="<?= $question->url_image ?>">
-        </div>
-            <div class="form-group">
             <label for="theme">Thème de la question</label>
             <select name="theme" id="theme" class="form-control">
                 <?php
@@ -88,6 +84,18 @@ if(isset($_POST['question']) AND isset($_POST['vf']) AND isset($_POST['txtrep'])
             </select>
         </div>
         
+        <div class="row" id="edit-imgbloc">
+            <div class="col-md-3">
+                <div class="squareimg" id="preview-image" style="background-image: url(<?= $question->url_image ?>)"></div>
+            </div>
+            <div class="col-md-9">
+                <div class="form-group">
+                    <label for="url_image">URL de l'Image</label>
+                    <input type="text" class="form-control" id="url_image" name="url_image" value="<?= $question->url_image ?>">
+                </div>
+            </div>
+        </div>
+        
         <input type=submit class="btn btn-primary" value="Enregistrer">
         <a class="btn btn-outline-secondary btn-retour" href="/admin/questions">Retour</a>
     </form>
@@ -95,6 +103,7 @@ if(isset($_POST['question']) AND isset($_POST['vf']) AND isset($_POST['txtrep'])
     
 <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
 <script defer src="/assets/js/admin/editeur.js"></script>
+<script defer src="/assets/js/admin/preview-img.js"></script>
  </div>
         <?php
     } else {

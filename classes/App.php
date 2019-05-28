@@ -6,6 +6,7 @@
 class App {
     private static $_instance;
     private $bdd_instance;
+    private $sms_instance;
 
     /**
      * Fonction GetInstance: stocke une unique instance de notre application.
@@ -34,6 +35,16 @@ class App {
             }
         }
         return $this->bdd_instance;
+    }
+    
+    public function getSms($mode = 'sync') {
+        if ($this->sms_instance === null) {
+            $config = $this->config('/config/config.php');
+            $this->sms_instance = new Services\SmsApi($config['sms_api_key']);
+        }
+        $this->sms_instance->set_sync_mode($mode);
+        
+        return $this->sms_instance;
     }
 
     public function getConfig($key) {

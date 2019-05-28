@@ -14,7 +14,7 @@ $categories = $bdd -> query("SELECT categorie.id, categorie.nom, count(theme.id)
 <div class="admin-container">
     <h1>Gestion des catégories</h1>
     <p>
-        <a href="" class="btn btn-theme">Ajouter une catégorie</a>
+        <a href="/admin/categories/ajouter" class="btn btn-theme">Ajouter une catégorie</a>
     </p>
     <?php
     echo $app->get_flash();
@@ -35,7 +35,7 @@ $categories = $bdd -> query("SELECT categorie.id, categorie.nom, count(theme.id)
             <tr>
                 <td><?= $categorie->id ?></td>
                 <td><?= $categorie->nom ?></td>
-                <td style="text-align: right"><?= $categorie->nbr_themes ?> <a title="Ajouter des questions au thème" href="/admin/questions/ajout_par_theme/<?= $categorie->id ?>" class="btn"><i class="fas fa-plus"></i></a></td>
+                <td style="text-align: right"><?= $categorie->nbr_themes ?> <a title="Ajouter des thèmes à la catégorie" href="/admin/questions/ajout_par_theme/<?= $categorie->id ?>" class="btn"><i class="fas fa-plus"></i></a></td>
                 <td class="admin-actions">
                     <form method="post" action="/admin/themes/supprimer" class="form-delete">
                         <a href="/admin/questions/par_theme/<?= $categorie->id ?>" class="btn btn-outline-secondary btn-uc"><i class="fas fa-list-ul" style="margin-right: 10px"></i> Questions</a>

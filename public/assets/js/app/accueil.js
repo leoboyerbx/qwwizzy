@@ -1,0 +1,1 @@
+const featured = new CjsSlider($('.cjs-slider'))

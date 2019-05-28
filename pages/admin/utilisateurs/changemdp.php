@@ -21,7 +21,7 @@ if (!empty($_POST['oldpass']) && !empty($_POST['newpass'])) {
 
 
 ?>
-<div class="admin-container">
+<div class="change_mdp-container">
 <?= $app->get_flash() ?>
     <div class="text-center changemdp_box">
         <h1 class="spacer_change_mdp">Changer mon mot de passe</h1>

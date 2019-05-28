@@ -211,7 +211,7 @@ $user = $auth->getUser();
                         </div>
                         <div class="card-body">
                             <div class="form-group">
-                                <label for="url_image">Couleur dominante du site</label>
+                                <label>Couleur dominante du site</label>
                                 <input type="text" class="form-control jscolor" name="jscolor" id="sitecolor" value="<?= $app->getConfig('theme')->main ?>">
                             </div>
                             <hr>

@@ -25,21 +25,20 @@ LE TODO
 
 - [x] Couleur de thème
 
-- [ ] Possibilité de changer son mail
+- [x] Possibilité de changer son mail
 
 - [ ] Formulaire de modifier mon compte
 
-- [ ] Implémenter catégories
+- [-] Implémenter catégories
 
 - [x] Editeur de text visuel
 
 - [x] séparer le js
-- [ ] ajouter des boutons retour là ou il n'y en a pas
-- [ ] virer les onglets upload
-- [ ] problemes de design firefox
+- [x] ajouter des boutons retour là ou il n'y en a pas
+- [x] virer les onglets upload
+- [x] problemes de design firefox
 
 plutar
 
 - [ ] Restructurer les url d'ajout par theme
-- [ ] bouger liste permissions names vers config table
 - [ ] filtre des thèmes sur page d'accueil

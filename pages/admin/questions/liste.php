@@ -33,8 +33,8 @@ if (!empty($id_theme) && $isAdmin) {
 // $themes = $bdd -> query("SELECT id, nom, (SELECT count(*) FROM question) as nbr_questions
 //                          FROM theme");
 function crop($chaine) {
-    if (strlen($chaine) >= 60) {
-        return substr($chaine, 0, 60)."...";
+    if (strlen($chaine) >= 40) {
+        return substr($chaine, 0, 40)."...";
     }
     return $chaine;
 }

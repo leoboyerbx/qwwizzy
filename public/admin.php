@@ -73,6 +73,10 @@ if (startsWith($page, "login")) { // pages sans template
         
         // Utilisateurs
 
+        else if (startsWith($page, "utilisateurs/changemail")) {
+            include ROOT . '/pages/admin/utilisateurs/changemail.php';
+        }
+
         else if (startsWith($page, "utilisateurs/changemdp")) {
             include ROOT . '/pages/admin/utilisateurs/changemdp.php';
         }
@@ -103,7 +107,8 @@ if (startsWith($page, "login")) { // pages sans template
         }
 
         else {
-            echo "Pas encore implémenté";
+            $noTemplate = true;
+            include ROOT . '/pages/page404.php';
         }
 
         $content = ob_get_clean();

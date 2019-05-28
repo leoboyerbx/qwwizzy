@@ -3,8 +3,8 @@
 $app = \App::getInstance();
 $bdd = $app->getBdd();
 
-if(isset($_POST['key_nom']) AND isset($_POST['nom']) AND isset($_POST['description']) AND isset($_POST['url_image'])){ //envoi des données si renseignées
-    $result = $bdd -> prepare('INSERT into theme(key_nom, nom, description, url_image) values (:key_nom, :nom, :description, :url_image)', array("key_nom" => $_POST['key_nom'], "nom" => $_POST['nom'], "description" => $_POST['description'], "url_image" => $_POST['url_image']));
+if(isset($_POST['key_nom']) AND isset($_POST['nom']) AND isset($_POST['description']) AND isset($_POST['url_image']) AND isset($_POST['couleur'])){ //envoi des données si renseignées
+    $result = $bdd -> prepare('INSERT into theme(key_nom, nom, description, url_image, couleur) values (:key_nom, :nom, :description, :url_image, :couleur)', array("key_nom" => $_POST['key_nom'], "nom" => $_POST['nom'], "description" => $_POST['description'], "url_image" => $_POST['url_image'], "couleur" => $_POST['couleur']));
     if($result){
         $app->set_flash('success', 'Thème ajouté avec succès');
         header('Location: /admin/themes');
@@ -32,9 +32,20 @@ if(isset($_POST['key_nom']) AND isset($_POST['nom']) AND isset($_POST['descripti
             <div id="editeur">
             </div>
         </div>
-        <div class="form-group">
-            <label for="url_image">URL Image</label>
-            <input type="text" class="form-control" name="url_image" id='url_image'>
+        <div class="row" id="edit-imgbloc">
+            <div class="col-md-3">
+                <div class="squareimg" id="preview-image"></div>
+            </div>
+            <div class="col-md-9">
+                <div class="form-group">
+                    <label for="url_image">URL de l'Image</label>
+                    <input type="text" class="form-control" id="url_image" name="url_image" >
+                </div>
+                <div class="form-group">
+                    <label for="couleur">Couleur correspondante</label>
+                    <input type="text" class="form-control jscolor" name="couleur" id="couleur">
+                </div>
+            </div>
         </div>
         <input type=submit class="btn btn-primary" value="Enregistrer">
         <a class="btn btn-outline-secondary btn-retour" href="/admin/themes">Retour</a>
@@ -42,5 +53,7 @@ if(isset($_POST['key_nom']) AND isset($_POST['nom']) AND isset($_POST['descripti
  </div>
 
 <script defer src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+<script defer src="/assets/js/lib/jscolor.js"></script>
 <script defer src="/assets/js/admin/edittheme.js" type="text/javascript"></script>
+<script defer src="/assets/js/admin/preview-img.js"></script>
 <script defer src="/assets/js/admin/editeur.js"></script>

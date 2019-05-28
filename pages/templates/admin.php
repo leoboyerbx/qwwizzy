@@ -52,7 +52,7 @@ $auth = new Bdd\Auth(\App::getInstance()->getBdd());
                                             <a href="/admin/themes"> <li> Aperçu </li></a>
                                         </div>
                                         <div id="apercu_theme">
-                                            <a href="/admin/categories"> <li> Catégories </li></a>
+                                            <a href="/admin/categories"> <li><i class="fas fa-folder"></i>  Catégories </li></a>
                                         </div>
                                 </ul>
                         </div>
