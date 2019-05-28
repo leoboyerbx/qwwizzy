@@ -1103,3 +1103,45 @@ footer {
     background-color: #FFC456;
     background-image: linear-gradient(to bottom right, #B58B3D, #FFC760);
 }
+
+/* Les règles suivantes concerne les noms de catégories et le bloc catégorie sur la page d'acceuil */
+
+.categorie_nom {
+    font-family: jaf-facitweb, sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 30px;
+    margin-bottom: 0px;
+    margin-top: 18px;
+    margin-left: 15px;
+    color: #444444;
+}
+
+#titre_acceuil {
+    font-family: jaf-facitweb, sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 45px;
+    margin-bottom: 3px;
+    margin-left: 15px;
+    margin-top: 8px;
+    color: #444444;
+}
+
+.bloc_categorie {
+    border: solid 1px;
+    border-radius: 5px;
+    padding: 25px;
+    margin-top: 15px;
+}
+
+.bloc_categorie:first-child {
+    margin-left: 15px;
+}
+
+.icone_categories {
+    width: 25px;
+    border: solid 1px;
+    border-radius: 5px ;
+    padding: 5px;
+}
