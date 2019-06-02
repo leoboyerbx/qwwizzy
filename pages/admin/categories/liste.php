@@ -35,12 +35,11 @@ $categories = $bdd -> query("SELECT categorie.id, categorie.nom, count(theme.id)
             <tr>
                 <td><?= $categorie->id ?></td>
                 <td><?= $categorie->nom ?></td>
-                <td style="text-align: right"><?= $categorie->nbr_themes ?> <a title="Ajouter des thèmes à la catégorie" href="/admin/questions/ajout_par_theme/<?= $categorie->id ?>" class="btn"><i class="fas fa-plus"></i></a></td>
+                <td style="text-align: right"><?= $categorie->nbr_themes ?></td>
                 <td class="admin-actions">
-                    <form method="post" action="/admin/themes/supprimer" class="form-delete">
-                        <a href="/admin/questions/par_theme/<?= $categorie->id ?>" class="btn btn-outline-secondary btn-uc"><i class="fas fa-list-ul" style="margin-right: 10px"></i> Questions</a>
-                        <a href="/admin/themes/edit/<?= $categorie->id ?>" class="btn btn-outline-theme btn-uc"><i class="fas fa-pen" style="margin-right: 10px"></i> Modifier</a>
-                        <input type="hidden" name="id_theme" value="<?= $categorie->id ?>"/>
+                    <form method="post" action="/admin/categories/supprimer" class="form-delete">
+                        <a href="/admin/categories/edit/<?= $categorie->id ?>" class="btn btn-outline-theme btn-uc"><i class="fas fa-pen" style="margin-right: 10px"></i> Modifier</a>
+                        <input type="hidden" name="id_categorie" value="<?= $categorie->id ?>"/>
                         <button type="submit" class="btn btn-outline-danger btn-uc"><i class="fas fa-trash" style="margin-right: 10px"></i> Supprimer</button>
                     </form>
                 </td>

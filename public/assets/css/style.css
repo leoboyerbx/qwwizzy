@@ -721,10 +721,13 @@ footer {
     padding: 20px;
 }
 
+.table-theme {
+    background-color: #fcfcfc;
+}
 
 .table-theme tbody tr, .table-question tbody tr {
     line-height: 80px;
-} 
+}
 
 /*.admin-actions {*/
 /*    display: flex;*/
@@ -1000,8 +1003,16 @@ footer {
     margin-top: 20px;
     margin-bottom: 15px;
 }
+.btn-move-theme {
+    cursor: move;
+}
+.btn-move-theme:hover {
+    background-color: transparent;
+    border: solid var(--green) 1px;
+    color: var(--green);
+}
 
-/*Les rÃ¨gles CSS suivantes concernent les boutons de partage de rÃ©sultats Ã  la fin des quizz */
+/*Les regles CSS suivantes concernent les boutons de partage de resultats a la fin des quizz */
 
 #twitter {
     font-size: 50px;
@@ -1133,9 +1144,10 @@ footer {
     border-radius: 5px;
     padding: 25px;
     margin-top: 15px;
+    border-color: var(--maincolor);
 }
 
-.bloc_categorie:first-child {
+.bloc_categorie/*:first-child*/ {
     margin-left: 15px;
 }
 
@@ -1144,4 +1156,30 @@ footer {
     border: solid 1px;
     border-radius: 5px ;
     padding: 5px;
+}
+.tr-theme {
+    background-color: #fff;
+    transition: box-shadow 0.3s ease;
+}
+.tr-theme.dragged {
+    box-shadow: 0px 0px 20px -10px rgba(0, 0, 0, 0.4);
+}
+
+.bloc-categorie {
+    transition: all 0.3s;
+}
+.bloc-categorie.dropping {
+    background-color: #C6C6C6;
+}
+
+.nom_categorie, .nom_categorie:hover {
+    text-decoration: none;
+    color: #444444;
+}
+
+.nom_bloc_categorie {
+    font-family: jaf-facitweb, sans-serif;
+    font-weight: 200;
+    font-style: normal;
+    font-size: 15px;
 }

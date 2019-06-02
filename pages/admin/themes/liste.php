@@ -34,8 +34,8 @@ foreach ($categories as $categorie) {
     });
     
     ?>
-<div class="admin-container">
-    <h3 class="title_cat"><?= $categorie->nom ?> <i style="font-size: 70%"><?= $categorie->nbr_themes ?> thèmes</i></h3>
+<div class="admin-container bloc-categorie" data-categorie="<?= $categorie->id ?>">
+    <h3 class="title_cat"><?= $categorie->nom ?> <i style="font-size: 70%"><span class="nbr_themes"><?= $categorie->nbr_themes ?></span> thèmes</i></h3>
     <table class="table table-theme">
         <thead class="thead-light">
             <tr>
@@ -49,7 +49,7 @@ foreach ($categories as $categorie) {
             <?php
             foreach($themes_cat as $theme) {
             ?>
-            <tr>
+            <tr class="tr-theme">
                 <td><?= $theme->id ?></td>
                 <td><?= $theme->nom ?></td>
                 <td style="text-align: right"><?= $theme->nbr_questions ?> <a title="Ajouter des questions au thème" href="/admin/questions/ajout_par_theme/<?= $theme->id ?>" class="btn"><i class="fas fa-plus"></i></a></td>
@@ -57,7 +57,7 @@ foreach ($categories as $categorie) {
                     <form method="post" action="/admin/themes/supprimer" class="form-delete">
                         <a href="/admin/questions/par_theme/<?= $theme->id ?>" class="btn btn-outline-secondary btn-uc"><i class="fas fa-list-ul" style="margin-right: 10px"></i> Questions</a>
                         <a href="/admin/themes/edit/<?= $theme->id ?>" class="btn btn-outline-theme btn-uc"><i class="fas fa-pen" style="margin-right: 10px"></i> Modifier</a>
-                        <a href="/admin/themes/edit/<?= $theme->id ?>" class="btn btn-outline-success btn-uc" style="cursor: move;"><i class="fas fa-random" style="margin-right: 10px"></i> Déplacer</a>
+                        <div class="btn btn-outline-success btn-uc btn-move-theme" data-theme="<?= $theme->id ?>" data-categorie="<?= $categorie->id ?>" style="cursor: move;"><i class="fas fa-random" style="margin-right: 10px"></i> Déplacer</div>
                         <input type="hidden" name="id_theme" value="<?= $theme->id ?>"/>
                         <button type="submit" class="btn btn-outline-danger btn-uc"><i class="fas fa-trash" style="margin-right: 10px"></i> Supprimer</button>
                     </form>
@@ -76,4 +76,5 @@ foreach ($categories as $categorie) {
 </div>
 </div>
 
-<script type="text/javascript" src="/assets/js/admin/liste_themes.js"></script>
+<script defer type="text/javascript" src="/assets/js/admin/interact.js"></script>
+<script defer type="text/javascript" src="/assets/js/admin/liste_themes.js"></script>

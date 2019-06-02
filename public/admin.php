@@ -6,6 +6,8 @@ if (startsWith($page, "login")) { // pages sans template
     header("Location: /");
 } else if (startsWith($page, "couleur_theme")) { 
     include ROOT . '/pages/admin/general/edit_couleur_theme.php';
+}  else if (startsWith($page, "themes/deplacer")) { 
+    include ROOT . '/pages/admin/themes/deplacer.php';
 } else {
     $auth = new Bdd\Auth($app->getBdd());
     if ($auth->estConnecte()) {
@@ -43,6 +45,22 @@ if (startsWith($page, "login")) { // pages sans template
             include ROOT . '/pages/admin/themes/liste.php';
         }
 
+        else if (startsWith($page, "categories/ajouter")) {
+            $auth->auth_permission(7);
+            include ROOT . '/pages/admin/categories/ajouter.php';
+        }
+
+        else if (startsWith($page, "categories/supprimer")) {
+            $auth->auth_permission(7);
+            include ROOT . '/pages/admin/categories/supprimer.php';
+        }
+
+        else if (startsWith($page, "categories/edit/")) {
+            $auth->auth_permission(7);
+            $id_categorie = substr($page, 16);
+            include ROOT . '/pages/admin/categories/editer.php';
+        }
+        
         else if (startsWith($page, "categories")) {
             $auth->auth_permission(7);
             include ROOT . '/pages/admin/categories/liste.php';

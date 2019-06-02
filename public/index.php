@@ -29,7 +29,7 @@ if (startsWith($page,"question/check")) {
     
 } else if (startsWith($page, "sandbox")) {
     
-    $app->getSms()->send('0625280912', "Salut Balou !");
+    $app->getSms()->send('0782459332', 'coucou');
     
     
 } else {

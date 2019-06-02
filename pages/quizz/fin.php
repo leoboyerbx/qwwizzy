@@ -22,7 +22,7 @@
                     </br>
                     <h2> Partagez votre résultat!</h2>
                     <a id="twitter" target="_blank" class="twitter-share-button" href="https://twitter.com/intent/tweet?text=J%27ai%20obtenu%20un%20score%20de%20<?= $theme -> score ?>%20sur%20Qwwizzy%20dans%20le%20th%C3%A8me%20<?= $theme -> nom?>,%0AVenez%20vite%20m%27affronter%20!"> <i class="fab fa-twitter"></i> </a>
-                    <a href="https://facebook.com/sharer/sharer.php?u=https://qwwizzy.cf">Partager sur facebook</a>
+                    <a href="https://www.facebook.com/dialog/feed?app_id=1389892087910588&redirect_uri=https://qwwizzy.cf&link=https://qwwizzy.cf&picture=http://placekitten.com/500/500&caption=This%20is%20the%20caption&description=This%20is%20the%20description">Partager sur facebook</a>
                 </div>
             </div>
         </div>

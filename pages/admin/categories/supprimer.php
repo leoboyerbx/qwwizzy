@@ -1,21 +1,24 @@
 <?php
 $bdd = \App::getInstance()->getBdd();
 
-$id_theme = $_POST['id_theme']; // contient l'id du theme
+$id_categorie = $_POST['id_categorie']; // contient l'id du theme
 
-if(!empty($_POST['id_theme'])){
-    $result = $bdd -> prepare("DELETE FROM theme WHERE id = ?", array($id_theme));
-    if ($result) {
-        $app -> set_flash('success', 'Thème supprimé avec succès !');
-        header('Location: /admin/themes');
+if(!empty($_POST['id_categorie'])){
+    //on déplace les thèmes de la catégorie vers non classé
+    
+    $deplacer = $bdd->prepare('UPDATE theme SET categorie_id = 0 WHERE categorie_id = ?', [$_POST['id_categorie']]);
+    $result = $bdd -> prepare("DELETE FROM categorie WHERE id = ?", array($id_categorie));
+    if ($deplacer && $result) {
+        $app -> set_flash('success', 'Catégorie supprimée avec succès !');
+        header('Location: /admin/categories');
     } else {
         $app -> set_flash('danger', "Une erreur s'est produite");
-        header("Location : /admin/themes");
+        header("Location : /admin/categories");
         
     }
 } else {
     $app -> set_flash('danger', "Une erreur s'est produite");
-    header("Location : /admin/themes");
+    header("Location : /admin/categories");
     
 }
 /** A faire ici:

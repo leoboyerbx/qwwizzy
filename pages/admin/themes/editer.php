@@ -78,7 +78,7 @@ if(isset($_POST['key_nom']) AND isset($_POST['nom']) AND isset($_POST['descripti
  
 <script defer src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
 <script defer src="/assets/js/lib/jscolor.js"></script>
-<script defer src="/assets/js/admin/edittheme.js" type="text/javascript"></script>
+<script defer src="/assets/js/admin/keynom.js" type="text/javascript"></script>
 <script defer src="/assets/js/admin/preview-img.js"></script>
 <script defer src="/assets/js/admin/editeur.js" type="text/javascript"></script>
 

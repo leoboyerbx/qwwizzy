@@ -93,16 +93,18 @@ foreach($categories as $categorie) {
         <?php
         foreach($categories as $categorie) {
         ?>
-        <div class="col-3 bloc_categorie">
-            <div class="row">
-                <div class="col-2">
-                    <i class="fas fa-<?= $categorie->icon ?>"></i> 
-                </div>
-                <div class="col-10">
-                    <?= $categorie->nom ?>
-                </div>
+            <div class="col-3 bloc_categorie">
+                <a href="/theme/<?php $categorie->key_nom ?>" class="nom_categorie">
+                    <div class="row">
+                        <div class="col-2">
+                            <i class="fas fa-<?= $categorie->icon ?>"></i> 
+                        </div>
+                        <div class="col-10">
+                            <div class="nom_bloc_categorie"><?= $categorie->nom ?></div>
+                        </div>
+                    </div>
+                </a>
             </div>
-        </div>
         <?php
         }
         ?>

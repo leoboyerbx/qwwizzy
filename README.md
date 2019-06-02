@@ -18,9 +18,6 @@ maquette : https://xd.adobe.com/view/cad1f5ab-9bea-4a7a-54e1-3c29d48dd26a-bce0/
 
 
 LE TODO
-
-- [ ] Afficher la moyenne des résultats sur la page du score (tendu) ---> nouvelle table = Vincent
-
 - [ ] Fonction de partage du résultat sur les réseaux sociaux sur la page de résultat (Twitter fais ----> Faire les autres = Thomas)
 
 - [x] Couleur de thème
@@ -29,7 +26,7 @@ LE TODO
 
 - [ ] Formulaire de modifier mon compte
 
-- [-] Implémenter catégories
+- [x] Implémenter catégories
 
 - [x] Editeur de text visuel
 
@@ -40,5 +37,4 @@ LE TODO
 
 plutar
 
-- [ ] Restructurer les url d'ajout par theme
 - [ ] filtre des thèmes sur page d'accueil
