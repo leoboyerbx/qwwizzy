@@ -18,7 +18,9 @@ maquette : https://xd.adobe.com/view/cad1f5ab-9bea-4a7a-54e1-3c29d48dd26a-bce0/
 
 
 LE TODO
-- [ ] Fonction de partage du résultat sur les réseaux sociaux sur la page de résultat (Twitter fais ----> Faire les autres = Thomas)
+- [x] Fonction de partage du résultat sur les réseaux sociaux sur la page de résultat (Twitter fais ----> Faire les autres = Thomas)
+
+- [ ] Créer des pages catégories  (cf. erreur 404 lorsqu'on clique  sur une catégorie)
 
 - [x] Couleur de thème
 

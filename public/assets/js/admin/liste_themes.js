@@ -50,6 +50,9 @@ async function updateThemeCategorie(theme, categorie) {
                     if (ev.target.dataset.categorie !== ev.relatedTarget.dataset.categorie) {
                         let theme_id = ev.relatedTarget.dataset.theme
                         let categorie_id = ev.target.dataset.categorie
+                        
+                        ev.relatedTarget.dataset.categorie = categorie_id
+                        
                         updateThemeCategorie(theme_id, categorie_id).then(res => {
                             if (res== "ok") {
                                 new DynamicMessage('Le thème a été déplacé avec succès.', 'success', 4)

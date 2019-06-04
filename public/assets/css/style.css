@@ -1016,6 +1016,16 @@ footer {
 
 #twitter {
     font-size: 50px;
+    color: #00ACEE;
+}
+
+#twitter:hover {
+    color: #00ACEE;
+}
+
+#facebook {
+    color: #3B5998;
+    font-size: 50px;
 }
 
 
@@ -1144,7 +1154,7 @@ footer {
     border-radius: 5px;
     padding: 25px;
     margin-top: 15px;
-    border-color: var(--maincolor);
+    border-color: var(--main-color);
 }
 
 .bloc_categorie/*:first-child*/ {
@@ -1182,4 +1192,28 @@ footer {
     font-weight: 200;
     font-style: normal;
     font-size: 15px;
+}
+
+/* Les règles CSS suivantes concernent la page d'intro du site */
+
+#container_intro {
+    padding: 0px;
+}
+
+#left_part {
+    height: 100%;
+    background-color: var(--main-color);
+    padding: 0px;
+    margin: 0px;
+}
+
+#right_part {
+    height: 100%;
+    background-color: #444444;
+    padding: 0px;
+    margin: 0px;
+}
+
+#row_intro {
+    height: 100%;
 }

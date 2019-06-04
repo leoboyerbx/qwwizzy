@@ -23,9 +23,13 @@
                     <div id="categorie" class="center">
                         Catégories <i class="fas fa-chevron-down"></i> 
                         <ul id="dropdown">  
-                            <a href="#"><li>Non classé</li></a>
-                            <a href="#" ><li>Histoire</li></a>
-                            <a href="#" ><li>Sciences & technologies</li></a>
+                            <?php
+                                foreach($categories as $categorie) {
+                            ?>
+                                <a href="/theme/<?php $categorie->key_nom ?>"><li><?= $categorie->nom ?></li></a>
+                            <?php
+                                }
+                            ?>
                         </ul>
                     </div>
                 </div>
