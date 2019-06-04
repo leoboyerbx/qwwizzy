@@ -1,6 +1,8 @@
 <?php
 /**
- * Classe globale pour notre App
+ * Classe globale pour notre Application
+ * Elle utilise le principe du singleton
+ *
  */
 
 class App {
@@ -10,7 +12,7 @@ class App {
 
     /**
      * Fonction GetInstance: stocke une unique instance de notre application.
-     * Permet d'éviter d'utiliser des méthodes statiques
+     * Permet de gérer l'instance unique de la classe
      * @return App
      */
     public static function getInstance() {
@@ -19,15 +21,24 @@ class App {
         }
         return self::$_instance;
     }
-    
-    private function config($fichier) {
+
+    /**
+     * Renvoie le contenu d'un fichier de configuration dont l'adresse est passée en paramètre
+     * @param $fichier
+     * @return array
+     */
+    private function configFile($fichier) {
         $config = require(ROOT . $fichier);
         return $config;
     }
-    
+
+    /**
+     * Renvoie une instance de l'objet MysqlBdd. Si l'instance n'existe pas encore, elle est créée.
+     * @return \Bdd\MysqlBdd
+     */
     public function getBdd() {
         if ($this->bdd_instance === null) {
-            $config = $this->config('/config/config.php');
+            $config = $this->configFile('/config/config.php');
             if (!empty($config['db_port'])) {
                 $this->bdd_instance = new Bdd\MysqlBdd($config['db_name'], $config['db_user'], $config['db_pass'], $config['db_host'], $config['db_port']);
             } else {
@@ -39,7 +50,7 @@ class App {
     
     public function getSms($mode = 'sync') {
         if ($this->sms_instance === null) {
-            $config = $this->config('/config/config.php');
+            $config = $this->configFile('/config/config.php');
             $this->sms_instance = new Services\SmsApi($config['sms_api_key']);
         }
         $this->sms_instance->set_sync_mode($mode);
@@ -47,6 +58,11 @@ class App {
         return $this->sms_instance;
     }
 
+    /**
+     * Recupère la valeur d'une configuration depuis la table "config"
+     * @param $key
+     * @return bool|mixed
+     */
     public function getConfig($key) {
         $req = $this->getBdd()->prepare('SELECT * FROM config WHERE clef = ?', [$key], null, true);
         if ($req) {
@@ -54,24 +70,45 @@ class App {
         }
         return false;
     }
+
+    /**
+     * Définit la valeur d'une configuration depuis la table "config"
+     * @param $key
+     * @param $val
+     * @return array|bool|mixed
+     */
     public function setConfig($key, $val) {
         $req = $this->getBdd()->prepare('UPDATE config SET valeur=? WHERE clef=?', [$val, $key]);
         return $req;
     }
 
+    /**
+     * function load()
+     * Appelée à chaque chargement, démarre la session et met en place l'autoloader, pour éviter de devoir charger les classes à la main.
+     */
     public function load() {
         require ROOT . '/classes/Autoloader.php';
         Autoloader::register();
         session_start();
     }
-    
+
+    /**
+     * Stocke dans la session un message "flash" qui est destiné à être récupéré et affiché plus tard.
+     *
+     * @param $type
+     * @param $message
+     */
     public function set_flash($type, $message) {
         $_SESSION['flash'] = [
             'type' => $type,
             'message' => $message
             ];
     }
-    
+
+    /**
+     * Renvoie s'il existe le message flash stocké dans la session et le formate pour être visible comme alerte Bootstrap.Efface ensuite le message de la session.
+     * @return string
+     */
     public function get_flash() {
         if (!empty($_SESSION['flash'])) {
             $flash = '<div class="flashmsg alert alert-'. $_SESSION['flash']['type'] .'" data-type="'. $_SESSION['flash']['type'].'">
@@ -108,14 +145,21 @@ class App {
             "name" => $full_name
             ];
        }
-       
+
+    /**
+     * Définit un message flash indiquant un accès interdit et redirige à la racine de l'admin.
+     */
     public function interdit() {
         $this->set_flash('danger', "Vous n'avez pas le droit d'accéder à cette page");
         header('Location: /admin');
         die();
     }
-       
-   public function toutes_permissions () {
+
+    /**
+     * Renvoie un tableau contenant les correspondances entre les niveaux d'autoristions et leurs numéros. Stocké dans la table config.
+     * @return array
+     */
+    public function toutes_permissions () {
         // return array(
         //     '10' => 'Administrateur',
         //     '7' => 'Éditeur',
@@ -124,8 +168,14 @@ class App {
         // );
         return (array) $this->getConfig('permissions');
     }
+
+    /**
+     * A partir du tableau de persmissions et d'un entier correspondants au niveau de permissions, renvoie le nom correspondant à ce niveau.
+     * @param $permInt
+     * @return mixed|string
+     */
     public function get_permission_nom ($permInt) {
-        $allPermissions = \App::getInstance()->toutes_permissions();
+        $allPermissions = $this->toutes_permissions();
         $permName = "";
 
         foreach($allPermissions as $int => $permissionName) {
@@ -136,12 +186,21 @@ class App {
         }
         return $permName;
     }
-    
+
+    /**
+     * Raccourci de la méthode verif_permission de la classe Auth, mais avec la dépendance Bdd déjà injectée. Voir Bdd/Auth.php
+     * @param $permInt
+     * @return bool
+     */
     public function auth_verif_permissions ($permInt) {
         $auth = new Bdd\Auth($this->getBdd());
         return $auth->verif_permissions($permInt);
     }
-    
+
+    /**
+     * Envoie les variables CSS correspondant aux couleurs du thèle du site, stocké dans la table config
+     * @return string
+     */
     public function getThemeColor() {
         $couleurs = $this->getConfig('theme');
         

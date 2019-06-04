@@ -15,7 +15,7 @@ class Autoloader {
     }
 
     /**
-     * Enregistre l'autoloader
+     * Enregistre l'autoloader auprès du process PHP
      */
     static function register() {
         spl_autoload_register(array(__CLASS__, 'autoload'));
