@@ -1,4 +1,5 @@
 <?php
+// Template de l'admin
 $auth = new Bdd\Auth(\App::getInstance()->getBdd());
 
 ?>

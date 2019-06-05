@@ -6,7 +6,7 @@ $bdd = \App::getInstance()->getBdd();
 $all_themes = $bdd -> query('SELECT theme.*, categorie.nom as categorie, categorie.id as categorie_id FROM theme LEFT JOIN categorie ON theme.categorie_id = categorie.id');
 
 ?>
-
+<!--On importe le CSS du carousel-->
 <link rel="stylesheet" href="/assets/css/slider.css" type="text/css" />
 
 <main class="container" id="main-container">
@@ -25,7 +25,7 @@ $all_themes = $bdd -> query('SELECT theme.*, categorie.nom as categorie, categor
         <h2 class="categorie_nom">Mis en avant</h2>
         <div class="cjs-slider" id="carousel">
             <div class="cjs-slides-block">
-                
+<!--                Génération d'une slide par thème-->
                 <?php foreach($featured as $element) { ?>
                 <div class="cjs-slide">
                     <div class="slide-canvas" style="background-color: <?= $element->couleur ?>;">

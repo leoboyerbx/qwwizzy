@@ -1,5 +1,5 @@
 <?php
-
+// Template par défaut des pages du site
 $categories = \App::getInstance()->getBdd()->query('SELECT * FROM categorie');
 ?>
 <!DOCTYPE html>

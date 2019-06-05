@@ -29,10 +29,13 @@ class Auth {
      * @return bool
      */
     public function login($pseudo, $pass, $bypass = false) {
+        // On fait une requête pour voir si l'utilisateur existe. On veut récupérer un objet qui appartient à la classe UserEntity, comme ça il aura la méthode getAvatar.
         $user = $this->db->prepare('SELECT * FROM utilisateur WHERE pseudo = ?', [$pseudo], "\\Entites\\UserEntity", true);
         if ($user) {
+            // Si l'utilisateur existe, on vérifie son mot de passe.
             if (password_verify($pass, $user->pass_hash)) {
                 if (!$bypass) { // permet de simplement vérifier le mot de passe de l'utilisateur, sans le logger à nouveau.
+                    // On enregistre l'objet utilisateur dans la session
                     $_SESSION['auth'] = $user;
                 }
                 return true;
@@ -85,7 +88,7 @@ class Auth {
     }
 
     /**
-     * Renvoie le nom de permission de l'utilisateur connecté
+     * Renvoie le nom de permission de l'utilisateur connecté, à l'aide de la méthode présente dans la classe App
      * @return mixed|string
      */
     public function get_permission_nom () {

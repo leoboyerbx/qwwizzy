@@ -8,8 +8,6 @@
 class App {
     private static $_instance;
     private $bdd_instance;
-    private $sms_instance;
-
     /**
      * Fonction GetInstance: stocke une unique instance de notre application.
      * Permet de gérer l'instance unique de la classe
@@ -47,16 +45,7 @@ class App {
         }
         return $this->bdd_instance;
     }
-    
-    public function getSms($mode = 'sync') {
-        if ($this->sms_instance === null) {
-            $config = $this->configFile('/config/config.php');
-            $this->sms_instance = new Services\SmsApi($config['sms_api_key']);
-        }
-        $this->sms_instance->set_sync_mode($mode);
-        
-        return $this->sms_instance;
-    }
+
 
     /**
      * Recupère la valeur d'une configuration depuis la table "config"
@@ -119,25 +108,46 @@ class App {
     
         }
     }
-    
+
+    /**
+     * Méthode chargée de l'upload d'un fichier sur le serveur. Elle est utilisée pour le changement de photo de profil.
+     * @param $file L'objet fichier généré par l'envoi de formulaire
+     * @param string $dest_path Le chemin où enregistrer le fichier
+     * @param string $dest_name Le nom de fichier à enregistrer
+     * @param int $maxsize La taille maximale autorisée (avec une valeur par défaut)
+     * @param array $extensions_valides La liste des extensions acceptées (valeur par défaut pour les images)
+     * @return array Renvoie un tableau qui indique le succès, l'erreur et le chemin du fichier.
+     */
     public function upload($file, $dest_path, $dest_name, $maxsize = 8388608, $extensions_valides = ['jpg' , 'jpeg' , 'gif' , 'png']) {
+        // On commence par vérifier qu'il n'y a pas d'érreurs.
         if ($file['error'] > 0) $erreur = "Erreur lors du transfert";
         if ($file['size'] > $maxsize) $erreur = "Le fichier est trop gros";
-        $extension_upload = strtolower(  substr(  strrchr($file['name'], '.')  ,1)  );
+
+        $extension_upload = strtolower(  substr(  strrchr($file['name'], '.')  ,1)  ); // On récupère l'extension du fichier envoyé
         
-        $full_name = $dest_name.'.'. $extension_upload;
-        $full_path = $dest_path.'/'. $full_name;
-        
+        $full_name = $dest_name.'.'. $extension_upload; // Le nom de fichier avec l'extension
+        $full_path = $dest_path.'/'. $full_name; //Le chemin complet avec l'extention de fichier
+
+        // On empêche les extensions non approuvées.
         if (!in_array($extension_upload,$extensions_valides) ) $erreur = "Extension incorrecte: uniquement des fichiers jpg ou png ou gif";
         if (empty($erreur)) {
+            /**
+             * Si tout s'est bien passé jusqu'ici, on enregistre le fichier uploadé, et on renvoie un succès.
+             */
             if (move_uploaded_file($file['tmp_name'], $full_path)) {
                 $success = true;
             } else {
                 $success = false;
             }
         } else {
+            /**
+             * S'il y a eu une erreur, $success est faux.
+             */
             $success = false;
         }
+        /**
+         * On renvoie un tableau avec le résultat de l'opération.
+         */
         return [
             "success" => $success,
             "error" => $erreur,
@@ -175,9 +185,11 @@ class App {
      * @return mixed|string
      */
     public function get_permission_nom ($permInt) {
+        // On récupère toutes les permissions
         $allPermissions = $this->toutes_permissions();
         $permName = "";
 
+        // On parcourt le tableau à la recherche d'une occurence
         foreach($allPermissions as $int => $permissionName) {
             if ($permInt >= $int) {
                 $permName = $permissionName;
