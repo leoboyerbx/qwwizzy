@@ -3,8 +3,7 @@
  *
  * Les classes utilisées commencent par "cjs-" pour éviter toute interférence.
  *
- *  Réalisé pour le projet Qwwizzy
- * 2019 - Léo BOYER
+ *  Code à considérer comme un plugin externe.
  */
 
 const $ = document.querySelector.bind(document)

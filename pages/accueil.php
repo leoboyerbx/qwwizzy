@@ -117,6 +117,6 @@ foreach($categories as $categorie) {
         ?>
     </div>
 </main>
-
+<!--On importe le script du carousel et le script spécifique à cette page-->
 <script defer type="text/javascript" src="/assets/js/app/cjs-slider.js"></script>
 <script defer type="text/javascript" src="/assets/js/app/accueil.js"></script>

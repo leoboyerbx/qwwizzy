@@ -17,6 +17,7 @@ $auth = new Bdd\Auth(\App::getInstance()->getBdd());
     <?= \App::getInstance()->getThemeColor() ?>
     
     
+    <script defer type="text/javascript" src="/assets/js/admin/dynamic-message.js"></script>
     <script defer type="text/javascript" src="/assets/js/admin/admin.js"></script>
 </head>
 <body>

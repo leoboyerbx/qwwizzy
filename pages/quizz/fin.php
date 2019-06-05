@@ -1,4 +1,4 @@
-
+<!--Vue appelée au moment de la fin d'un quizz-->
     <main class="container" id="main-cont">
 
         <div id="question" class="row">

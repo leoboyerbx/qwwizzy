@@ -1,5 +1,5 @@
+<!--Vue correspondant à l'affichage d'une question, puis de sa réponse (en Javascript)-->
     <main class="container" id="main-cont">
-
         <div id="question" data-id="<?= $question->id ?>" class="row">
             <div class="col-md-4" id="question-image">
                 <div class="squareimg" style="background-image: url(<?= $question->url_image ?>);"></div>

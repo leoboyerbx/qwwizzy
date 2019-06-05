@@ -1,3 +1,4 @@
+<!--Vue appelée si le quizz n'existe pas.-->
 <main class="container" id="main-cont">
     <h1>Erreur 404</h1>
     <h2>Ce thème n'existe pas, désolé!</h2>

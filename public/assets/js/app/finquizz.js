@@ -4,6 +4,7 @@
     barre.style.backgroundColor = "#ff6666";
     // A la fin de la première animation (600 ms), on choisit la couleur en fonction du score, et on fice la taille de la barre
     setTimeout(() => {
+        // On récupère le score qui se trouve dans l'attribut "data-score"
         let score = barre.dataset.score
         barre.style.width = score * 10 + "%";
         

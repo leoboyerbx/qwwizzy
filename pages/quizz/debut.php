@@ -1,4 +1,4 @@
-
+<!--Vue appelée au lancement de chaque thème-->
     <main class="container" id="main-cont">
 
         <div id="question" class="row">
