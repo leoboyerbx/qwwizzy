@@ -202,6 +202,7 @@ class App {
      * @return string
      */
     public function getThemeColor() {
+        // On récupère l'entrée de configuration dans la base de données, si l'entrée existe
         $couleurs = $this->getConfig('theme');
         
         if ($couleurs) {

@@ -1,8 +1,8 @@
+// Script qui gère le choix de la oculeur de la barre à la fin d'un quizz
 (() => {
-    const $ = document.querySelector.bind(document)
-    const $$ = document.querySelectorAll.bind(document)
-    let barre = $('#barre-score div')
+    let barre = document.querySelector('#barre-score div')
     barre.style.backgroundColor = "#ff6666";
+    // A la fin de la première animation (600 ms), on choisit la couleur en fonction du score, et on fice la taille de la barre
     setTimeout(() => {
         let score = barre.dataset.score
         barre.style.width = score * 10 + "%";

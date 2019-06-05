@@ -36,7 +36,7 @@ if(isset($_POST['key_nom']) AND isset($_POST['nom']) AND isset($_POST['descripti
             <label for="url_image">Code icône (voir <a href="https://fontawesome.com/icons">FontAwesome</a>)</label>
             <div class="row">
                 <div class="col-1 center">
-                    <i id="icon-preview"></i>                    
+                    <i id="icon-preview"></i>
                 </div>
                 <div class="col-11">
                     <input type="text" class="form-control" name="icon" id='icon'>

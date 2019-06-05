@@ -4,6 +4,10 @@ namespace Bdd;
 
 use \App;
 
+/**
+ * Classe chargée de gérer ce qui concerne l'authentification
+ */
+
 class Auth {
     private $db;
 

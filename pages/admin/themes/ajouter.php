@@ -3,9 +3,9 @@
 $app = \App::getInstance();
 $bdd = $app->getBdd();
 
-if(isset($_POST['key_nom']) AND isset($_POST['nom']) AND isset($_POST['description']) AND isset($_POST['url_image']) AND isset($_POST['couleur'])){ //envoi des données si renseignées
+if(isset($_POST['key_nom']) AND isset($_POST['nom']) AND isset($_POST['description']) AND isset($_POST['url_image']) AND isset($_POST['couleur'])){ //envoi des données si renseignées pour enregistrement
     $result = $bdd -> prepare('INSERT into theme(key_nom, nom, description, url_image, couleur) values (:key_nom, :nom, :description, :url_image, :couleur)', array("key_nom" => $_POST['key_nom'], "nom" => $_POST['nom'], "description" => $_POST['description'], "url_image" => $_POST['url_image'], "couleur" => $_POST['couleur']));
-    if($result){
+    if($result){//succès = envoi message positif et retour page liste themes
         $app->set_flash('success', 'Thème ajouté avec succès');
         header('Location: /admin/themes');
     }

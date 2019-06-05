@@ -1,6 +1,8 @@
 <?php
+// On récupère l'objet Base de données
 $bdd = \App::getInstance()->getBdd();
 
+// On récupère tous les thèmes avec leur catégorie
 $all_themes = $bdd -> query('SELECT theme.*, categorie.nom as categorie, categorie.id as categorie_id FROM theme LEFT JOIN categorie ON theme.categorie_id = categorie.id');
 
 ?>
@@ -13,8 +15,10 @@ $all_themes = $bdd -> query('SELECT theme.*, categorie.nom as categorie, categor
     </div>
     
     <?php
-    $featured = $bdd->query('SELECT * FROM theme WHERE featured = 1');
     
+    // On récupère tous les thèmes mis en avant et on génère une slide de carousel pour chaque.
+    $featured = $bdd->query('SELECT * FROM theme WHERE featured = 1');
+    // S'il y en a un ou moins, on masque le Carousel
     if (sizeof($featured) > 1):
     ?>
     <div class="row">
@@ -49,13 +53,14 @@ $all_themes = $bdd -> query('SELECT theme.*, categorie.nom as categorie, categor
 <?php
 endif;
 
-
+// On récupère toutes les catégories et on boucle dessus.
 $categories = $bdd->query('SELECT * FROM categorie');
 foreach($categories as $categorie) {
-    
+    // Pour chaque catégorie, on récupère les thèmes qui correspondent
     $themes_cat = array_filter($all_themes, function ($theme) use ($categorie) {
         return $theme->categorie_id == $categorie->id;
     });
+    // ON affiche chaque theme par catégorie
     echo "<div class=\"row\">
     <h2 class='categorie_nom'>$categorie->nom</h2>
     </div>
@@ -63,9 +68,10 @@ foreach($categories as $categorie) {
     ";
     
     
+    // Pour chaque catégorie, on affiche tous ses thèmes
     foreach($themes_cat as $theme) {
         ?>
-        <div class="col text-center">
+        <div class="col-md-4 text-center">
             <div id=id style=visibility:hidden;>
                 <?php echo($theme->id); ?>
             </div>
@@ -91,6 +97,7 @@ foreach($categories as $categorie) {
     
     <div class="row">
         <?php
+        // On ré affiche une liste des cztégories, sous forme de boutons
         foreach($categories as $categorie) {
         ?>
             <div class="col-3 bloc_categorie">

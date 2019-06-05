@@ -161,8 +161,8 @@ main {
     box-shadow: 0px 0px 20px -10px rgba(0, 0, 0, 0.4);
 
 }
-.dyn-msg.closed .alert {
-    /*transform: translateX(150%);*/
+.dyn-msg.wiggle {
+    animation: mauvaise_reponse 0.7s;
 }
 .dyn-msg-content {
     margin-right: 50px;
@@ -1207,13 +1207,79 @@ footer {
     margin: 0px;
 }
 
+
 #right_part {
     height: 100%;
     background-color: #444444;
     padding: 0px;
     margin: 0px;
+    width:  50%;
 }
 
 #row_intro {
     height: 100%;
+}
+
+#qwwizzy_intro {     /* Règles pour les textes de la moitié gauche */
+    font-family: acier-bat-noir;
+    font-size: 90px;
+    position: relative;
+    top: 32%;
+    text-align: center;
+    color: white;
+}
+
+.liens {
+    font-family: century-gothic, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+    position: relative;
+    font-size: 27px;
+    top: 35%;
+    color: white;
+    border-color: white;
+    border: solid 1px;
+    width: 40%;
+    margin-left: 30%;
+    padding: 15px;
+}
+
+#random_title {
+    font-family: century-gothic, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 50px;
+    position: relative;
+    top: 36%;
+    text-align: center;
+    color: white;
+}
+
+#liens_2 {
+    font-family: century-gothic, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+    position: relative;
+    font-size: 27px;
+    top: 42%;
+    color: white;
+    border-color: white;
+    border: solid 1px;
+    width: 40%;
+    margin-left: 30%;
+    padding: 15px;
+}
+
+/* Supprime les transformations par défault des liens */
+
+.no_link {   
+    text-decoration: none;
+    color: white;
+}
+
+.no_link:hover {
+    text-decoration: none;
+    color: white;
 }

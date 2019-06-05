@@ -1,17 +1,24 @@
 <?php
-if (startsWith($page, "login")) { // pages sans template
+// pages sans template, comme sur l'index
+if (startsWith($page, "login")) { 
     include ROOT . '/pages/admin/login.php';
 } else if (startsWith($page, "logout")) { 
+    // Déconnexion de l'utilisateur: on vide la session et on renvoie à l'accueil
     session_destroy();
-    header("Location: /");
+    header("Location: /home");
 } else if (startsWith($page, "couleur_theme")) { 
     include ROOT . '/pages/admin/general/edit_couleur_theme.php';
-}  else if (startsWith($page, "themes/deplacer")) { 
+}  else if (startsWith($page, "themes/deplacer")) {
     include ROOT . '/pages/admin/themes/deplacer.php';
 } else {
+    // on récupère un objet Auth
     $auth = new Bdd\Auth($app->getBdd());
-    if ($auth->estConnecte()) {
+    
+    if ($auth->estConnecte()) { // On demande si l'utilisateur est connecté
+        // On démarre la bufferisation de sortie pour récupérer la sortie dans une variable
         ob_start();
+        
+        // POur chaque route: On définit le niveau de permissions nécessaires à l'aide de la classe Auth et on inclut la page correspondante.
         if (startsWith($page, "themes/ajouter")) {
             $auth->auth_permission(7);
             include ROOT . '/pages/admin/themes/ajouter.php';
@@ -24,6 +31,7 @@ if (startsWith($page, "login")) { // pages sans template
 
         else if (startsWith($page, "themes/edit/")) {
             $auth->auth_permission(7);
+            // On récupère la valeur en fin d'url, qui correspond à l'ID du thème. Idem pour la suite
             $id_theme = substr($page, 12);
             include ROOT . '/pages/admin/themes/editer.php';
         }
@@ -125,15 +133,18 @@ if (startsWith($page, "login")) { // pages sans template
         }
 
         else {
+            // Page 404
             $noTemplate = true;
             include ROOT . '/pages/page404.php';
         }
 
+        //Récupération du contenu
         $content = ob_get_clean();
 
         //Injection du contenu dans le template correspondant
         include ROOT.'/pages/templates/admin.php';
     } else {
+        
         $app->set_flash('warning', "Veuillez vous connecter.");
         header("Location: /admin/login");
     }

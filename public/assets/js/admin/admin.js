@@ -5,7 +5,7 @@ class DynamicMessage {
     
     static instances = []
     
-    constructor (message, type = "light", expiration = null, closable = true) {
+    constructor (message, type = "light", expiration = null, closable = true, stackable = true) {
         let element = document.createElement('div')
         element.classList.add('dyn-msg')
         let content = `<div class="alert alert-${type}">
@@ -24,26 +24,29 @@ class DynamicMessage {
                 this.close()
             })
         }
-        
-        
-        if (DynamicMessage.instances.length > 0) {
-            document.querySelector('body').insertBefore(element, document.querySelector('.dyn-msg'))
+        if (DynamicMessage.instances.length == 1 && !DynamicMessage.instances[0].stackable) {
+            DynamicMessage.instances[0].wiggle()
         } else {
-            document.querySelector('body').appendChild(element)
-        }
-        this.element = element
-        this.height = element.getBoundingClientRect().height
-        this.translated = 0;
-        
-        if (DynamicMessage.instances.length > 0) {
-            DynamicMessage.instances.forEach(instance => {
-                instance.moveUp(this.height)
-            })
-        }
-        DynamicMessage.instances.push(this);
-        
-        if (expiration) {
-            setTimeout(() => {this.close()}, expiration*1000)
+            if (DynamicMessage.instances.length > 0) {
+                document.querySelector('body').insertBefore(element, document.querySelector('.dyn-msg'))
+            } else {
+                document.querySelector('body').appendChild(element)
+            }
+            this.element = element
+            this.height = element.getBoundingClientRect().height
+            this.translated = 0
+            this.stackable = stackable
+            
+            if (DynamicMessage.instances.length > 0) {
+                DynamicMessage.instances.forEach(instance => {
+                    instance.moveUp(this.height)
+                })
+            }
+            DynamicMessage.instances.push(this)
+            
+            if (expiration) {
+                setTimeout(() => {this.close()}, expiration*1000)
+            }
         }
     }
     
@@ -72,6 +75,13 @@ class DynamicMessage {
         return DynamicMessage.instances.indexOf(this)
     }
     
+    wiggle() {
+        this.element.classList.add('wiggle')
+        setTimeout(() => {
+            this.element.classList.remove('wiggle')
+        }, 1000)
+    }
+    
     
     static autoFromFlash() {
         document.querySelectorAll('.flashmsg').forEach(msg => {
@@ -84,13 +94,13 @@ class DynamicMessage {
     
 }
 class DynamicMessagePrompt extends DynamicMessage {
-    constructor(message, type, textYes = "Oui", textNo = "Annuler") {
+    constructor(message, type, textYes = "Oui", textNo = "Annuler", stackable = false) {
         message += `</div>
         <div class="dyn-msg-prompt">
             <button class="btn btn-${type} action-yes">${textYes}</a>
             <button class="btn btn-light action-no">${textNo}</a>
             `
-        super(message, type, null, false)
+        super(message, type, null, false, stackable)
         this.element.querySelector('.action-yes').focus()
     }
     

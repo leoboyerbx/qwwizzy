@@ -24,7 +24,7 @@ function startsWith($string, $q) {
 }
 
 // Apache nous envoie en paramètre 'p' la route demandée par le client. Si elle n'est pas spécifiée, on lui donne une valeur par défaut, l'accueil.
-$page = "home";
+$page = "intro";
 if (!empty($_GET['p'])) {
     $page = $_GET['p'];
 }
@@ -50,6 +50,7 @@ if (startsWith($page,"question/check")) {
         if ($page === "home"){
             include ROOT.'/pages/accueil.php';
         } else if ($page === "intro"){
+            $noTemplate = true;
             include ROOT.'/pages/intro.php';
         } else if (startsWith($page, 'apropos')) {
             include ROOT . '/pages/apropos.php';

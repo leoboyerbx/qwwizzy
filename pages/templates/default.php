@@ -1,3 +1,7 @@
+<?php
+
+$categories = \App::getInstance()->getBdd()->query('SELECT * FROM categorie');
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>

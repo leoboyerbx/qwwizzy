@@ -7,21 +7,17 @@ $auth = new Bdd\Auth($app->getBdd());
 $user = $auth->getUser();
 $user->id;
 
-if(isset($_POST['question']) AND isset($_POST['vf']) AND isset($_POST['txtrep']) AND isset($_POST['url_image']) AND isset($_POST['theme'])){ //envoi des données si renseignées
+if(isset($_POST['question']) AND isset($_POST['vf']) AND isset($_POST['txtrep']) AND isset($_POST['url_image']) AND isset($_POST['theme'])){ //envoi des données pour enregistrement si renseignées en post
     $result = $bdd -> prepare('INSERT into question(question, reponse, texte_reponse, url_image, theme_id, auteur_id) values (:question, :reponse, :texte_reponse, :url_image, :theme_id, :auteur_id)', array("question" => $_POST['question'], "reponse" => $_POST['vf'], "texte_reponse" => $_POST['txtrep'], "theme_id" => $_POST['theme'], "url_image" => $_POST['url_image'], "auteur_id" => $user -> id));
-    if($result){
+    if($result){//succès = message positif et redirection vers liste
         $app->set_flash('success', 'Question ajoutée avec succès');
         header('Location: /admin/questions');
         die();
     }
-    
 }
 
 
-
-
-
-if (isset($id_theme)) {
+if (isset($id_theme)) { //récuperation du nom de thème via l'id
     $theme = $bdd->prepare('SELECT nom FROM theme WHERE id= ?', [$id_theme]);
     if(!$theme) {
         $app->set_flash('danger', "Une erreur s'est produite");
@@ -40,7 +36,7 @@ if (isset($id_theme)) {
 <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
 <div class="admin-container">
     <h1>Ajouter une question<?= !empty($theme) ? " au thème ".$theme : "" ?></h1>
-    <?= $app->get_flash() ?>
+    <?= $app->get_flash() ?><!--On utilise le message positif pour monter que l'action précédente a réussi-->
     <form method="post" class="form-editeur">
         <div class="form-group">
             <label for="question">Question</label>
@@ -64,7 +60,7 @@ if (isset($id_theme)) {
             </div>
         </div>
         <?php
-        if (!empty($reponse)) {
+        if (!empty($reponse)) {//si on a une réponse de la bdd, on assigne aux inputs les noms des différents champs de la bdd
             ?>
             <div class="form-group">
             <label for="theme">La question appartient au thème</label>

@@ -1,7 +1,7 @@
 <?php
 /**
  * Classe chargée de controller le déroulement d'un quizz. Elle envoie la vue correspondante selon la situation.
- * NOTE: on aurait pu utiliser $_SESSION, mais cela aurait limité les appels à la base de donnée, donc on évite volontairement.
+ * NOTE: on aurait pu utiliser $_SESSION, mais cela aurait limité les appels à la base de données, donc on évite volontairement.
  * 
 */
 
@@ -83,14 +83,6 @@ class ThemeController {
                                                WHERE id_session = ?", [$this->id_session]);
         $this->theme->score = $calcul[0]->score;
         $theme = $this->theme;
-        // $avg = $this->bdd->prepare("SELECT AVG(score) as moyenne
-        //                                 FROM (SELECT SUM(score) as score
-        //                                       FROM historique_session
-        //                                       LEFT JOIN question ON historique_session.question_id = question.id
-        //                                       WHERE question.theme_id = ?
-        //                                         GROUP BY id_session) as scores", [$this->theme->id]);
-        
-        // $theme->avg_score = $avg[0]->moyenne;
         
         include ROOT . '/pages/quizz/fin.php';
         

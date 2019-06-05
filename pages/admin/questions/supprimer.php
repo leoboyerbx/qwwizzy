@@ -3,16 +3,16 @@ $bdd = \App::getInstance()->getBdd();
 
 if(!empty($_POST['id_question'])){
     $id_question = $_POST['id_question'];
-    $result = $bdd -> prepare("DELETE FROM question WHERE id = ?", array($id_question));
-    if ($result) {
+    $result = $bdd -> prepare("DELETE FROM question WHERE id = ?", array($id_question)); //on prépare la requête avec l'id_question de la page précédente
+    if ($result) {//suppression est effective, message positif et retour a la liste des questions
         $app -> set_flash('success', 'Question supprimée avec succès !');
         header('Location: /admin/questions');
-    } else {
+    } else {//suppression n'a pas fonctionné, message négatif et retour aux questions
         $app -> set_flash('danger', "Une erreur s'est produite");
         header("Location : /admin/questions");
 
     }
-} else {
+} else {//si pas d'id question on redirige vers la liste car l'user n'a rien a faire ici
     $app -> set_flash('danger', "Une erreur s'est produite");
     header("Location : /admin/questions");
 

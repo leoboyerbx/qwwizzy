@@ -39,4 +39,12 @@ LE TODO
 
 plutar
 
+REQUETE :
+
+SELECT key_nom FROM theme
+
+ORDER BY RAND()
+
+LIMIT 1;
+
 - [ ] filtre des thèmes sur page d'accueil
