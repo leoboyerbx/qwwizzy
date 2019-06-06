@@ -43,16 +43,9 @@ if (isset($id_theme)) { //récuperation du nom de thème via l'id
             <input type="text" class="form-control" name="question" id="admin-question">
         </div>
         <div class="form-group">
-            <label for=vrai>Vrai</label><input type=radio id=vrai name=vf value=1><label for=faux>Faux</label><input type=radio id=faux name=vf value=0>
+            <input type=radio id=vrai name=vf value=1> <label for=vrai>Vrai</label><br>
+            <input type=radio id=faux name=vf value=0> <label for=faux>Faux</label>
         </div>
-        <!--<div class="btn-group btn-group-toggle" id="vraifaux">-->
-        <!--  <label class="btn btn-secondary">-->
-        <!--    <input type="radio" name="vf" id="option1" autocomplete="off" value="1"> Vrai-->
-        <!--  </label>-->
-        <!--  <label class="btn btn-secondary">-->
-        <!--    <input type="radio" name="vf" id="option2" autocomplete="off" value="0"> Faux-->
-        <!--  </label>-->
-        <!--</div>-->
         <div class="form-group">
             <label for="txtrep">Texte réponse</label>
             <input type="hidden" name="txtrep" id="editeurval" />

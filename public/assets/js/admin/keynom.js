@@ -1,3 +1,5 @@
+/** Génère un nom clef de manière automatique au cours de la frappe
+ * */
 (() => {
         let keyNom = $('[name=key_nom]')
         let locked = true;

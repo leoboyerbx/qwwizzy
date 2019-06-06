@@ -1,4 +1,9 @@
 <?php
+
+/**
+ * Vue du dashboard, On fait toutes les requêtes nécessaires pour afficher les statistiques
+ * 
+ * */
 $bdd = App::getInstance()->getBdd();
 $result = $bdd->query("SELECT count(*) as nbrquestions
                                 FROM question");

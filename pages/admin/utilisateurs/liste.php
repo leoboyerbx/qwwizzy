@@ -9,6 +9,9 @@ $utilisateurs = $bdd -> query("SELECT *
 
 <div class="admin-container">
     <h1>Gestion des utilisateurs</h1>
+    <p>
+        <a href="/admin/utilisateurs/ajouter" class="btn btn-uc btn-theme"><i class="fas fa-plus"></i> Ajouter un utilisateur</a>
+    </p>
     <?php
     echo $app->get_flash();
     ?>

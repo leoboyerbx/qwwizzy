@@ -24,7 +24,9 @@ function lightenDarkenColor (c,p) {
 };
 
 (() => {
-    
+    /**
+     * Pour toutes les pages qui contiennent un bouton supprimer, on ajoute un message de confirmation avant d'effectuer l'action.
+     * */
     if ($('.form-delete')) {
         $$('.form-delete').forEach(form => {
             form.addEventListener('submit', function(e) {
@@ -36,14 +38,17 @@ function lightenDarkenColor (c,p) {
             })
         })
     }
-    
+    /**
+     * Permets aux boutons "retour" de renvoyer à la page précédemment visitée et non pas toujours à la même page.
+     * */
     $$('.btn-retour').forEach(btn => {
         btn.addEventListener('click', e => {
             e.preventDefault()
             history.go(-1)
         })
     })
-    
+    /**
+     * On récupère les messages envoyés par PHP pour en faire un bel affichage     * */
     document.addEventListener('DOMContentLoaded', function() {
         DynamicMessage.autoFromFlash()
     })

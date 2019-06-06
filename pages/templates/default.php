@@ -30,7 +30,7 @@ $categories = \App::getInstance()->getBdd()->query('SELECT * FROM categorie');
                             <?php
                                 foreach($categories as $categorie) {
                             ?>
-                                <a href="/theme/<?php $categorie->key_nom ?>"><li><?= $categorie->nom ?></li></a>
+                                <a href="/categorie/<?= $categorie->key_nom ?>"/><li><?= $categorie->nom; ?></li></a>
                             <?php
                                 }
                             ?>
