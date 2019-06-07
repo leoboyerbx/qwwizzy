@@ -12,7 +12,7 @@
                     </div><br>
                 </p>
                 <p>
-                    N'hésitez pas à rejouter pour découvrir d'autres questions et améliorer votre score !
+                    N'hésitez pas à rejouer pour découvrir d'autres questions et améliorer votre score !
                 </p>
                 <p>
                     <a href="/home" class="btn btn-uc btn-chevron-left btn-secondary">Retour à l'accueil</a>
