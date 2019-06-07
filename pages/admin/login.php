@@ -52,6 +52,7 @@ if (!empty($_POST['pseudo']) && !empty($_POST['pass'])) {
         </div>
     </form>
     
+    <script type="text/javascript" src="/assets/js/admin/dynamic-message.js"></script>
     <script type="text/javascript" src="/assets/js/admin/admin.js"></script>
 </body>
 </html>
