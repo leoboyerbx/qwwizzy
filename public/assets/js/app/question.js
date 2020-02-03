@@ -50,6 +50,7 @@
                 // Une fois la réponse reçue, on vérifie que la réponse est juste, et on ajuste des détails de design
                 if (response.juste) {
                     question.classList.add('vrai')
+                    // On renseigne la valeur de score qui sera envoyée à PHP
                     $('#score').value = "1";
                 } else {
                     question.classList.add('faux')

@@ -11,11 +11,11 @@
                         <div class="start" data-score="<?= $theme->score ?>"></div>
                     </div><br>
                 </p>
-                <!--<p>-->
-                <!--    Score moyen pour ce thème: <?= $theme->avg_score ?>-->
-                <!--</p>-->
                 <p>
-                    <a href="/" class="btn btn-uc btn-chevron-left btn-secondary">Retour à l'accueil</a>
+                    N'hésitez pas à rejouer pour découvrir d'autres questions et améliorer votre score !
+                </p>
+                <p>
+                    <a href="/home" class="btn btn-uc btn-chevron-left btn-secondary">Retour à l'accueil</a>
                     <a href="" class="btn btn-uc btn-chevron btn-primary">Rejouer</a>
                 </p>
                 <div class="share">

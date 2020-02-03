@@ -58,6 +58,9 @@ if (startsWith($page,"question/check")) {
             // Cas particulier: Lorsqu'on joue un thème, il y a un contrôleur pour gérer l'évolution du quizz
             $cont = new Controllers\ThemeController(substr($page, 6));
             $cont->quizz();
+        }  else if (startsWith($page, 'categorie/')){
+            $categorie_nom = substr($page, 10);
+            include ROOT . "/pages/categories/categorie.php";
         } else {
             // Page 404: Elle n'utilise pas de template.
             $noTemplate = true;

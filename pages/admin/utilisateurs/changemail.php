@@ -23,7 +23,7 @@ $email = $user->email;
 <div class="change_mdp-container">
 <?= $app->get_flash() ?>
     <div class="text-center changemdp_box">
-        <h1 class="spacer_change_mdp">Changer mon mot de passe</h1>
+        <h1 class="spacer_change_mdp">Changer mon mail</h1>
         <form method="post" id="form_change_mdp">
             <div class="form-group spacer_change_mdp">
                 <b>Votre email actuel:</b> <?= $email?>

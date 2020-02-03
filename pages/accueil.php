@@ -60,34 +60,37 @@ foreach($categories as $categorie) {
     $themes_cat = array_filter($all_themes, function ($theme) use ($categorie) {
         return $theme->categorie_id == $categorie->id;
     });
-    // ON affiche chaque theme par catégorie
-    echo "<div class=\"row\">
-    <h2 class='categorie_nom'>$categorie->nom</h2>
-    </div>
-    <div class=\"row\">
-    ";
-    
-    
-    // Pour chaque catégorie, on affiche tous ses thèmes
-    foreach($themes_cat as $theme) {
-        ?>
-        <div class="col-md-4 text-center">
-            <div id=id style=visibility:hidden;>
-                <?php echo($theme->id); ?>
-            </div>
-            <div class="card" style="width: 18rem;">
-              <div class="squareimg" style="background-image: url(<?= $theme->url_image ?>)"></div>
-              <div class="card-body">
-                <h5 class="card-title"><?php echo($theme->nom); ?></h5>
-                <a href="/theme/<?php echo($theme->key_nom); ?>" class="btn btn-theme btn-chevron btn-uc">Jouer</a> <br>
+    if(!empty($themes_cat)) {
+        // ON affiche chaque theme par catégorie si le thème n'est pas vide
+        echo "<div class=\"row\">
+        <h2 class='categorie_nom'><i class=\"fas fa-$categorie->icon\"></i> $categorie->nom</h2>
+        </div>
+        <div class=\"row text-center\">
+        ";
+        
+        
+        // Pour chaque catégorie, on affiche tous ses thèmes
+        foreach($themes_cat as $theme) {
+            ?>
+            <div class="col-md-4 text-center">
+                <div id=id style=visibility:hidden;>
+                    <?php echo($theme->id); ?>
+                </div>
+                <div class="card" style="width: 18rem;">
+                  <div class="squareimg" style="background-image: url(<?= $theme->url_image ?>)"></div>
+                  <div class="card-body">
+                    <h5 class="card-title"><?php echo($theme->nom); ?></h5>
+                    <a href="/theme/<?php echo($theme->key_nom); ?>" class="btn btn-theme btn-chevron btn-uc">Jouer</a> <br>
+                </div>
             </div>
         </div>
-    </div>
-        
-        <?php
+            
+            <?php
+            
+        }
+        echo "</div>";
         
     }
-    echo "</div>";
 }
 ?>
 
@@ -97,20 +100,22 @@ foreach($categories as $categorie) {
     
     <div class="row">
         <?php
-        // On ré affiche une liste des cztégories, sous forme de boutons
+        // On ré affiche une liste des catégories, sous forme de boutons
         foreach($categories as $categorie) {
         ?>
-            <div class="col-3 bloc_categorie">
-                <a href="/theme/<?php $categorie->key_nom ?>" class="nom_categorie">
-                    <div class="row">
-                        <div class="col-2">
-                            <i class="fas fa-<?= $categorie->icon ?>"></i> 
+            <div class="col-3">
+                <div class="bloc_categorie">
+                    <a href="/categorie/<?= $categorie->key_nom ?>" class="nom_categorie">
+                        <div class="row">
+                            <div class="col-2">
+                                <i class="fas fa-<?= $categorie->icon ?>"></i> 
+                            </div>
+                            <div class="col-10">
+                                <div class="nom_bloc_categorie"><?= $categorie->nom ?></div>
+                            </div>
                         </div>
-                        <div class="col-10">
-                            <div class="nom_bloc_categorie"><?= $categorie->nom ?></div>
-                        </div>
-                    </div>
-                </a>
+                    </a>
+                </div>
             </div>
         <?php
         }

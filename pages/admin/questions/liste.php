@@ -30,8 +30,7 @@ if (!empty($id_theme) && $isAdmin) {
     }
 
 }
-// $themes = $bdd -> query("SELECT id, nom, (SELECT count(*) FROM question) as nbr_questions
-//                          FROM theme");
+// Fonction qui permet de réduire la longueur du texte, pour harmoniser l'affichage
 function crop($chaine) {
     if (strlen($chaine) >= 40) {
         return substr($chaine, 0, 40)."...";
@@ -43,6 +42,9 @@ function crop($chaine) {
 
 <div class="admin-container">
     <h1>Gestion des questions</h1>
+    <p>
+        <a href="/admin/questions/ajouter" class="btn btn-theme btn-uc"><i class="fas fa-plus"></i> Ajouter une question</a>
+    </p>
     <?php
     if (!empty($id_theme) AND count($questions) > 0) {
         echo <<<END

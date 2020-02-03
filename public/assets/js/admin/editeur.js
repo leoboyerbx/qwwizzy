@@ -1,3 +1,6 @@
+/**
+ * In tègre le plugin quill pour les pages qui l'utilisent.
+ * */
 let quill = new Quill('#editeur', {
     theme: 'snow',
     modules: {
