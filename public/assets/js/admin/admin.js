@@ -3,7 +3,7 @@ const $$ = document.querySelectorAll.bind(document)
 
 
 /**
- * Util function for lightening the colour with a %
+ * Fonction chargée d'éclaircir ou assombrir une couleur
  * @param - string - colour with leading #
  * @param - number - percentage to lighten by
  */
