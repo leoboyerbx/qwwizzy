@@ -72,7 +72,7 @@ foreach($categories as $categorie) {
         // Pour chaque catégorie, on affiche tous ses thèmes
         foreach($themes_cat as $theme) {
             ?>
-            <div class="col-md-4 text-center">
+            <div class="col-12 col-md-6 col-lg-12 text-center">
                 <div id=id style=visibility:hidden;>
                     <?php echo($theme->id); ?>
                 </div>
@@ -95,7 +95,7 @@ foreach($categories as $categorie) {
 ?>
 
     <div class="row">
-        <h2 class="categorie_nom"> Catégories </h2>
+        <h2 class="categorie_nom d-none d-md-block"> Catégories </h2>
     </div>
     
     <div class="row">
@@ -103,7 +103,7 @@ foreach($categories as $categorie) {
         // On ré affiche une liste des catégories, sous forme de boutons
         foreach($categories as $categorie) {
         ?>
-            <div class="col-3">
+            <div class="col-3 d-none d-md-block">
                 <div class="bloc_categorie">
                     <a href="/categorie/<?= $categorie->key_nom ?>" class="nom_categorie">
                         <div class="row">
