@@ -6,7 +6,7 @@ $categories = \App::getInstance()->getBdd()->query('SELECT * FROM categorie');
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Qwwizzy</title>
     <link rel="stylesheet" href="https://use.typekit.net/esl5ggo.css">
@@ -23,7 +23,7 @@ $categories = \App::getInstance()->getBdd()->query('SELECT * FROM categorie');
                 <div class="col-2">
                     <div id="logo"> <a href="/home"  >Qwwizzy </a> </div>
                 </div>
-                <div class="col-2">
+                <div class="col-2 d-none d-lg-block">
                     <div id="categorie" class="center">
                         Catégories <i class="fas fa-chevron-down"></i> 
                         <ul id="dropdown">  
@@ -38,7 +38,7 @@ $categories = \App::getInstance()->getBdd()->query('SELECT * FROM categorie');
                     </div>
                 </div>
                 <div class="col-5"></div>
-                <div class="col-3">
+                <div class="col-5 col-lg-3 d-none d-md-block">
                     <?php include ROOT . '/pages/templates/modules/adminmenu.php';?>
                 </div>
             </div>
