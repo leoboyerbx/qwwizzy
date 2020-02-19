@@ -22,8 +22,8 @@ $all_themes = $bdd -> query('SELECT theme.*, categorie.nom as categorie, categor
     if (sizeof($featured) > 1):
     ?>
     <div class="row">
-        <h2 class="categorie_nom">Mis en avant</h2>
-        <div class="cjs-slider" id="carousel">
+        <h2 class="categorie_nom d-none d-md-block">Mis en avant</h2>
+        <div class="cjs-slider d-none d-md-block" id="carousel">
             <div class="cjs-slides-block">
 <!--                Génération d'une slide par thème-->
                 <?php foreach($featured as $element) { ?>
