@@ -72,7 +72,7 @@ foreach($categories as $categorie) {
         // Pour chaque catégorie, on affiche tous ses thèmes
         foreach($themes_cat as $theme) {
             ?>
-            <div class="col-12 col-md-6 col-lg-12 text-center">
+            <div class="col-12 col-md-6 col-lg-4 text-center">
                 <div id=id style=visibility:hidden;>
                     <?php echo($theme->id); ?>
                 </div>
