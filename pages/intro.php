@@ -20,11 +20,11 @@ $theme = \App::getInstance()->getBdd()->query('SELECT key_nom FROM theme
     </head>
     <body id="container_intro" class="container-fluid">
         <div class="row" id="row_intro">
-           <div class="col-sm" id="left_part">
+           <div class="col-12 col-lg-6" id="left_part">
                <div id="qwwizzy_intro"> Qwwizzy </div>
                <div class="liens"><a href="/home" class="no_link"> PAGE D'ACCUEIL </a></div> 
            </div> 
-           <div class="col-sm" id="right_part">
+           <div class="col-12 col-lg-6" id="right_part">
                <div id="random_title"> Thème au hasard </div>
                <div id="liens_2"><a href="/theme/<?= $theme ?>" class="no_link"> C'EST PARTI ! </a></div> 
            </div>

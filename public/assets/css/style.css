@@ -1260,80 +1260,155 @@ footer {
 
 /* Les règles CSS suivantes concernent la page d'intro du site */
 
+@media screen and (max-width: 769px) {
+
+    #left_part {
+        height: 50%;
+        background-color: var(--main-color);
+        padding: 0px;
+        margin: 0px;
+    }
+
+    #right_part {
+        height: 50%;
+        background-color: #444444;
+        padding: 0px;
+        margin: 0px;
+        width:  50%;
+    }
+
+    #qwwizzy_intro {     /* Règles pour les textes de la moitié gauche */
+        font-family: acier-bat-noir;
+        font-size: 50px;
+        position: relative;
+        top: 27%;
+        text-align: center;
+        color: white;
+    }
+
+    .liens {
+        font-family: century-gothic, sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        text-align: center;
+        position: relative;
+        font-size: 20px;
+        top: 35%;
+        color: white;
+        border-color: white;
+        border: solid 1px;
+        width: 40%;
+        margin-left: 30%;
+        padding: 15px;
+    }
+
+    #random_title {
+        font-family: century-gothic, sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 33px;
+        position: relative;
+        top: 30%;
+        text-align: center;
+        color: white;
+    }
+
+    #liens_2 {
+        font-family: century-gothic, sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        text-align: center;
+        position: relative;
+        font-size: 20px;
+        top: 42%;
+        color: white;
+        border-color: white;
+        border: solid 1px;
+        width: 40%;
+        margin-left: 30%;
+        padding: 15px;
+    }
+
+}
+
+@media screen and (min-width: 769px) {
+
+    #left_part {
+        height: 100%;
+        background-color: var(--main-color);
+        padding: 0px;
+        margin: 0px;
+    }
+
+    #right_part {
+        height: 100%;
+        background-color: #444444;
+        padding: 0px;
+        margin: 0px;
+        width:  50%;
+    }
+
+    #qwwizzy_intro {     /* Règles pour les textes de la moitié gauche */
+        font-family: acier-bat-noir;
+        font-size: 90px;
+        position: relative;
+        top: 32%;
+        text-align: center;
+        color: white;
+    }
+
+    .liens {
+        font-family: century-gothic, sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        text-align: center;
+        position: relative;
+        font-size: 27px;
+        top: 35%;
+        color: white;
+        border-color: white;
+        border: solid 1px;
+        width: 40%;
+        margin-left: 30%;
+        padding: 15px;
+    }
+
+    #random_title {
+        font-family: century-gothic, sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 50px;
+        position: relative;
+        top: 36%;
+        text-align: center;
+        color: white;
+    }
+
+    #liens_2 {
+        font-family: century-gothic, sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        text-align: center;
+        position: relative;
+        font-size: 27px;
+        top: 42%;
+        color: white;
+        border-color: white;
+        border: solid 1px;
+        width: 40%;
+        margin-left: 30%;
+        padding: 15px;
+    }
+
+}
+
+
 #container_intro {
     padding: 0px;
 }
 
-#left_part {
-    height: 100%;
-    background-color: var(--main-color);
-    padding: 0px;
-    margin: 0px;
-}
-
-
-#right_part {
-    height: 100%;
-    background-color: #444444;
-    padding: 0px;
-    margin: 0px;
-    width:  50%;
-}
-
 #row_intro {
     height: 100%;
-}
-
-#qwwizzy_intro {     /* Règles pour les textes de la moitié gauche */
-    font-family: acier-bat-noir;
-    font-size: 90px;
-    position: relative;
-    top: 32%;
-    text-align: center;
-    color: white;
-}
-
-.liens {
-    font-family: century-gothic, sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    text-align: center;
-    position: relative;
-    font-size: 27px;
-    top: 35%;
-    color: white;
-    border-color: white;
-    border: solid 1px;
-    width: 40%;
-    margin-left: 30%;
-    padding: 15px;
-}
-
-#random_title {
-    font-family: century-gothic, sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 50px;
-    position: relative;
-    top: 36%;
-    text-align: center;
-    color: white;
-}
-
-#liens_2 {
-    font-family: century-gothic, sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    text-align: center;
-    position: relative;
-    font-size: 27px;
-    top: 42%;
-    color: white;
-    border-color: white;
-    border: solid 1px;
-    width: 40%;
-    margin-left: 30%;
-    padding: 15px;
 }
 
 /* Supprime les transformations par défault des liens */
