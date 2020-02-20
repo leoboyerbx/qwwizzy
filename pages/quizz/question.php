@@ -5,7 +5,7 @@
                 <div class="squareimg" style="background-image: url(<?= $question->url_image ?>);"></div>
             </div>
             <div class="col-md-8" id="question-text">
-                <h1>Vrai ou faux ?</h1>
+                <h1 class="d-none d-md-block">Vrai ou faux ?</h1>
                 <p class="enonce"><?= $question->question ?></p>
                 <p class="boutons-reponse">
                     <button value="1" class="btn btn-success btn-uc btn-grow bouton-reponse" id="button-vrai">Vrai</button>
