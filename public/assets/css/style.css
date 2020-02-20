@@ -191,13 +191,6 @@ main {
     to {display: block;}
 }
 
-#main-cont {
-    padding-top: 20px;
-    padding-bottom: 120px;
-    min-height: 75vh;
-    margin-top: 20px;
-}
-
 #logo {
     font-family: acier-bat-noir;
     font-size: 40px;
@@ -360,6 +353,27 @@ footer {
     .boutons-reponse {
         text-align: center;
     }
+
+    #main-cont {
+        padding-bottom: 10px;
+        min-height: 75vh;
+        margin-top: 20px;
+    }
+
+    #texte-reponse {
+        padding-left: 6px;
+        font-weight: normal;
+        font-size: 90%;
+    }
+
+    #boutons-fin {
+        text-align: center;
+    }
+
+    #button-rejouer {
+        margin-bottom: 5px;
+    }
+
 }
 
 @media screen and (min-width: 576px) {
@@ -389,6 +403,13 @@ footer {
         color: #222;
         font-weight: normal;
         font-size: 120%;
+    }
+
+    #main-cont {
+        padding-top: 20px;
+        padding-bottom: 120px;
+        min-height: 75vh;
+        margin-top: 20px;
     }
 
 }
