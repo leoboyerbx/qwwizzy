@@ -1191,6 +1191,10 @@ footer {
 
 /* Les règles suivantes concerne les noms de catégories et le bloc catégorie sur la page d'acceuil */
 
+
+.card {
+    width: 20rem !important;
+}
 .home-card {
     margin: 0 auto;
 }
