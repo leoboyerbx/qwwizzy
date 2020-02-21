@@ -1191,6 +1191,10 @@ footer {
 
 /* Les règles suivantes concerne les noms de catégories et le bloc catégorie sur la page d'acceuil */
 
+.home-card {
+    margin: 0 auto;
+}
+
 .categorie_nom {
     font-family: jaf-facitweb, sans-serif;
     font-weight: 600;

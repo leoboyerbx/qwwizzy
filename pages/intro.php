@@ -18,7 +18,7 @@ $theme = \App::getInstance()->getBdd()->query('SELECT key_nom FROM theme
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
          <?= \App::getInstance()->getThemeColor() ?>
     </head>
-    <body id="container_intro" class="container-fluid">
+    <body id="container_intro" class="container-fluid" style="position: fixed;">
         <div class="row" id="row_intro">
            <div class="col-12 col-lg-6" id="left_part">
                <div id="qwwizzy_intro"> Qwwizzy </div>

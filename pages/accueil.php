@@ -76,7 +76,7 @@ foreach($categories as $categorie) {
                 <div id=id style=visibility:hidden;>
                     <?php echo($theme->id); ?>
                 </div>
-                <div class="card" style="width: 18rem;">
+                <div class="card home-card" style="width: 18rem;">
                   <div class="squareimg" style="background-image: url(<?= $theme->url_image ?>)"></div>
                   <div class="card-body">
                     <h5 class="card-title"><?php echo($theme->nom); ?></h5>
