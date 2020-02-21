@@ -1,3 +1,9 @@
+<?php
+// Récupère le thème en cours de jeu
+$requete = 'SELECT * FROM theme WHERE id = ' . $question->theme_id;
+$theme_nom = \App::getInstance()->getBdd()->query('SELECT nom FROM theme WHERE id = ' . $question->theme_id);
+$theme_nom = $theme_nom[0]->nom;
+?>
 <!--Vue correspondant à l'affichage d'une question, puis de sa réponse (en Javascript)-->
     <main class="container" id="main-cont">
         <div id="question" data-id="<?= $question->id ?>" class="row">
@@ -5,6 +11,7 @@
                 <div class="squareimg" style="background-image: url(<?= $question->url_image ?>);"></div>
             </div>
             <div class="col-md-8" id="question-text">
+                <p class="categorie-play"><?= $theme_nom?></p>
                 <h1 class="d-none d-md-block">Vrai ou faux ?</h1>
                 <p class="enonce"><?= $question->question ?></p>
                 <p class="boutons-reponse">

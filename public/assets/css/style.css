@@ -374,6 +374,13 @@ footer {
         margin-bottom: 5px;
     }
 
+    .categorie-play {
+        color: var(--main-color);
+        font-size: 110%;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
 }
 
 @media screen and (min-width: 576px) {
@@ -410,6 +417,13 @@ footer {
         padding-bottom: 120px;
         min-height: 75vh;
         margin-top: 20px;
+    }
+
+    .categorie-play {
+        color: var(--main-color);
+        font-size: 150%;
+        font-weight: bold;
+        text-transform: uppercase;
     }
 
 }
