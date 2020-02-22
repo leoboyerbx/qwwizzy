@@ -1,8 +1,13 @@
 <?php
 // Récupère le thème en cours de jeu
-$requete = 'SELECT * FROM theme WHERE id = ' . $question->theme_id;
 $theme_nom = \App::getInstance()->getBdd()->query('SELECT nom FROM theme WHERE id = ' . $question->theme_id);
 $theme_nom = $theme_nom[0]->nom;
+
+// Bout de code permettant de récupérer grâce à une manipulation SQL le numéro de la question à laquelle est l'utilisateur
+$num_question = \App::getInstance()->getBdd()->query('SELECT COUNT( DISTINCT question_id) AS nb_question FROM historique_session WHERE id_session = ' . $id_session);
+if($num_question[0]->nb_question > 9) {
+    $num_question[0]->nb_question = 9;
+}
 ?>
 <!--Vue correspondant à l'affichage d'une question, puis de sa réponse (en Javascript)-->
     <main class="container" id="main-cont">
@@ -12,6 +17,7 @@ $theme_nom = $theme_nom[0]->nom;
             </div>
             <div class="col-md-8" id="question-text">
                 <p class="categorie-play"><?= $theme_nom?></p>
+                <p id="question-counter">Question <?= $num_question[0]->nb_question + 1 ?> / 10</p>
                 <h1 class="d-none d-md-block">Vrai ou faux ?</h1>
                 <p class="enonce"><?= $question->question ?></p>
                 <p class="boutons-reponse">

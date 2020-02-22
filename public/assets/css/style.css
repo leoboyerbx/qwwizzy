@@ -379,6 +379,14 @@ footer {
         font-size: 110%;
         text-transform: uppercase;
         text-align: center;
+        font-weight: bold;
+    }
+
+    #question-counter {
+        text-transform: uppercase;
+        color: var(--main-color-lighter);
+        font-size: 95%;
+        padding-left: 4px;
     }
 
 }
@@ -421,16 +429,23 @@ footer {
 
     .categorie-play {
         color: var(--main-color);
-        font-size: 150%;
+        font-size: 170%;
         font-weight: bold;
         text-transform: uppercase;
+    }
+
+    #question-counter {
+        text-transform: uppercase;
+        color: var(--main-color-lighter);
+        font-size: 110%;
+        font-weight: bold;
     }
 
 }
 
 #question-text h1 {
     text-transform: uppercase;
-    color: var(--main-color);
+    color: var(--main-color-lighter);
     font-size: 100%;
 }
 
@@ -876,7 +891,7 @@ footer {
 }
 
 /*#form_change_mdp > div > input{       ------> En parler avec LÃ©o 
-    background-color: var(--back-color);
+    background-color: (--back-color);
 }*/
 
 .btn_changement_mdp {    /*Permet de gÃ©rer le margin entre les 2 boutons de la page */
@@ -1206,9 +1221,6 @@ footer {
 /* Les règles suivantes concerne les noms de catégories et le bloc catégorie sur la page d'acceuil */
 
 
-.card {
-    width: 20rem !important;
-}
 .home-card {
     margin: 0 auto;
 }
