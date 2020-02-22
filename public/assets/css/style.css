@@ -396,7 +396,7 @@ footer {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        padding: 30px 30px;
+        padding: 15px 30px;
         border-left: solid #eee 2px;
     }
 
