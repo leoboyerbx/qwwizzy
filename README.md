@@ -9,3 +9,6 @@ Réalisé par
  - [Léo Boyer](https://www.linkedin.com/in/leoboyerbx/)
  - [Vincent Creton](https://www.linkedin.com/in/vincent-creton-776816187/)
  - [Thomas Bellon](https://www.linkedin.com/in/thomas-bellon-94baa3174/)
+
+# Statut du projet
+Reprise du développement après plusieurs mois d'arrêt par Vincent Creton et Léo Boyer
