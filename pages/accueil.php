@@ -22,8 +22,8 @@ $all_themes = $bdd -> query('SELECT theme.*, categorie.nom as categorie, categor
     if (sizeof($featured) > 1):
     ?>
     <div class="row">
-        <h2 class="categorie_nom">Mis en avant</h2>
-        <div class="cjs-slider" id="carousel">
+        <h2 class="categorie_nom d-none d-md-block">Mis en avant</h2>
+        <div class="cjs-slider d-none d-md-block" id="carousel">
             <div class="cjs-slides-block">
 <!--                Génération d'une slide par thème-->
                 <?php foreach($featured as $element) { ?>
@@ -72,11 +72,11 @@ foreach($categories as $categorie) {
         // Pour chaque catégorie, on affiche tous ses thèmes
         foreach($themes_cat as $theme) {
             ?>
-            <div class="col-md-4 text-center">
+            <div class="col-12 col-md-6 col-lg-4 text-center">
                 <div id=id style=visibility:hidden;>
                     <?php echo($theme->id); ?>
                 </div>
-                <div class="card" style="width: 18rem;">
+                <div class="card home-card" style="width: 18rem;">
                   <div class="squareimg" style="background-image: url(<?= $theme->url_image ?>)"></div>
                   <div class="card-body">
                     <h5 class="card-title"><?php echo($theme->nom); ?></h5>
@@ -95,7 +95,7 @@ foreach($categories as $categorie) {
 ?>
 
     <div class="row">
-        <h2 class="categorie_nom"> Catégories </h2>
+        <h2 class="categorie_nom d-none d-md-block"> Catégories </h2>
     </div>
     
     <div class="row">
@@ -103,7 +103,7 @@ foreach($categories as $categorie) {
         // On ré affiche une liste des catégories, sous forme de boutons
         foreach($categories as $categorie) {
         ?>
-            <div class="col-3">
+            <div class="col-3 d-none d-md-block">
                 <div class="bloc_categorie">
                     <a href="/categorie/<?= $categorie->key_nom ?>" class="nom_categorie">
                         <div class="row">

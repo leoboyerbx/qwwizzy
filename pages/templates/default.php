@@ -20,10 +20,10 @@ $categories = \App::getInstance()->getBdd()->query('SELECT * FROM categorie');
     <header>
         <div class="container">
             <div class="row">
-                <div class="col-2">
+                <div class="col-8 col-md-4 col-lg-2">
                     <div id="logo"> <a href="/home"  >Qwwizzy </a> </div>
                 </div>
-                <div class="col-2">
+                <div class="col-2 d-none d-lg-block">
                     <div id="categorie" class="center">
                         Catégories <i class="fas fa-chevron-down"></i> 
                         <ul id="dropdown">  
@@ -37,8 +37,8 @@ $categories = \App::getInstance()->getBdd()->query('SELECT * FROM categorie');
                         </ul>
                     </div>
                 </div>
-                <div class="col-5"></div>
-                <div class="col-3">
+                <div class="col-5 col-md-3 col-lg-5"></div>
+                <div class="col-5 col-lg-3 d-none d-md-block">
                     <?php include ROOT . '/pages/templates/modules/adminmenu.php';?>
                 </div>
             </div>
@@ -51,23 +51,28 @@ $categories = \App::getInstance()->getBdd()->query('SELECT * FROM categorie');
     <footer>
         <div class="container">
             <div class="row" >
-                <div class="col-5">
+                <div class="col-7 col-lg-5 d-none d-md-block">
                     <div id="copyright"> 
                         @<span id="copyright_logo">Qwwizzy</span>, 2019 - Tout droits réservés 
                     </div>
                 </div>
-                <div class="col-4"></div>     <!-- Vide, centre du footer -->
-                <div class="col-3">
+                <div class="col-2 col-lg-4 d-none d-md-block"></div>     <!-- Vide, centre du footer -->
+                <div class="col-12 col-md-2">
                     <div class="row">
-                        <div class="col-4">
+                        <div class="col-4 text-center">
                             <a href=#> <i class="fab fa-twitter-square" id="logo_footer"> </i> </a> 
                         </div>
-                        <div class="col-4">
+                        <div class="col-4 text-center">
                             <a href=#><i class="fab fa-facebook" id="logo_footer"></i> </a>
                         </div>
-                        <div class="col-4">
+                        <div class="col-4 text-center">
                             <a href=#> <i class="fab fa-instagram" id="logo_footer"></i></a>
                         </div>
+                    </div>
+                </div>
+                <div class="col-12 d-sm-block d-md-none">
+                    <div id="copyright">
+                        @<span id="copyright_logo">Qwwizzy</span>, 2019 - Tout droits réservés
                     </div>
                 </div>
             </div>

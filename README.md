@@ -1,50 +1,14 @@
-# qwwizzy
+# Qwwizzy
+Site de quiz Quipo-quiz like.
+Réalisé dans le cadre du [DUT MMI Grenoble](https://iut1.univ-grenoble-alpes.fr/iut1/mmi-formation-200348.kjsp)
 
-Fanchement à coté de ce truc, Quipo quizz c'est NUL
+Version déployée: [Qwwizzy.cf](https://www.qwwizzy.cf/)
 
-En plus on est beaux
+# Crédits
+Réalisé par
+ - [Léo Boyer](https://www.linkedin.com/in/leoboyerbx/)
+ - [Vincent Creton](https://www.linkedin.com/in/vincent-creton-776816187/)
+ - [Thomas Bellon](https://www.linkedin.com/in/thomas-bellon-94baa3174/)
 
-Et en plus on deviendras riche et ça c'est classe !!!
-
-Je fais le tuto et donc je fais des tests
-
-Et j'en refais un autre même
-
----
-
-
-maquette : https://xd.adobe.com/view/cad1f5ab-9bea-4a7a-54e1-3c29d48dd26a-bce0/
-
-
-
-LE TODO
-- [x] Fonction de partage du résultat sur les réseaux sociaux sur la page de résultat (Twitter fais ----> Faire les autres = Thomas)
-
-- [ ] Créer des pages catégories  (cf. erreur 404 lorsqu'on clique  sur une catégorie)
-
-- [x] Couleur de thème
-
-- [x] Possibilité de changer son mail
-
-- [ ] Formulaire de modifier mon compte
-
-- [x] Implémenter catégories
-
-- [x] Editeur de text visuel
-
-- [x] séparer le js
-- [x] ajouter des boutons retour là ou il n'y en a pas
-- [x] virer les onglets upload
-- [x] problemes de design firefox
-
-plutar
-
-REQUETE :
-
-SELECT key_nom FROM theme
-
-ORDER BY RAND()
-
-LIMIT 1;
-
-- [ ] filtre des thèmes sur page d'accueil
+# Statut du projet
+Reprise du développement après plusieurs mois d'arrêt par Vincent Creton et Léo Boyer

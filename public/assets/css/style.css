@@ -191,13 +191,6 @@ main {
     to {display: block;}
 }
 
-#main-cont {
-    padding-top: 20px;
-    padding-bottom: 120px;
-    min-height: 75vh;
-    margin-top: 20px;
-}
-
 #logo {
     font-family: acier-bat-noir;
     font-size: 40px;
@@ -302,15 +295,6 @@ footer {
     text-align:center;
 }
 
-#question {
-    margin: 20px;
-    margin-left: 30px;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.11);
-    animation: arrive 0.8s cubic-bezier(.75,.19,.54,.99);
-}
 #form-envoi button {
     display: none;
 }
@@ -333,27 +317,136 @@ footer {
     animation: mauvaise_reponse 1s;
 }
 
-#question-text {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 30px 30px;
-    border-left: solid #eee 2px;
+@media screen and (max-width: 576px) {
+    #question-text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 17px 17px;
+    }
+
+    #question {
+        margin: 10px;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.11);
+        animation: arrive 0.8s cubic-bezier(.75,.19,.54,.99);
+    }
+
+    #question-image {
+        padding: 10px 10px 10px 10px;
+    }
+
+    #question-text .enonce {
+        text-align: center;
+        color: #222;
+        font-weight: normal;
+        font-size: 90%;
+    }
+
+    #button-faux, #button-vrai {
+        width: 85px;
+        padding: 15px 5px;
+    }
+
+    .boutons-reponse {
+        text-align: center;
+    }
+
+    #main-cont {
+        padding-bottom: 10px;
+        min-height: 75vh;
+        margin-top: 20px;
+    }
+
+    #texte-reponse {
+        padding-left: 6px;
+        font-weight: normal;
+        font-size: 90%;
+    }
+
+    #boutons-fin {
+        text-align: center;
+    }
+
+    #button-rejouer {
+        margin-bottom: 5px;
+    }
+
+    .categorie-play {
+        color: var(--main-color);
+        font-size: 110%;
+        text-transform: uppercase;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    #question-counter {
+        text-transform: uppercase;
+        color: var(--main-color-lighter);
+        font-size: 95%;
+        padding-left: 4px;
+    }
+
 }
+
+@media screen and (min-width: 576px) {
+    #question-text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 15px 30px;
+        border-left: solid #eee 2px;
+    }
+
+    #question {
+        margin: 20px;
+        margin-left: 30px;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.11);
+        animation: arrive 0.8s cubic-bezier(.75,.19,.54,.99);
+    }
+
+    #question-image {
+        padding: 10px 30px 10px 10px;
+    }
+
+    #question-text .enonce {
+        color: #222;
+        font-weight: normal;
+        font-size: 120%;
+    }
+
+    #main-cont {
+        padding-top: 20px;
+        padding-bottom: 120px;
+        min-height: 75vh;
+        margin-top: 20px;
+    }
+
+    .categorie-play {
+        color: var(--main-color);
+        font-size: 170%;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    #question-counter {
+        text-transform: uppercase;
+        color: var(--main-color-lighter);
+        font-size: 110%;
+        font-weight: bold;
+    }
+
+}
+
 #question-text h1 {
     text-transform: uppercase;
-    color: var(--main-color);
+    color: var(--main-color-lighter);
     font-size: 100%;
-}
-#question-text .enonce {
-    color: #222;
-    font-weight: normal;
-    font-size: 120%;
-}
-
-
-#question-image {
-    padding: 10px 30px 10px 10px;
 }
 
 #question-image .squareimg {
@@ -798,7 +891,7 @@ footer {
 }
 
 /*#form_change_mdp > div > input{       ------> En parler avec LÃ©o 
-    background-color: var(--back-color);
+    background-color: (--back-color);
 }*/
 
 .btn_changement_mdp {    /*Permet de gÃ©rer le margin entre les 2 boutons de la page */
@@ -1127,6 +1220,11 @@ footer {
 
 /* Les règles suivantes concerne les noms de catégories et le bloc catégorie sur la page d'acceuil */
 
+
+.home-card {
+    margin: 0 auto;
+}
+
 .categorie_nom {
     font-family: jaf-facitweb, sans-serif;
     font-weight: 600;
@@ -1196,80 +1294,155 @@ footer {
 
 /* Les règles CSS suivantes concernent la page d'intro du site */
 
+@media screen and (max-width: 769px) {
+
+    #left_part {
+        height: 50%;
+        background-color: var(--main-color);
+        padding: 0px;
+        margin: 0px;
+    }
+
+    #right_part {
+        height: 50%;
+        background-color: #444444;
+        padding: 0px;
+        margin: 0px;
+        width:  50%;
+    }
+
+    #qwwizzy_intro {     /* Règles pour les textes de la moitié gauche */
+        font-family: acier-bat-noir;
+        font-size: 50px;
+        position: relative;
+        top: 27%;
+        text-align: center;
+        color: white;
+    }
+
+    .liens {
+        font-family: century-gothic, sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        text-align: center;
+        position: relative;
+        font-size: 20px;
+        top: 35%;
+        color: white;
+        border-color: white;
+        border: solid 1px;
+        width: 40%;
+        margin-left: 30%;
+        padding: 15px;
+    }
+
+    #random_title {
+        font-family: century-gothic, sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 33px;
+        position: relative;
+        top: 30%;
+        text-align: center;
+        color: white;
+    }
+
+    #liens_2 {
+        font-family: century-gothic, sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        text-align: center;
+        position: relative;
+        font-size: 20px;
+        top: 42%;
+        color: white;
+        border-color: white;
+        border: solid 1px;
+        width: 40%;
+        margin-left: 30%;
+        padding: 15px;
+    }
+
+}
+
+@media screen and (min-width: 769px) {
+
+    #left_part {
+        height: 100%;
+        background-color: var(--main-color);
+        padding: 0px;
+        margin: 0px;
+    }
+
+    #right_part {
+        height: 100%;
+        background-color: #444444;
+        padding: 0px;
+        margin: 0px;
+        width:  50%;
+    }
+
+    #qwwizzy_intro {     /* Règles pour les textes de la moitié gauche */
+        font-family: acier-bat-noir;
+        font-size: 90px;
+        position: relative;
+        top: 32%;
+        text-align: center;
+        color: white;
+    }
+
+    .liens {
+        font-family: century-gothic, sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        text-align: center;
+        position: relative;
+        font-size: 27px;
+        top: 35%;
+        color: white;
+        border-color: white;
+        border: solid 1px;
+        width: 40%;
+        margin-left: 30%;
+        padding: 15px;
+    }
+
+    #random_title {
+        font-family: century-gothic, sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 50px;
+        position: relative;
+        top: 36%;
+        text-align: center;
+        color: white;
+    }
+
+    #liens_2 {
+        font-family: century-gothic, sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        text-align: center;
+        position: relative;
+        font-size: 27px;
+        top: 42%;
+        color: white;
+        border-color: white;
+        border: solid 1px;
+        width: 40%;
+        margin-left: 30%;
+        padding: 15px;
+    }
+
+}
+
+
 #container_intro {
     padding: 0px;
 }
 
-#left_part {
-    height: 100%;
-    background-color: var(--main-color);
-    padding: 0px;
-    margin: 0px;
-}
-
-
-#right_part {
-    height: 100%;
-    background-color: #444444;
-    padding: 0px;
-    margin: 0px;
-    width:  50%;
-}
-
 #row_intro {
     height: 100%;
-}
-
-#qwwizzy_intro {     /* Règles pour les textes de la moitié gauche */
-    font-family: acier-bat-noir;
-    font-size: 90px;
-    position: relative;
-    top: 32%;
-    text-align: center;
-    color: white;
-}
-
-.liens {
-    font-family: century-gothic, sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    text-align: center;
-    position: relative;
-    font-size: 27px;
-    top: 35%;
-    color: white;
-    border-color: white;
-    border: solid 1px;
-    width: 40%;
-    margin-left: 30%;
-    padding: 15px;
-}
-
-#random_title {
-    font-family: century-gothic, sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 50px;
-    position: relative;
-    top: 36%;
-    text-align: center;
-    color: white;
-}
-
-#liens_2 {
-    font-family: century-gothic, sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    text-align: center;
-    position: relative;
-    font-size: 27px;
-    top: 42%;
-    color: white;
-    border-color: white;
-    border: solid 1px;
-    width: 40%;
-    margin-left: 30%;
-    padding: 15px;
 }
 
 /* Supprime les transformations par défault des liens */
