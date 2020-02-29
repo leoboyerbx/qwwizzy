@@ -1,10 +1,10 @@
 <?php
 // Récupère le thème en cours de jeu
-$theme_nom = \App::getInstance()->getBdd()->query('SELECT nom FROM theme WHERE id = ' . $question->theme_id);
+$theme_nom = \App::getInstance()->getBdd()->prepare('SELECT nom FROM theme WHERE id = ?', array($question->theme_id));
 $theme_nom = $theme_nom[0]->nom;
 
 // Bout de code permettant de récupérer grâce à une manipulation SQL le numéro de la question à laquelle est l'utilisateur
-$num_question = \App::getInstance()->getBdd()->query('SELECT COUNT( DISTINCT question_id) AS nb_question FROM historique_session WHERE id_session = ' . $id_session);
+$num_question = \App::getInstance()->getBdd()->prepare('SELECT COUNT( DISTINCT question_id) AS nb_question FROM historique_session WHERE id_session = ?', array($id_session));
 if($num_question[0]->nb_question > 9) {
     $num_question[0]->nb_question = 9;
 }
@@ -37,5 +37,5 @@ if($num_question[0]->nb_question > 9) {
             </div>
         </div>
     </main>
-    
+
     <script defer src="/assets/js/app/question.js" type="text/javascript"></script>

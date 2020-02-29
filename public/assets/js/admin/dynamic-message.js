@@ -1,8 +1,9 @@
 class DynamicMessage {
 
-    static instances = []
-
     constructor (message, type = "light", expiration = null, closable = true, stackable = true) {
+        if (DynamicMessage.instances === undefined) {
+            DynamicMessage.instances = []
+        }
         let element = document.createElement('div')
         element.classList.add('dyn-msg')
         let content = `<div class="alert alert-${type}">
