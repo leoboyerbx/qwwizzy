@@ -1,6 +1,6 @@
 # Qwwizzy
 Site de quiz Quipo-quiz like.
-Réalisé dans le cadre du (DUT MMI Grenoble)[https://iut1.univ-grenoble-alpes.fr/iut1/mmi-formation-200348.kjsp]
+Réalisé dans le cadre du [DUT MMI Grenoble](https://iut1.univ-grenoble-alpes.fr/iut1/mmi-formation-200348.kjsp)
 
 Version déployée: [Qwwizzy.cf](https://www.qwwizzy.cf/)
 
